@@ -2,7 +2,7 @@
 
 Mailbox adds a secure three-account mail workspace and integration layer to ProcessWire: IMAP folders and messages, SMTP delivery, OAuth, encrypted caching/indexing, PHP/REST/CLI access, AI-assisted reading, and controlled confirmation workflows.
 
-![Mailbox](assets/mailbox-doodle.png)
+![Mailbox](assets/mailbox-doodle-v2.png)
 
 It is made for ProcessWire sites that need email inside an editorial or operational workflow without turning the CMS into an unrestricted public webmail server.
 
