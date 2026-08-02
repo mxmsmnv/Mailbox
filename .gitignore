@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+tests/integration/external-matrix.json
+tests/integration/*.local.json
+/vendor/

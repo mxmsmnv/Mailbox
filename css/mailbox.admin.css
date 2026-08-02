@@ -1,0 +1,1662 @@
+/**
+ * Mailbox admin workspace, aligned with Vox and mxmsmnv/pw-design-system.
+ * Native AdminThemeUikit components plus module-scoped --pw-* tokens only.
+ */
+
+.ProcessMailbox {
+  width: 100%;
+  max-width: none;
+  --Mailbox-surface: var(--pw-blocks-background, light-dark(#fff, #000));
+  --Mailbox-hover: color-mix(in srgb, var(--pw-main-color, #eb1d61) 10%, transparent);
+  --Mailbox-success: light-dark(#237348, #78d68b);
+  --Mailbox-warning: light-dark(#9a6500, #f2bd61);
+  --Mailbox-danger: light-dark(#b42332, #ff7b86);
+}
+
+.ProcessMailbox .mc-select {
+  box-sizing: border-box;
+  text-align: center;
+  width: 46px;
+}
+
+.ProcessMailbox .mc-message-row.is-selected td {
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 14%, var(--Mailbox-surface));
+}
+
+.ProcessMailbox .Mailbox-bulk-disabled {
+  align-items: center;
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 7%, var(--Mailbox-surface));
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  display: flex;
+  gap: 12px;
+  padding: 11px 18px;
+}
+
+.ProcessMailbox .Mailbox-bulk-disabled > span:nth-child(2) {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 1px;
+}
+
+.ProcessMailbox .Mailbox-bulk-disabled small { color: var(--pw-muted-color, #68737d); }
+
+.ProcessMailbox .Mailbox-bulk-bar {
+  align-items: center;
+  background: var(--Mailbox-surface);
+  border-top: 2px solid var(--pw-primary-color, #3b82f6);
+  bottom: 0;
+  box-shadow: 0 -8px 22px rgba(0, 0, 0, .08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 12px 16px;
+  position: sticky;
+  z-index: 20;
+}
+
+.ProcessMailbox .Mailbox-bulk-bar[hidden] { display: none !important; }
+
+.ProcessMailbox .Mailbox-bulk-count {
+  align-items: baseline;
+  display: inline-flex;
+  gap: 5px;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-bulk-count strong {
+  align-items: center;
+  background: var(--pw-primary-color, #3b82f6);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  height: 24px;
+  justify-content: center;
+  min-width: 24px;
+  padding: 0 6px;
+}
+
+.ProcessMailbox .Mailbox-bulk-bar .uk-select { max-width: 220px; min-width: 155px; }
+.ProcessMailbox .Mailbox-bulk-safety { align-items: center; color: var(--pw-muted-color, #68737d); display: inline-flex; gap: 5px; margin-left: auto; }
+
+@media (max-width: 640px) {
+  .ProcessMailbox .Mailbox-bulk-disabled { align-items: flex-start; flex-wrap: wrap; }
+  .ProcessMailbox .Mailbox-bulk-disabled .uk-button { width: 100%; }
+  .ProcessMailbox .Mailbox-bulk-bar { align-items: stretch; }
+  .ProcessMailbox .Mailbox-bulk-bar > label { display: none; }
+  .ProcessMailbox .Mailbox-bulk-bar .uk-select { max-width: none; width: 100%; }
+  .ProcessMailbox .Mailbox-bulk-bar .uk-button { flex: 1 1 auto; }
+  .ProcessMailbox .Mailbox-bulk-safety { justify-content: center; margin-left: 0; text-align: center; width: 100%; }
+}
+
+.ProcessMailbox .uk-card {
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+}
+
+.ProcessMailbox .uk-button,
+.ProcessMailbox .uk-button:hover,
+.ProcessMailbox .uk-button:focus,
+.ProcessMailbox .uk-button:active,
+.ProcessMailbox .uk-button *,
+.ProcessMailbox .uk-icon-button,
+.ProcessMailbox .uk-icon-button:hover,
+.ProcessMailbox .uk-icon-button:focus,
+.ProcessMailbox .uk-icon-button:active {
+  text-decoration: none !important;
+}
+
+.ProcessMailbox .uk-button,
+.ProcessMailbox .uk-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 7px;
+  vertical-align: middle;
+}
+
+.ProcessMailbox .uk-button > .uk-icon {
+  margin-inline: 0 !important;
+}
+
+.ProcessMailbox .uk-button .uk-icon,
+.ProcessMailbox .uk-icon-button .uk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.ProcessMailbox .uk-button .uk-icon > svg,
+.ProcessMailbox .uk-icon-button .uk-icon > svg {
+  display: block;
+}
+
+.pw .ProcessMailbox .uk-button:not(.uk-button-text):not(.uk-button-link):not(.uk-button-danger):not(:disabled):hover,
+.pw .ProcessMailbox .uk-button:not(.uk-button-text):not(.uk-button-link):not(.uk-button-danger):not(:disabled):focus {
+  border-color: var(--pw-main-color, #eb1d61) !important;
+  background: var(--pw-main-color, #eb1d61) !important;
+  color: #fff !important;
+}
+
+.ProcessMailbox .Mailbox-admin-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px !important;
+}
+
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav {
+  margin: 0 0 0 -13px;
+  row-gap: 12px;
+}
+
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav > * { padding-left: 13px; }
+
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav-pill > * > :first-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--pw-muted-color, #666);
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav-pill > * > a:hover,
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav-pill > * > a:focus {
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .05));
+  color: var(--pw-text-color, #222);
+}
+
+.ProcessMailbox .Mailbox-admin-nav .uk-subnav-pill > .uk-active > a {
+  background: var(--pw-main-color, #eb1d61);
+  color: #fff;
+}
+
+.ProcessMailbox .Mailbox-settings-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  margin-left: auto;
+  color: var(--pw-muted-color, #666);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.ProcessMailbox .Mailbox-settings-link:hover,
+.ProcessMailbox .Mailbox-settings-link:focus {
+  color: var(--pw-text-color, #222);
+  text-decoration: none;
+}
+
+.ProcessMailbox .Mailbox-settings-link svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.ProcessMailbox .Mailbox-table-panel,
+.ProcessMailbox .Mailbox-filter-panel,
+.ProcessMailbox .Mailbox-form-panel,
+.ProcessMailbox .Mailbox-diagnostics {
+  border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .15));
+}
+
+.ProcessMailbox .Mailbox-cache-bar,
+.ProcessMailbox .mc-account-switcher,
+.ProcessMailbox .mc-module-head,
+.ProcessMailbox .mc-actions,
+.ProcessMailbox .Mailbox-diagnostics {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.ProcessMailbox .Mailbox-cache-bar,
+.ProcessMailbox .mc-module-head,
+.ProcessMailbox .Mailbox-diagnostics {
+  justify-content: space-between;
+}
+
+.ProcessMailbox .mc-module-head {
+  box-sizing: border-box;
+  min-height: 72px;
+  padding: 11px 18px 9px !important;
+}
+
+.ProcessMailbox .mc-module-head .uk-card-title {
+  font-size: 28px;
+  line-height: 1.08;
+}
+
+.ProcessMailbox .mc-module-head p {
+  margin: 3px 0 0 !important;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.ProcessMailbox .Mailbox-list-context {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  color: var(--pw-muted-color, #666);
+}
+
+.ProcessMailbox .Mailbox-list-context-icon { flex: 0 0 auto; }
+.ProcessMailbox .Mailbox-list-context strong,
+.ProcessMailbox .Mailbox-list-context small { display: block; }
+.ProcessMailbox .Mailbox-list-context strong { color: var(--pw-text-color, #222); font-size: 13px; line-height: 1.25; }
+.ProcessMailbox .Mailbox-list-context small { margin-top: 2px; font-size: 11px; line-height: 1.25; white-space: nowrap; }
+
+.ProcessMailbox .Mailbox-diagnostics {
+  margin-top: 12px;
+  border-left: 3px solid var(--pw-border-color, rgba(0, 0, 0, .15));
+}
+
+.ProcessMailbox .Mailbox-cache-copy {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ProcessMailbox .Mailbox-account-switcher { min-width: 0; }
+
+.ProcessMailbox .Mailbox-cache-copy { min-width: 0; }
+.ProcessMailbox .Mailbox-cache-copy .uk-label { font-size: 10px; padding: 2px 6px; }
+
+.ProcessMailbox .mc-account-switcher .uk-button-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ProcessMailbox .Mailbox-sidebar-stack {
+  display: grid;
+  gap: 16px;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+}
+
+.ProcessMailbox .Mailbox-sidebar { overflow: hidden; }
+
+.ProcessMailbox .Mailbox-layout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.ProcessMailbox .Mailbox-layout > main { min-width: 0; }
+
+.ProcessMailbox .Mailbox-sidebar-shell {
+  width: clamp(260px, 24vw, 330px);
+  min-width: 0;
+  transition: width 180ms ease;
+}
+
+.ProcessMailbox .Mailbox-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 8px 0 14px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+}
+
+.ProcessMailbox .Mailbox-sidebar-title {
+  overflow: hidden;
+  color: var(--pw-muted-color, #666);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--pw-muted-color, #777);
+  cursor: pointer;
+}
+
+.ProcessMailbox .Mailbox-sidebar-toggle:hover,
+.ProcessMailbox .Mailbox-sidebar-toggle:focus-visible {
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .05));
+  color: var(--pw-text-color, #222);
+  outline: none;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed {
+  width: 46px;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-head {
+  justify-content: center;
+  width: 46px;
+  padding: 0;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-title,
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-tools,
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-search,
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-folder-label {
+  display: none;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-stack {
+  gap: 8px;
+  overflow: hidden;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-sidebar-folders .Mailbox-sidebar-head {
+  display: none;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .mc-folder > a {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.ProcessMailbox .Mailbox-sidebar-shell.is-collapsed .Mailbox-folder-icon {
+  margin: 0 !important;
+}
+
+.ProcessMailbox .Mailbox-filter-panel {
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  box-shadow: none;
+}
+
+.ProcessMailbox .Mailbox-sidebar-tools {
+  min-width: 258px;
+}
+
+.ProcessMailbox .Mailbox-sidebar .Mailbox-account-switcher {
+  padding: 12px;
+}
+
+.ProcessMailbox .Mailbox-sidebar .mc-account-switcher .uk-button-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  width: 100%;
+}
+
+.ProcessMailbox .Mailbox-sidebar .mc-account-switcher .uk-button {
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.ProcessMailbox .Mailbox-sidebar .Mailbox-cache-bar {
+  display: grid;
+  gap: 9px;
+  padding: 12px;
+  border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+}
+
+.ProcessMailbox .Mailbox-sidebar .Mailbox-cache-copy {
+  justify-content: flex-start;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.ProcessMailbox .Mailbox-sidebar .Mailbox-cache-bar .uk-button {
+  width: 100%;
+}
+
+.ProcessMailbox .Mailbox-search-primary {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.ProcessMailbox .Mailbox-search-primary .uk-button {
+  min-height: 40px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-search-query { position: relative; }
+.ProcessMailbox .Mailbox-search-query > .uk-icon {
+  color: var(--pw-muted-color, #777);
+  left: 12px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.ProcessMailbox .Mailbox-search-query .uk-input { padding-left: 38px; }
+
+.ProcessMailbox .Mailbox-search-advanced > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--pw-muted-color, #666);
+  cursor: pointer;
+  font-size: 13px;
+  user-select: none;
+}
+
+.ProcessMailbox .Mailbox-search-advanced[open] > summary { color: var(--pw-text-color, #222); }
+
+.ProcessMailbox .Mailbox-sidebar .Mailbox-search-advanced .uk-grid > * {
+  width: 100%;
+}
+
+.ProcessMailbox .mc-folders {
+  padding: 8px 0;
+}
+
+.ProcessMailbox .mc-folders > .uk-nav { margin: 0; }
+
+.ProcessMailbox .mc-folder > a {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  padding-inline-start: calc(15px + (var(--mc-folder-depth) * 14px));
+  padding-inline-end: 12px;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.ProcessMailbox .mc-folder > a:hover,
+.ProcessMailbox .mc-folder > a:focus {
+  background: var(--Mailbox-hover);
+  color: var(--pw-text-color, light-dark(#111, #fff));
+  outline: none;
+  text-decoration: none;
+}
+
+.ProcessMailbox .mc-folder.uk-active > a {
+  background: rgba(235, 29, 97, .08);
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 10%, transparent);
+  color: var(--pw-main-color, #eb1d61);
+  font-weight: 700;
+}
+
+.ProcessMailbox .Mailbox-loading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 130px;
+  border-left: 3px solid var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .mc-table {
+  width: 100%;
+  min-width: 680px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.ProcessMailbox .mc-table thead th {
+  padding: 8px 12px !important;
+  background: rgba(235, 29, 97, .08);
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 14%, var(--Mailbox-surface));
+  color: var(--pw-main-color, #eb1d61);
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .mc-unread td {
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .03));
+  font-weight: 700;
+}
+
+.ProcessMailbox .mc-unread td:first-child {
+  border-left: 3px solid var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .mc-table tbody tr {
+  transition: background-color 120ms ease;
+}
+
+.ProcessMailbox .mc-table tbody tr[data-mailbox-href] {
+  cursor: pointer;
+}
+
+.ProcessMailbox .mc-table tbody tr[data-mailbox-href]:hover td,
+.ProcessMailbox .mc-table tbody tr[data-mailbox-href]:focus td {
+  background: var(--Mailbox-hover);
+}
+
+.ProcessMailbox .mc-table tbody tr[data-mailbox-href]:focus {
+  outline: 2px solid var(--pw-main-color, #eb1d61);
+  outline-offset: -2px;
+}
+
+.ProcessMailbox .mc-table td,
+.ProcessMailbox .mc-table th {
+  padding: 7px 12px !important;
+  vertical-align: middle;
+}
+
+.ProcessMailbox .mc-from { width: 25%; }
+.ProcessMailbox .mc-subject { width: 45%; }
+
+.ProcessMailbox .Mailbox-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  width: 100%;
+}
+
+.ProcessMailbox .Mailbox-pagination-meta {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 1px;
+}
+
+.ProcessMailbox .Mailbox-pagination-meta > span {
+  color: var(--pw-main-color, #eb1d61);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ProcessMailbox .Mailbox-pagination-meta > strong {
+  color: var(--pw-muted-color, #666);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > * {
+  padding-left: 0;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination form { margin: 0; }
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > * > a,
+.ProcessMailbox .Mailbox-pagination .uk-pagination > * > span,
+.ProcessMailbox .Mailbox-pagination .uk-pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .13));
+  border-radius: 4px;
+  background: var(--pw-blocks-background, #fff);
+  color: var(--pw-muted-color, #666);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination button { cursor: pointer; }
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > * > a:hover,
+.ProcessMailbox .Mailbox-pagination .uk-pagination > * > a:focus,
+.ProcessMailbox .Mailbox-pagination .uk-pagination button:hover,
+.ProcessMailbox .Mailbox-pagination .uk-pagination button:focus {
+  border-color: var(--pw-main-color, #eb1d61);
+  background: var(--pw-main-color, #eb1d61);
+  color: #fff;
+  outline: none;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > .uk-active > span {
+  border-color: var(--pw-main-color, #eb1d61);
+  background: var(--pw-main-color, #eb1d61);
+  color: #fff;
+  font-weight: 700;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > .uk-disabled > span {
+  opacity: .42;
+}
+
+.ProcessMailbox .Mailbox-pagination .uk-pagination > .Mailbox-pagination-ellipsis > span {
+  min-width: 22px;
+  padding: 0 2px;
+  border-color: transparent;
+  background: transparent;
+  opacity: 1;
+}
+
+.ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge > a,
+.ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge > span,
+.ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge button {
+  min-width: 76px;
+}
+
+.ProcessMailbox .mc-body {
+  max-height: none;
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  background: transparent;
+  color: var(--pw-text-color, #222);
+  font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.ProcessMailbox .Mailbox-message-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+}
+
+.ProcessMailbox .Mailbox-message-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-width: 0;
+}
+
+.ProcessMailbox .Mailbox-message-navigation .uk-label {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-message-tool,
+.ProcessMailbox .Mailbox-message-toolbar .Mailbox-message-tool,
+.ProcessMailbox .Mailbox-message-reader-head .Mailbox-message-tool {
+  box-sizing: border-box;
+  min-height: 34px;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: 999px;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--pw-text-color, #222);
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool:not(.uk-button-text):not(.uk-button-link):hover,
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool:not(.uk-button-text):not(.uk-button-link):focus {
+  padding: 0 10px !important;
+  border: 0 !important;
+  background: var(--pw-main-color, #eb1d61) !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  outline: 0;
+}
+
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool:not(.uk-button-text):not(.uk-button-link):focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--pw-main-color, #eb1d61) 38%, transparent) !important;
+}
+
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool.uk-button-primary,
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool[aria-pressed='true'] {
+  border: 0 !important;
+  background: var(--pw-main-color, #eb1d61) !important;
+  color: #fff !important;
+}
+
+.ProcessMailbox .Mailbox-message-tool.uk-button-danger { color: var(--Mailbox-danger); }
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool.uk-button-danger:hover,
+.pw .ProcessMailbox .uk-button.Mailbox-message-tool.uk-button-danger:focus {
+  background: #c62828 !important;
+  color: #fff !important;
+}
+.ProcessMailbox .Mailbox-message-tool.is-disabled { opacity: .35; pointer-events: none; }
+
+.ProcessMailbox .Mailbox-message-summary {
+  display: grid;
+  grid-template-columns: 48px minmax(220px, .8fr) minmax(280px, 1.2fr);
+  gap: 14px 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+}
+
+.ProcessMailbox .Mailbox-message-sender-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 10%, transparent);
+  color: var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-message-sender,
+.ProcessMailbox .Mailbox-message-recipients > div {
+  min-width: 0;
+}
+
+.ProcessMailbox .Mailbox-message-sender > span,
+.ProcessMailbox .Mailbox-message-recipients span {
+  display: block;
+  color: var(--pw-muted-color, #666);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.ProcessMailbox .Mailbox-message-sender > strong,
+.ProcessMailbox .Mailbox-message-recipients strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.ProcessMailbox .Mailbox-message-sender > small {
+  display: block;
+  margin-top: 3px;
+  color: var(--pw-muted-color, #666);
+  font-size: 11px;
+}
+
+.ProcessMailbox .Mailbox-message-ai {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 4%, transparent);
+}
+
+.ProcessMailbox .Mailbox-message-ai-copy { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.ProcessMailbox .Mailbox-message-ai-icon { color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-message-ai-copy strong { display: block; font-size: 13px; }
+.ProcessMailbox .Mailbox-message-ai-copy p { margin: 2px 0 0; color: var(--pw-muted-color, #666); font-size: 11px; }
+.ProcessMailbox .Mailbox-message-ai-copy a { color: inherit; font-weight: 700; text-decoration: none; }
+.ProcessMailbox .Mailbox-message-ai.is-disabled { background: var(--pw-input-bg-color, rgba(0, 0, 0, .025)); }
+.ProcessMailbox .Mailbox-message-ai.is-disabled .Mailbox-message-ai-icon { color: var(--pw-muted-color, #777); }
+.ProcessMailbox .Mailbox-message-ai-result {
+  grid-column: 1 / -1;
+  padding: 13px 14px;
+  border-radius: 5px;
+  background: var(--pw-blocks-background, #fff);
+  box-shadow: inset 3px 0 0 var(--pw-main-color, #eb1d61);
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.ProcessMailbox .Mailbox-message-ai-result.is-loading,
+.ProcessMailbox [data-mailbox-ai-draft-status].is-loading,
+.ProcessMailbox [data-mailbox-reply-status].is-loading { color: var(--pw-muted-color, #666); }
+.ProcessMailbox .Mailbox-message-ai-result.is-error,
+.ProcessMailbox [data-mailbox-ai-draft-status].is-error,
+.ProcessMailbox [data-mailbox-reply-status].is-error { color: var(--Mailbox-danger); }
+.ProcessMailbox [data-mailbox-ai-draft-status].is-ready,
+.ProcessMailbox [data-mailbox-reply-status].is-ready { color: var(--Mailbox-success); }
+
+.ProcessMailbox .Mailbox-message-recipients {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+}
+
+.ProcessMailbox .Mailbox-message-attachments {
+  display: grid;
+  grid-template-columns: minmax(140px, .25fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 3%, transparent);
+}
+
+.ProcessMailbox .Mailbox-message-attachments > header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-message-attachments > header strong,
+.ProcessMailbox .Mailbox-message-attachments > header small { display: block; }
+.ProcessMailbox .Mailbox-message-attachments > header small { color: var(--pw-muted-color, #666); font-size: 10px; }
+.ProcessMailbox .Mailbox-message-attachments ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ProcessMailbox .Mailbox-message-attachments li > a,
+.ProcessMailbox .Mailbox-message-attachments li > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-radius: 4px;
+  background: var(--pw-blocks-background, #fff);
+  text-decoration: none;
+}
+
+.ProcessMailbox .Mailbox-message-attachments li small { display: block; color: var(--pw-muted-color, #666); font-size: 10px; }
+.ProcessMailbox .Mailbox-attachment-name { display: block; font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+
+.ProcessMailbox .Mailbox-message-actions,
+.ProcessMailbox .Mailbox-message-actions > form,
+.ProcessMailbox .Mailbox-message-move,
+.ProcessMailbox .Mailbox-message-views {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ProcessMailbox .Mailbox-message-actions { justify-content: flex-end; }
+.ProcessMailbox .Mailbox-message-actions form { margin: 0; }
+.ProcessMailbox .Mailbox-message-move .uk-select { width: auto; min-width: 150px; }
+
+.ProcessMailbox .Mailbox-message-compose { position: relative; }
+.ProcessMailbox .Mailbox-message-compose > summary { list-style: none; cursor: pointer; }
+.ProcessMailbox .Mailbox-message-compose > summary::-webkit-details-marker { display: none; }
+.ProcessMailbox .Mailbox-message-compose[open] > form {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  gap: 10px;
+  width: min(520px, 80vw);
+  padding: 16px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .15));
+  border-radius: 6px;
+  background: var(--pw-blocks-background, #fff);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .16);
+}
+
+.ProcessMailbox .Mailbox-ai-reply-choice { display: grid; gap: 8px; }
+.ProcessMailbox .Mailbox-ai-reply-choice > label,
+.ProcessMailbox .Mailbox-ai-reply-draft > label { display: grid; gap: 4px; color: var(--pw-muted-color, #666); font-size: 11px; font-weight: 700; }
+.ProcessMailbox .Mailbox-ai-reply-reason { color: var(--Mailbox-warning); line-height: 1.4; }
+.ProcessMailbox .Mailbox-ai-reply-draft {
+  display: grid;
+  gap: 8px;
+  padding: 11px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 6%, transparent);
+}
+.ProcessMailbox .Mailbox-ai-reply-draft[hidden] { display: none !important; }
+.ProcessMailbox .Mailbox-ai-reply-draft > small { color: var(--pw-muted-color, #666); line-height: 1.4; }
+.ProcessMailbox .Mailbox-reply-submit { display: flex; align-items: center; gap: 10px; }
+.ProcessMailbox .Mailbox-reply-submit [role='status'] { font-size: 11px; }
+
+.ProcessMailbox .Mailbox-message-capability {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 10px 14px;
+  align-items: center;
+  margin: 14px 20px 0;
+  padding: 13px 14px;
+  border: 1px solid color-mix(in srgb, var(--pw-main-color, #eb1d61) 22%, transparent);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--pw-main-color, #eb1d61) 6%, transparent);
+}
+
+.ProcessMailbox .Mailbox-message-capability-icon { color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-message-capability strong { font-size: 13px; }
+.ProcessMailbox .Mailbox-message-capability p { margin: 2px 0 0; color: var(--pw-muted-color, #666); font-size: 11px; }
+
+.ProcessMailbox .Mailbox-message-reader { padding: 0; }
+.ProcessMailbox .Mailbox-message-reader-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 0;
+  padding: 10px 14px;
+  border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+}
+
+.ProcessMailbox .Mailbox-message-views { padding: 0; }
+.ProcessMailbox .Mailbox-message-safety {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--pw-muted-color, #666);
+  font-size: 10px;
+}
+.ProcessMailbox .Mailbox-message-safety.is-warning { color: var(--Mailbox-warning); }
+.ProcessMailbox .Mailbox-message-safety a { margin-left: 4px; color: inherit; font-weight: 700; text-decoration: none; }
+.ProcessMailbox .Mailbox-message-safety a:hover,
+.ProcessMailbox .Mailbox-message-safety a:focus { text-decoration: underline; }
+.ProcessMailbox .Mailbox-message-panels > section { padding: 20px; }
+.ProcessMailbox .Mailbox-message-panels > section[hidden] { display: none !important; }
+.ProcessMailbox .Mailbox-message-frame {
+  display: block;
+  width: 100%;
+  min-height: 620px;
+  border: 0;
+  background: #fff;
+}
+.ProcessMailbox .Mailbox-message-raw {
+  max-height: 70vh;
+  padding: 14px;
+  overflow: auto;
+  border-radius: 4px;
+  background: #17191c;
+  color: #e8e8e8;
+  font-size: 12px;
+}
+
+/* Discover settings */
+.ProcessMailbox .Mailbox-eyebrow {
+  color: var(--pw-main-color, #eb1d61);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.ProcessMailbox .Mailbox-discovery-hero {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 16px;
+  padding: 26px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-left: 4px solid var(--pw-main-color, #eb1d61);
+  border-radius: 6px;
+  background: var(--pw-blocks-background, #fff);
+}
+
+.ProcessMailbox .Mailbox-discovery-hero-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(235, 29, 97, .1);
+  color: var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-discovery-hero .uk-text-lead {
+  max-width: 980px;
+  color: var(--pw-muted-color, #666);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.ProcessMailbox .Mailbox-discovery-assurances {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ProcessMailbox .Mailbox-discovery-assurances > div {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 2px 8px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-radius: 6px;
+  background: var(--pw-blocks-background, #fff);
+}
+
+.ProcessMailbox .Mailbox-discovery-assurances .uk-icon {
+  grid-row: 1 / span 2;
+  color: var(--Mailbox-success);
+}
+
+.ProcessMailbox .Mailbox-discovery-assurances strong { font-size: 13px; }
+.ProcessMailbox .Mailbox-discovery-assurances span:last-child { color: var(--pw-muted-color, #666); font-size: 12px; }
+
+.ProcessMailbox .Mailbox-discovery-guide { margin-bottom: 16px; }
+
+.ProcessMailbox .Mailbox-discovery-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ProcessMailbox .Mailbox-discovery-steps li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.ProcessMailbox .Mailbox-discovery-steps li > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--pw-main-color, #eb1d61);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ProcessMailbox .Mailbox-discovery-steps strong,
+.ProcessMailbox .Mailbox-discovery-steps small { display: block; }
+.ProcessMailbox .Mailbox-discovery-steps strong { margin-bottom: 3px; font-size: 13px; }
+.ProcessMailbox .Mailbox-discovery-steps small { color: var(--pw-muted-color, #666); line-height: 1.45; }
+
+.ProcessMailbox .Mailbox-discovery-form {
+  display: grid;
+  grid-template-columns: minmax(250px, .8fr) minmax(420px, 1.2fr);
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-discovery-input {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.ProcessMailbox .Mailbox-discovery-input .uk-form-icon {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  pointer-events: none;
+}
+
+.ProcessMailbox .Mailbox-discovery-input .uk-input { padding-left: 42px; }
+.ProcessMailbox .Mailbox-discovery-input .uk-button { min-height: 40px; white-space: nowrap; }
+
+.ProcessMailbox .Mailbox-discovery-results { margin-top: 24px; }
+.ProcessMailbox .Mailbox-discovery-results > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.ProcessMailbox .Mailbox-discovery-actions,
+.ProcessMailbox .Mailbox-candidate-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.ProcessMailbox .Mailbox-discovery-candidates { display: grid; gap: 14px; }
+.ProcessMailbox .Mailbox-discovery-candidate { overflow: hidden; }
+.ProcessMailbox .Mailbox-discovery-candidate > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+}
+
+.ProcessMailbox .Mailbox-discovery-candidate > header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ProcessMailbox .Mailbox-candidate-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pw-main-color, #eb1d61);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ProcessMailbox .Mailbox-confidence {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-confidence.is-high { background: rgba(46, 139, 87, .12); color: var(--Mailbox-success); }
+.ProcessMailbox .Mailbox-confidence.is-medium { background: rgba(214, 142, 0, .13); color: var(--Mailbox-warning); }
+.ProcessMailbox .Mailbox-candidate-body { padding: 18px; }
+.ProcessMailbox .Mailbox-endpoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ProcessMailbox .Mailbox-endpoint {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-radius: 5px;
+}
+
+.ProcessMailbox .Mailbox-endpoint-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: rgba(235, 29, 97, .08);
+  color: var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-endpoint small,
+.ProcessMailbox .Mailbox-endpoint strong,
+.ProcessMailbox .Mailbox-endpoint div > span { display: block; }
+.ProcessMailbox .Mailbox-endpoint small { color: var(--pw-muted-color, #777); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.ProcessMailbox .Mailbox-endpoint strong { margin: 2px 0; overflow-wrap: anywhere; font-size: 14px; }
+.ProcessMailbox .Mailbox-endpoint div > span { color: var(--pw-muted-color, #666); font-size: 12px; }
+.ProcessMailbox .Mailbox-endpoint.is-missing { border-style: dashed; opacity: .75; }
+
+.ProcessMailbox .Mailbox-candidate-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 14px 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+}
+
+.ProcessMailbox .Mailbox-candidate-meta > div { padding: 0 14px; border-right: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1)); }
+.ProcessMailbox .Mailbox-candidate-meta > div:first-child { padding-left: 0; }
+.ProcessMailbox .Mailbox-candidate-meta > div:last-child { border: 0; }
+.ProcessMailbox .Mailbox-candidate-meta dt { color: var(--pw-muted-color, #777); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.ProcessMailbox .Mailbox-candidate-meta dd { margin: 3px 0 0; font-weight: 600; }
+
+.ProcessMailbox .Mailbox-discovery-warning {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: rgba(214, 142, 0, .1);
+  color: var(--Mailbox-warning);
+  font-size: 12px;
+}
+
+.ProcessMailbox .Mailbox-discovery-warning ul { margin: 0; padding-left: 18px; }
+.ProcessMailbox .Mailbox-candidate-actions details { flex: 1; min-width: 260px; }
+.ProcessMailbox .Mailbox-candidate-actions summary { color: var(--pw-muted-color, #666); cursor: pointer; font-size: 12px; }
+.ProcessMailbox .Mailbox-candidate-actions pre { max-height: 320px; overflow: auto; padding: 12px; font-size: 11px; white-space: pre-wrap; }
+.ProcessMailbox .Mailbox-copy-source { position: fixed; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.ProcessMailbox .Mailbox-discovery-empty,
+.ProcessMailbox .Mailbox-discovery-error {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 20px;
+  border-left: 4px solid #d68e00;
+}
+
+/* Account management */
+.ProcessMailbox .Mailbox-accounts-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 14px;
+  padding: 24px 26px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-left: 4px solid var(--pw-main-color, #eb1d61);
+  border-radius: 6px;
+  background: var(--pw-blocks-background, #fff);
+}
+
+.ProcessMailbox .Mailbox-accounts-hero .uk-text-lead {
+  max-width: 900px;
+  color: var(--pw-muted-color, #666);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.ProcessMailbox .Mailbox-accounts-hero-actions,
+.ProcessMailbox .Mailbox-primary-actions,
+.ProcessMailbox .Mailbox-account-actions > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ProcessMailbox .Mailbox-account-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ProcessMailbox .Mailbox-account-metrics > div {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 1px 10px;
+  align-items: center;
+  padding: 13px 16px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+  border-radius: 5px;
+  background: var(--pw-blocks-background, #fff);
+}
+
+.ProcessMailbox .Mailbox-account-metrics .uk-icon { grid-row: 1 / span 2; color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-account-metrics small { color: var(--pw-muted-color, #777); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.ProcessMailbox .Mailbox-account-metrics strong { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+
+.ProcessMailbox .Mailbox-accounts-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.ProcessMailbox .Mailbox-accounts-guide > div {
+  display: flex;
+  gap: 11px;
+  padding: 4px 18px;
+  border-right: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1));
+}
+
+.ProcessMailbox .Mailbox-accounts-guide > div:first-child { padding-left: 0; }
+.ProcessMailbox .Mailbox-accounts-guide > div:last-child { padding-right: 0; border: 0; }
+.ProcessMailbox .Mailbox-accounts-guide .uk-icon { flex: 0 0 auto; color: var(--Mailbox-success); }
+.ProcessMailbox .Mailbox-accounts-guide strong { display: block; margin-bottom: 3px; font-size: 13px; }
+.ProcessMailbox .Mailbox-accounts-guide p { margin: 0; color: var(--pw-muted-color, #666); font-size: 12px; line-height: 1.45; }
+
+.ProcessMailbox .Mailbox-accounts-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.ProcessMailbox .Mailbox-account-list { display: grid; gap: 12px; }
+.ProcessMailbox .Mailbox-account-card { overflow: hidden; margin: 0; }
+.ProcessMailbox details.Mailbox-account-card > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 14px 18px;
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+  cursor: pointer;
+  list-style: none;
+}
+
+.ProcessMailbox details.Mailbox-account-card > summary::-webkit-details-marker { display: none; }
+.ProcessMailbox details.Mailbox-account-card[open] > summary { border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12)); }
+.ProcessMailbox details.Mailbox-account-card.is-new > summary { border-left: 4px solid var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-account-summary-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.ProcessMailbox .Mailbox-account-summary-main > div { min-width: 0; }
+.ProcessMailbox .Mailbox-account-summary-main p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessMailbox .Mailbox-account-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(235, 29, 97, .09);
+  color: var(--pw-main-color, #eb1d61);
+}
+
+.ProcessMailbox .Mailbox-account-badges { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
+.ProcessMailbox .Mailbox-account-badge {
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ProcessMailbox .Mailbox-account-badge.is-enabled,
+.ProcessMailbox .Mailbox-account-badge.is-secure { background: rgba(46, 139, 87, .12); color: var(--Mailbox-success); }
+.ProcessMailbox .Mailbox-account-badge.is-default { background: rgba(235, 29, 97, .12); color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-account-badge.is-disabled { background: color-mix(in srgb, var(--pw-text-color, light-dark(#111, #fff)) 9%, transparent); color: var(--pw-muted-color, #666); }
+.ProcessMailbox .Mailbox-account-badge.is-warning { background: rgba(214, 142, 0, .13); color: var(--Mailbox-warning); }
+.ProcessMailbox .Mailbox-account-badge.is-new { background: rgba(235, 29, 97, .1); color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-account-chevron { transition: transform 160ms ease; }
+.ProcessMailbox details[open] > summary .Mailbox-account-chevron { transform: rotate(180deg); }
+.ProcessMailbox .Mailbox-account-card-body { padding: 18px; }
+
+.ProcessMailbox .Mailbox-account-section {
+  padding: 16px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11));
+  border-radius: 5px;
+  background: var(--pw-blocks-background, #fff);
+}
+
+.ProcessMailbox .Mailbox-account-section + .Mailbox-account-section { margin-top: 12px; }
+.ProcessMailbox .Mailbox-account-section > header { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 13px; }
+.ProcessMailbox .Mailbox-account-section > header > .uk-icon { flex: 0 0 auto; color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-account-section h4 { margin: 0; font-size: 14px; }
+.ProcessMailbox .Mailbox-account-section header p { margin: 2px 0 0; color: var(--pw-muted-color, #666); font-size: 11px; }
+.ProcessMailbox .Mailbox-account-grid { display: grid; gap: 12px; align-items: end; }
+.ProcessMailbox .Mailbox-account-grid.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ProcessMailbox .Mailbox-account-grid.is-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ProcessMailbox .Mailbox-account-grid.is-endpoint { grid-template-columns: minmax(0, 1.7fr) minmax(80px, .55fr) minmax(120px, .75fr); }
+.ProcessMailbox .Mailbox-account-grid small { display: block; margin-top: 4px; color: var(--pw-muted-color, #777); font-size: 10px; line-height: 1.35; }
+.ProcessMailbox .Mailbox-preset-control { display: flex; align-items: flex-start; gap: 8px; margin-top: 6px; }
+.ProcessMailbox .Mailbox-preset-control .uk-button { flex: 0 0 auto; min-height: 30px; padding: 0 10px; font-size: 10px; line-height: 28px; }
+.ProcessMailbox .Mailbox-preset-control small { margin-top: 0; }
+.ProcessMailbox .Mailbox-oauth-fields { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.ProcessMailbox [data-mailbox-auth-panel][hidden] { display: none !important; }
+.ProcessMailbox .Mailbox-account-endpoints { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.ProcessMailbox .Mailbox-account-check { display: flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 12px; }
+.ProcessMailbox .Mailbox-account-transport { margin-top: 12px; }
+.ProcessMailbox .Mailbox-account-transport small { display: block; margin-top: 5px; color: var(--pw-muted-color, #666); font-size: 11px; line-height: 1.45; }
+
+.ProcessMailbox .Mailbox-account-advanced,
+.ProcessMailbox .Mailbox-account-danger { margin-top: 12px; border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); border-radius: 5px; }
+.ProcessMailbox .Mailbox-account-advanced > summary,
+.ProcessMailbox .Mailbox-account-danger > summary { display: flex; align-items: center; gap: 8px; padding: 12px 14px; cursor: pointer; font-size: 12px; font-weight: 600; }
+.ProcessMailbox .Mailbox-account-advanced > .Mailbox-account-grid { padding: 4px 14px 14px; }
+.ProcessMailbox .Mailbox-account-options { display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 0 14px 14px; }
+.ProcessMailbox .Mailbox-account-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11));
+}
+
+.ProcessMailbox .Mailbox-account-actions p { margin: 0; color: var(--pw-muted-color, #666); font-size: 11px; }
+.ProcessMailbox .Mailbox-account-actions p .uk-icon { margin-right: 5px; }
+.ProcessMailbox .Mailbox-oauth-action:empty { display: none; }
+.ProcessMailbox .Mailbox-oauth-action:not(:empty) { margin-top: 12px; }
+.ProcessMailbox .Mailbox-account-danger { border-color: rgba(220, 53, 69, .28); }
+.ProcessMailbox .Mailbox-account-danger > summary { color: var(--Mailbox-danger); }
+.ProcessMailbox .Mailbox-account-danger form { padding: 0 14px 14px; }
+.ProcessMailbox .Mailbox-account-danger p { color: var(--pw-muted-color, #666); font-size: 12px; }
+.ProcessMailbox .Mailbox-danger-action { display: grid; grid-template-columns: minmax(140px, 240px) auto; gap: 8px; align-items: center; }
+
+.ProcessMailbox .Mailbox-primary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11));
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+}
+
+.ProcessMailbox .Mailbox-primary-body { padding: 18px; }
+.ProcessMailbox .Mailbox-primary-endpoints { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.ProcessMailbox .Mailbox-primary-endpoints > div { padding: 12px 14px; border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); border-radius: 4px; }
+.ProcessMailbox .Mailbox-primary-endpoints small,
+.ProcessMailbox .Mailbox-primary-endpoints strong,
+.ProcessMailbox .Mailbox-primary-endpoints span { display: block; }
+.ProcessMailbox .Mailbox-primary-endpoints small { color: var(--pw-muted-color, #777); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.ProcessMailbox .Mailbox-primary-endpoints strong { margin: 3px 0; overflow-wrap: anywhere; }
+.ProcessMailbox .Mailbox-primary-endpoints span { color: var(--pw-muted-color, #666); font-size: 11px; }
+.ProcessMailbox .Mailbox-primary-notice { display: flex; gap: 9px; margin: 12px 0; padding: 10px 12px; border-radius: 4px; background: rgba(235, 29, 97, .07); }
+.ProcessMailbox .Mailbox-primary-notice .uk-icon { flex: 0 0 auto; color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-primary-notice p { margin: 0; font-size: 12px; }
+
+/* Locked runtime dependency installer */
+.ProcessMailbox .Mailbox-dependencies-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+  padding: 26px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11));
+  border-radius: 6px;
+  background: radial-gradient(circle at 88% 12%, rgba(235, 29, 97, .12), transparent 35%), var(--Mailbox-surface);
+}
+.ProcessMailbox .Mailbox-dependencies-hero .uk-text-lead { max-width: 850px; color: var(--pw-muted-color, #666); font-size: 15px; }
+.ProcessMailbox .Mailbox-dependencies-state { display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto; padding: 7px 11px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.ProcessMailbox .Mailbox-dependencies-state.is-ready { color: var(--Mailbox-success); background: rgba(35, 134, 54, .12); }
+.ProcessMailbox .Mailbox-dependencies-state.is-warning { color: var(--Mailbox-warning); background: rgba(245, 158, 11, .13); }
+.ProcessMailbox .Mailbox-dependencies-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-bottom: 12px; overflow: hidden; border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); border-radius: 5px; background: var(--pw-border-color, rgba(0, 0, 0, .11)); }
+.ProcessMailbox .Mailbox-dependencies-grid > div { padding: 15px 17px; background: var(--Mailbox-surface); }
+.ProcessMailbox .Mailbox-dependencies-grid small,
+.ProcessMailbox .Mailbox-dependencies-grid strong,
+.ProcessMailbox .Mailbox-dependencies-grid span { display: block; }
+.ProcessMailbox .Mailbox-dependencies-grid small { color: var(--pw-muted-color, #777); font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.ProcessMailbox .Mailbox-dependencies-grid strong { margin: 4px 0; font-size: 15px; }
+.ProcessMailbox .Mailbox-dependencies-grid span { color: var(--pw-muted-color, #666); font-size: 11px; line-height: 1.4; }
+.ProcessMailbox .Mailbox-dependencies-safety { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-bottom: 12px; }
+.ProcessMailbox .Mailbox-dependencies-safety > div { display: flex; gap: 10px; padding: 2px 18px 2px 0; }
+.ProcessMailbox .Mailbox-dependencies-safety > div + div { padding-left: 18px; border-left: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); }
+.ProcessMailbox .Mailbox-dependencies-safety .uk-icon { flex: 0 0 auto; color: var(--pw-main-color, #eb1d61); }
+.ProcessMailbox .Mailbox-dependencies-safety p { margin: 3px 0 0; color: var(--pw-muted-color, #666); font-size: 11px; }
+.ProcessMailbox .Mailbox-dependencies-action { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); border-radius: 5px; background: var(--Mailbox-surface); }
+.ProcessMailbox .Mailbox-dependencies-action small { color: var(--pw-muted-color, #666); }
+.ProcessMailbox .Mailbox-dependencies-warning { margin: 0; }
+.ProcessMailbox .Mailbox-dependencies-back { margin-top: 12px; }
+
+@media (min-width: 960px) {
+  .ProcessMailbox .Mailbox-sidebar-shell {
+    position: sticky;
+    top: 12px;
+  }
+}
+
+@media (max-width: 959px) {
+  .ProcessMailbox .Mailbox-admin-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ProcessMailbox .Mailbox-admin-nav .uk-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: visible;
+    padding-bottom: 1px;
+    row-gap: 8px;
+  }
+
+  .ProcessMailbox .Mailbox-admin-nav .uk-subnav > * { flex: 0 1 auto; }
+  .ProcessMailbox .Mailbox-admin-nav .uk-subnav-pill > * > :first-child {
+    padding: 7px 9px;
+    white-space: normal;
+  }
+
+  .ProcessMailbox .Mailbox-settings-link { margin-left: 0; }
+
+  .ProcessMailbox .mc-folders { max-height: 280px; overflow: auto; }
+
+  .ProcessMailbox .Mailbox-message-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ProcessMailbox .Mailbox-message-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ProcessMailbox .Mailbox-message-summary {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .ProcessMailbox .Mailbox-message-recipients { grid-column: 2; }
+
+  .ProcessMailbox .Mailbox-message-attachments { grid-template-columns: 1fr; }
+
+  .ProcessMailbox .Mailbox-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ProcessMailbox .Mailbox-sidebar-shell {
+    width: 100%;
+  }
+
+  .ProcessMailbox .Mailbox-sidebar-shell.is-collapsed {
+    width: 46px;
+  }
+
+  .ProcessMailbox .Mailbox-discovery-assurances,
+  .ProcessMailbox .Mailbox-discovery-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ProcessMailbox .Mailbox-discovery-form { grid-template-columns: 1fr; gap: 12px; }
+  .ProcessMailbox .Mailbox-accounts-hero { align-items: flex-start; flex-direction: column; }
+  .ProcessMailbox .Mailbox-accounts-guide,
+  .ProcessMailbox .Mailbox-account-endpoints { grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-dependencies-hero { align-items: flex-start; flex-direction: column; }
+  .ProcessMailbox .Mailbox-dependencies-grid,
+  .ProcessMailbox .Mailbox-dependencies-safety { grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-dependencies-safety > div + div { margin-top: 12px; padding-top: 12px; padding-left: 0; border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11)); border-left: 0; }
+  .ProcessMailbox .Mailbox-accounts-guide > div { padding: 10px 0; border-right: 0; border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1)); }
+  .ProcessMailbox .Mailbox-accounts-guide > div:last-child { border-bottom: 0; }
+
+  .ProcessMailbox .mc-module-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ProcessMailbox .Mailbox-list-context {
+    padding-top: 8px;
+    padding-left: 0;
+    border-top: 1px solid var(--pw-border-color, rgba(0, 0, 0, .12));
+    border-left: 0;
+  }
+
+  .ProcessMailbox .Mailbox-diagnostics {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ProcessMailbox .mc-from { min-width: 180px; }
+  .ProcessMailbox .mc-subject { min-width: 280px; }
+}
+
+@media (max-width: 639px) {
+  .ProcessMailbox .Mailbox-pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ProcessMailbox .Mailbox-pagination-meta {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ProcessMailbox .Mailbox-pagination .uk-pagination { justify-content: center; }
+  .ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge > a,
+  .ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge > span,
+  .ProcessMailbox .Mailbox-pagination .Mailbox-pagination-edge button { min-width: 34px; }
+  .ProcessMailbox .Mailbox-pagination-label { display: none; }
+
+  .ProcessMailbox .Mailbox-message-navigation,
+  .ProcessMailbox .Mailbox-message-actions,
+  .ProcessMailbox .Mailbox-message-actions > form,
+  .ProcessMailbox .Mailbox-message-move { align-items: stretch; width: 100%; }
+  .ProcessMailbox .Mailbox-message-navigation .uk-button { flex: 1 1 100%; }
+  .ProcessMailbox .Mailbox-message-actions .uk-button { flex: 1 1 auto; }
+  .ProcessMailbox .Mailbox-message-move .uk-select { flex: 1 1 150px; width: 100%; }
+  .ProcessMailbox .Mailbox-message-summary { grid-template-columns: 40px minmax(0, 1fr); padding: 15px; }
+  .ProcessMailbox .Mailbox-message-ai { grid-template-columns: 1fr; padding: 13px 15px; }
+  .ProcessMailbox .Mailbox-message-ai > form .uk-button { width: 100%; }
+  .ProcessMailbox .Mailbox-message-sender-icon { width: 38px; height: 38px; }
+  .ProcessMailbox .Mailbox-message-recipients { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-message-attachments { padding: 14px 15px; }
+  .ProcessMailbox .Mailbox-message-capability { grid-template-columns: 28px minmax(0, 1fr); margin: 12px 15px 0; }
+  .ProcessMailbox .Mailbox-message-capability .uk-button { grid-column: 1 / -1; width: 100%; }
+  .ProcessMailbox .Mailbox-message-reader-head { align-items: stretch; flex-direction: column; }
+  .ProcessMailbox .Mailbox-message-views { width: 100%; }
+  .ProcessMailbox .Mailbox-message-views .uk-button { flex: 1 1 0; }
+  .ProcessMailbox .Mailbox-message-safety { justify-content: center; }
+  .ProcessMailbox .Mailbox-message-panels > section { padding: 14px; }
+  .ProcessMailbox .Mailbox-message-frame { min-height: 480px; }
+
+  .ProcessMailbox .Mailbox-discovery-hero { grid-template-columns: 1fr; padding: 18px; }
+  .ProcessMailbox .Mailbox-discovery-assurances,
+  .ProcessMailbox .Mailbox-discovery-steps,
+  .ProcessMailbox .Mailbox-endpoints,
+  .ProcessMailbox .Mailbox-candidate-meta { grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-discovery-input { grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-discovery-input .uk-button { width: 100%; }
+  .ProcessMailbox .Mailbox-discovery-results > header,
+  .ProcessMailbox .Mailbox-discovery-candidate > header { align-items: flex-start; flex-direction: column; }
+  .ProcessMailbox .Mailbox-candidate-meta > div { padding: 8px 0; border-right: 0; border-bottom: 1px solid var(--pw-border-color, rgba(0, 0, 0, .1)); }
+  .ProcessMailbox .Mailbox-candidate-meta > div:last-child { border-bottom: 0; }
+  .ProcessMailbox .Mailbox-account-metrics,
+  .ProcessMailbox .Mailbox-account-grid.is-two,
+  .ProcessMailbox .Mailbox-account-grid.is-three,
+  .ProcessMailbox .Mailbox-oauth-fields,
+  .ProcessMailbox .Mailbox-primary-endpoints { grid-template-columns: 1fr; }
+  .ProcessMailbox details.Mailbox-account-card > summary,
+  .ProcessMailbox .Mailbox-primary-header,
+  .ProcessMailbox .Mailbox-account-actions { align-items: flex-start; flex-direction: column; }
+  .ProcessMailbox .Mailbox-account-badges { justify-content: flex-start; }
+  .ProcessMailbox .Mailbox-account-grid.is-endpoint { grid-template-columns: minmax(0, 1fr) minmax(80px, .45fr); }
+  .ProcessMailbox .Mailbox-account-grid.is-endpoint .is-host { grid-column: 1 / -1; }
+  .ProcessMailbox .Mailbox-preset-control { align-items: stretch; flex-direction: column; }
+  .ProcessMailbox .Mailbox-danger-action { grid-template-columns: 1fr; }
+  .ProcessMailbox .Mailbox-dependencies-action { align-items: stretch; flex-direction: column; }
+  .ProcessMailbox .Mailbox-dependencies-action .uk-button { width: 100%; }
+}

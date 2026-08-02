@@ -1,0 +1,567 @@
+en,es,description,file,hash
+"%1$d messages %2$s.","%1$d mensajes %2$s.",,site/modules/Mailbox/ProcessMailbox.module.php,d9fa10a6629cb8c53a8d6073da9bd9af
+"%1$d–%2$d of %3$d","%1$d–%2$d de %3$d",,site/modules/Mailbox/ProcessMailbox.module.php,c41afbf97a00dd72fcd32e8af86fca79
+"%1$s IMAP login succeeded in %2$d ms using %3$s. No folders or messages were downloaded.","%1$s IMAP el inicio de sesión se realizó correctamente en %2$d ms usando %3$s. No se descargaron carpetas ni mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,788bf5fdc56b49fa6c22ae1b1c702b21
+"%d collected matches","%d coincidencias recopiladas",,site/modules/Mailbox/ProcessMailbox.module.php,a1f0cf526193e89b3dcfce17611887a8
+"%d configuration candidate(s) found","%d candidatos de configuración encontrados",,site/modules/Mailbox/ProcessMailbox.module.php,c1517630b760b891a3d284aed923a4cf
+"%d files","%d archivos",,site/modules/Mailbox/ProcessMailbox.module.php,2a20f3775a5fafe9762f448206ba8f82
+"%d hr","%d horas",,site/modules/Mailbox/ProcessMailbox.module.php,c30c071b4f5de36b0371288d0334dcd9
+"%d messages","%d mensajes",,site/modules/Mailbox/ProcessMailbox.module.php,a6f9c9bba5831ed632218f165adcfeed
+"%d min","%d min",,site/modules/Mailbox/ProcessMailbox.module.php,ff4f2cb8c009e84bc11e515e7da46448
+"%d of %d slots available","%d de %d espacios disponibles",,site/modules/Mailbox/ProcessMailbox.module.php,25d04807a54b3618ad4be3823c2c77b9
+"%d sec","%d segundos",,site/modules/Mailbox/ProcessMailbox.module.php,ab1a97e69b0cc5a295065e8d097174f2
+"(no subject)","(sin asunto)",,site/modules/Mailbox/ProcessMailbox.module.php,63e27cbc66fe426b5eb40e32b66b6665
+"A candidate is not verified until IMAP and SMTP authentication succeed.","Un candidato no se verifica hasta que la autenticación IMAP y SMTP sea exitosa.",,site/modules/Mailbox/ProcessMailbox.module.php,993389b19c89020d9789b76bf5b34d9a
+"Account label","Etiqueta de cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,4bf26bdf62706f6d7895677dc1095b3c
+"Account profiles","Perfiles de cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,622a2a1c7a55a3fdd15829cc9a7d5651
+Accounts,Cuentas,,site/modules/Mailbox/ProcessMailbox.module.php,9b945efebb006547a94415eadaa12921
+Action,Acción,,site/modules/Mailbox/ProcessMailbox.module.php,004bf6c9a40003140292e97330236c53
+"Add another mailbox","Agregar otro buzón",,site/modules/Mailbox/ProcessMailbox.module.php,4048d7d3ed90c5319d1de44c4347e919
+"Add flag","Agregar bandera",,site/modules/Mailbox/ProcessMailbox.module.php,4259e5a1953ce0a69203f03afef97703
+"Add mailbox","Agregar buzón",,site/modules/Mailbox/ProcessMailbox.module.php,f3b1d8f7b85915fa1437ea224ed2bb7f
+"Adds /mailbox-api/v1/ routes. Requires the PHP agent API, a logged-in ProcessWire session, mailbox-api permission, and CSRF for every mutation. CORS is not enabled.","Agrega rutas /mailbox-api/v1/. Requiere el agente PHP API, una sesión iniciada ProcessWire, permiso mailbox-api y CSRF para cada mutación. CORS no está habilitado.",,site/modules/Mailbox/Mailbox.module.php,29a87fcd0313ec96d8fea8b58ce8a589
+"Advanced filters","Filtros avanzados",,site/modules/Mailbox/ProcessMailbox.module.php,d9c3a508aadc89c987a08811138836e2
+"AI analysis","Análisis de IA",,site/modules/Mailbox/ProcessMailbox.module.php,6373f94eea8c31352a32986b39528f84
+"AI model","Modelo de IA",,site/modules/Mailbox/Mailbox.module.php,e8deaee7691c961ae0a2584cd609dfc6
+"AI reply instructions are limited to 500 bytes.","Las instrucciones de respuesta AI están limitadas a 500 bytes.",,site/modules/Mailbox/ProcessMailbox.module.php,2c0b4d7e6fd21090a7b5bf7316fa3c42
+"AI request failed. Check Squad access and provider availability, then try again.","La solicitud de AI falló. Verifique el acceso de Squad y la disponibilidad del proveedor y vuelva a intentarlo.",,site/modules/Mailbox/ProcessMailbox.module.php,6bc23e64e0ad1badc40f86e0b148b364
+"AI settings","Configuración de IA",,site/modules/Mailbox/ProcessMailbox.module.php,2c178b1d7a60a3c2b37ca4221d322899
+"All capabilities are disabled by default. Logged-in status alone never grants mailbox access.","Todas las capacidades están deshabilitadas de forma predeterminada. El estado de inicio de sesión por sí solo nunca otorga acceso al buzón.",,site/modules/Mailbox/Mailbox.module.php,ce5c016865fe838f6792e1504081d146
+"All folders","Todas las carpetas",,site/modules/Mailbox/ProcessMailbox.module.php,0fb5232112a73f8606aae302fa739efa
+"Allowed confirmation hosts","Hosts de confirmación permitidos",,site/modules/Mailbox/Mailbox.module.php,80e55747bfd272555aa24ef75cbb4755
+"Allows mailbox-send users to send plain-text replies and forwards from an open message. Requires saved SMTP settings and a successful SMTP connection test.","Permite a los usuarios mailbox-send enviar respuestas en texto sin formato y reenviar desde un mensaje abierto. Requiere configuración SMTP guardada y una prueba de conexión SMTP exitosa.",,site/modules/Mailbox/Mailbox.module.php,dee43f995913e0e5a2256dd9bb5e7a06
+"Allows mailbox-write users to change flags, move messages, and mark messages for deletion. Delete never expunges from the admin reader. API/CLI mutation access remains independently permission-gated.","Permite a los usuarios mailbox-write cambiar indicadores, mover mensajes y marcar mensajes para su eliminación. Eliminar nunca se elimina del lector de administración. El acceso a la mutación API/CLI permanece controlado de forma independiente.",,site/modules/Mailbox/Mailbox.module.php,b6de1c750af5ad8d1c493934caf75e2c
+"Allows only bounded, allowlisted POST forms containing hidden values, one confirmation submit control, and optionally one email code field. Passwords, file uploads, arbitrary fields, JavaScript, and redirects are never executed.","Permite solo formularios POST delimitados y incluidos en la lista de permitidos que contengan valores ocultos, un control de envío de confirmación y, opcionalmente, un campo de código de correo electrónico. Las contraseñas, las cargas de archivos, los campos arbitrarios, JavaScript y las redirecciones nunca se ejecutan.",,site/modules/Mailbox/Mailbox.module.php,18eb936f0ce396e6ff457a2178645b38
+"All prerequisites are ready. Enabling this setting sends agent-safe message text to the provider configured in Squad.","Todos los requisitos previos están listos. Al habilitar esta configuración se envía un texto de mensaje seguro para el agente al proveedor configurado en Squad.",,site/modules/Mailbox/Mailbox.module.php,dcd73da729d49d8e2f9d16e8e0c0991d
+"An encrypted credential is saved. Leave this field empty to keep it unchanged. You may enter env:VARIABLE_NAME instead of a password.","Se guarda una credencial cifrada. Deje este campo vacío para mantenerlo sin cambios. Puede ingresar env:VARIABLE_NAME en lugar de una contraseña.",,site/modules/Mailbox/Mailbox.module.php,14403f65a743c0bcd2145bc16fd4f008
+Answered,Respondido,,site/modules/Mailbox/ProcessMailbox.module.php,d96e9c5b66270557797cd9a81ae10309
+Any,Cualquiera,,site/modules/Mailbox/ProcessMailbox.module.php,ed36a1ef76a59ee3f15180e0441188ad
+"Append a copy to an IMAP Sent folder","Agregar una copia a una carpeta IMAP Enviados",,site/modules/Mailbox/Mailbox.module.php,92929e3b7259cdec002ba3b102af8fc9
+"Applies to every mailbox viewed in this admin. Disable it to return to the privacy-first image-blocking mode.","Se aplica a todos los buzones de correo vistos en este administrador. Deshabilítelo para volver al modo de bloqueo de imágenes que prioriza la privacidad.",,site/modules/Mailbox/Mailbox.module.php,2fe13b03afaac4acfffdd947471acdd1
+Apply,Aplicar,,site/modules/Mailbox/ProcessMailbox.module.php,9639e32cab248434a17ab32237cb3b71
+"Applying a preset changes server fields in this form but never changes the username or password. Review the values, then save the module configuration.","La aplicación de un ajuste preestablecido cambia los campos del servidor en este formulario, pero nunca cambia el nombre de usuario o la contraseña. Revise los valores y luego guarde la configuración del módulo.",,site/modules/Mailbox/Mailbox.module.php,7172e3452090144d78fe56737a0a59e5
+"Apply preset","Aplicar ajuste preestablecido",,site/modules/Mailbox/Mailbox.module.php,407b67972baa664a54c8821b273a9cb3
+"Apply preset values","Aplicar valores preestablecidos",,site/modules/Mailbox/Mailbox.module.php,d4118195deba3ef96ab3f94d658da75e
+"Apply preset values","Aplicar valores preestablecidos",,site/modules/Mailbox/ProcessMailbox.module.php,d4118195deba3ef96ab3f94d658da75e
+"Ask a superuser to enable these capabilities.","Solicite a un superusuario que habilite estas capacidades.",,site/modules/Mailbox/ProcessMailbox.module.php,80fae6f952b45df7dfeaafcb0fc7e551
+Attachments,Adjuntos,,site/modules/Mailbox/ProcessMailbox.module.php,7e2708aeb65763c54052f57ed1a1ec1d
+Authentication,Autenticación,,site/modules/Mailbox/Mailbox.module.php,c75f7811d70d17dbcd88e9d03752cbed
+Authentication,Autenticación,,site/modules/Mailbox/ProcessMailbox.module.php,c75f7811d70d17dbcd88e9d03752cbed
+"Authentication method","Método de autenticación",,site/modules/Mailbox/Mailbox.module.php,38354aeafcfd5993a9d65d97514a8e3d
+"Auto (recommended)","Automático (recomendado)",,site/modules/Mailbox/Mailbox.module.php,91475491b4e5cfa28442115c247c1f54
+"Auto (recommended)","Automático (recomendado)",,site/modules/Mailbox/ProcessMailbox.module.php,91475491b4e5cfa28442115c247c1f54
+"Automatic installation is unavailable","La instalación automática no está disponible",,site/modules/Mailbox/ProcessMailbox.module.php,85d7823d416b49d06b6549e3719b630c
+"Auto uses Webklex for Gmail and other hosted services, avoiding local MAMP SNI limitations.","Auto utiliza Webklex para Gmail y otros servicios alojados, evitando las limitaciones locales de MAMP SNI.",,site/modules/Mailbox/ProcessMailbox.module.php,dafa1aa9e7fbaa94bc430099a21d672e
+"Auto uses Webklex for hosted services such as Gmail and native PHP IMAP for self-hosted servers. Runtime packages live under site/assets/Mailbox and survive module upgrades.","Auto utiliza Webklex para servicios hospedados como Gmail y PHP IMAP nativo para servidores autohospedados. Los paquetes de tiempo de ejecución se encuentran en site/assets/Mailbox y sobreviven a las actualizaciones del módulo.",,site/modules/Mailbox/Mailbox.module.php,66366816f177a58703ec5960430cf1f5
+Available,Disponible,,site/modules/Mailbox/ProcessMailbox.module.php,78945de8de090e90045d299651a68a9b
+"Available slot","Ranura disponible",,site/modules/Mailbox/ProcessMailbox.module.php,86a8bd898f036cdfab2a67c7a96e405b
+"Background synchronization and local index","Sincronización en segundo plano e índice local",,site/modules/Mailbox/Mailbox.module.php,6ab7048c99665676b9c413eff3549d3e
+"Back to %s","Volver a %s",,site/modules/Mailbox/ProcessMailbox.module.php,bf0187e0336deb4f2ad4f2d507f96638
+"Back to Mailbox settings","Volver a la configuración de Mailbox",,site/modules/Mailbox/ProcessMailbox.module.php,1b91084c9717d5c4c25e6d5914eb66cf
+Before,Antes,,site/modules/Mailbox/ProcessMailbox.module.php,9060587edeb01a63e3d3edc959678d1e
+"Bounded installer","Instalador limitado",,site/modules/Mailbox/ProcessMailbox.module.php,6b740efc7132fce686ed466cd8839c39
+"Bulk actions are disabled","Las acciones masivas están deshabilitadas",,site/modules/Mailbox/ProcessMailbox.module.php,963ec4cb1672cadcbea0b065b230a0af
+"Cached %s ago","Almacenado en caché hace %s",,site/modules/Mailbox/ProcessMailbox.module.php,d879260651b3c6c57ea1fcf0684a657d
+Cc,Cc,,site/modules/Mailbox/ProcessMailbox.module.php,e4c8f1de1c0855c7c2be33196d3c3537
+"Certificate validation","Validación de certificados",,site/modules/Mailbox/ProcessMailbox.module.php,77c2339637fa816037b25e4ff975ba9d
+"Check the address and try again. No mailbox settings were changed.","Comprueba la dirección y vuelve a intentarlo. No se cambió ninguna configuración del buzón.",,site/modules/Mailbox/ProcessMailbox.module.php,5ea952e4297ed317980ee7a510981299
+"Choose action…","Elija acción…",,site/modules/Mailbox/ProcessMailbox.module.php,48ea53cb7272a0ec46cab5c081e00e06
+"Choose folder…","Elegir carpeta…",,site/modules/Mailbox/ProcessMailbox.module.php,646854eb613935ade8d6424440dbdbd2
+"Choose password/app-password or OAuth2. Provider secrets are never stored in this form.","Elija contraseña/contraseña de aplicación o OAuth2. Los secretos del proveedor nunca se almacenan en este formulario.",,site/modules/Mailbox/Mailbox.module.php,7280cbe74b25a981a4d22885ed29559a
+Clear,Borrar,,site/modules/Mailbox/ProcessMailbox.module.php,dc30bc0c7914db5918da4263fce93ad2
+"Close timeout","Tiempo de espera de cierre",,site/modules/Mailbox/Mailbox.module.php,d7566efd9389a01a026e948f593f8a3a
+"Compare the suggested hosts and ports with your provider or hosting panel.","Compare los hosts y puertos sugeridos con su proveedor o panel de hosting.",,site/modules/Mailbox/ProcessMailbox.module.php,528dedaa0c8cc13fa45599b92c5dfefe
+"Completed job/read notification retention days","Días de retención de notificación de lectura/trabajo completado",,site/modules/Mailbox/Mailbox.module.php,9b0f8fa5aa1f61ca504ac6bf4d71ea94
+"Configuration candidate","Candidato de configuración",,site/modules/Mailbox/ProcessMailbox.module.php,2a587d27f3d65ec642163f0ad2fa66e8
+"Configuration sections","Secciones de configuración",,site/modules/Mailbox/Mailbox.module.php,8934adb1faa22a7a2bd4a235dd03da5a
+Configure,Configurar,,site/modules/Mailbox/ProcessMailbox.module.php,f1206f9fadc5ce41694f69129aecac26
+"Configured mailboxes and available slot","Buzones configurados y ranura disponible",,site/modules/Mailbox/ProcessMailbox.module.php,5b29f98516a030587257a65c326c9f8d
+"Configure message actions","Configurar acciones de mensajes",,site/modules/Mailbox/ProcessMailbox.module.php,7c5415ccd6058544bad1d40a8ba010cb
+"Configure one more independent mailbox profile.","Configurar un perfil de buzón independiente más.",,site/modules/Mailbox/ProcessMailbox.module.php,a5467bd3d58086388b0181021bbe4f0a
+"Confirmation request timeout (seconds)","Tiempo de espera de solicitud de confirmación (segundos)",,site/modules/Mailbox/Mailbox.module.php,5ffdc5e7482229a1700d2996b75e6a23
+"Connect and manage mailbox accounts","Conectar y administrar cuentas de buzón",,site/modules/Mailbox/ProcessMailbox.module.php,ccdc3920068061cfe1213ab97a6ad8d5
+"Connecting in the background and loading folders plus at most 100 newest messages for this page.","Conectarse en segundo plano y cargar carpetas además de un máximo de 100 mensajes más nuevos para esta página.",,site/modules/Mailbox/ProcessMailbox.module.php,f7caabd9a0d6d55e6991199db222a05b
+"Connection attempts","Intentos de conexión",,site/modules/Mailbox/Mailbox.module.php,80720d4e6015ce87ad8ef1d16c751c97
+"Connection behavior and timeouts","Comportamiento de conexión y tiempos de espera",,site/modules/Mailbox/Mailbox.module.php,7ec6aefc0aefe29cc32dfe03fae98970
+"Connection diagnostics","Diagnóstico de conexión",,site/modules/Mailbox/ProcessMailbox.module.php,eacca669789e8819cead7489b62d8794
+"Connection test","Prueba de conexión",,site/modules/Mailbox/Mailbox.module.php,45d756514c1917685dce2191d0b68e0d
+"Connect mailbox with OAuth","Conectar buzón con OAuth",,site/modules/Mailbox/Mailbox.module.php,5b345677ac5188056cae8792e8de8587
+"Connect the primary inbox, choose its authentication method, and enable only the integration capabilities this site needs. Additional mailboxes are managed separately under Accounts.","Conecte la bandeja de entrada principal, elija su método de autenticación y habilite solo las capacidades de integración que este sitio necesita. Los buzones de correo adicionales se administran por separado en Cuentas.",,site/modules/Mailbox/Mailbox.module.php,3eb56112a05fbe83d9b4c1ce839149b8
+"Connect with OAuth","Conéctese con OAuth",,site/modules/Mailbox/ProcessMailbox.module.php,1f9426de5e6da9a544213167913655cb
+"Controls the buttons shown when a message is open. These admin actions are independent of the optional Agent API.","Controla los botones que se muestran cuando se abre un mensaje. Estas acciones administrativas son independientes del Agente opcional API.",,site/modules/Mailbox/Mailbox.module.php,1fa73761244662e6ba1ea49f1c930024
+"Control the initial folder, list size, searches, body limits, and attachment boundaries.","Controle la carpeta inicial, el tamaño de la lista, las búsquedas, los límites del cuerpo y los límites de los archivos adjuntos.",,site/modules/Mailbox/Mailbox.module.php,343b24f68f373b77174732952eeaf1e4
+Copied,Copiado,,site/modules/Mailbox/ProcessMailbox.module.php,a588b1abc58b8b758c4b34b69b9e10bb
+"Copy settings","Copiar configuración",,site/modules/Mailbox/ProcessMailbox.module.php,843d8e56dbbdc910641d7962a5aecf69
+"Copy settings into an account","Copiar configuración en una cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,00469a2e1f414cdb5fe10a6da7ba5f83
+"Creates redacted review items through verified public APIs. Mailbox remains authoritative and keeps its own permission and separation-of-duties checks.","Crea elementos de revisión redactados a través de API públicas verificadas. Mailbox sigue teniendo autoridad y mantiene sus propios controles de permisos y separación de funciones.",,site/modules/Mailbox/Mailbox.module.php,206e61bf4631af80e0e09c5ba4691973
+"Credential-free helper","Ayudante sin credenciales",,site/modules/Mailbox/ProcessMailbox.module.php,c70917c5a4fe2419e313878f05c6e71c
+Credentials,Credenciales,,site/modules/Mailbox/Mailbox.module.php,2daf1cb573c2c61422faf64610cf9402
+Credentials,Credenciales,,site/modules/Mailbox/ProcessMailbox.module.php,2daf1cb573c2c61422faf64610cf9402
+"Credentials are configured. The saved username is intentionally hidden; enter both username and password only to replace them.","Las credenciales están configuradas. El nombre de usuario guardado se oculta intencionalmente; ingrese tanto el nombre de usuario como la contraseña solo para reemplazarlos.",,site/modules/Mailbox/Mailbox.module.php,7dd2458577c8687caade338f29b94241
+"Credentials are never requested or used.","Las credenciales nunca se solicitan ni se utilizan.",,site/modules/Mailbox/ProcessMailbox.module.php,cd1624ccc263893301f8dc4839f6fa9e
+"Credentials are not configured.","Las credenciales no están configuradas.",,site/modules/Mailbox/ProcessMailbox.module.php,2440b333f1f7d0f3f3ea6281648dae6c
+"Credentials are required before the first connection test.","Se requieren credenciales antes de la primera prueba de conexión.",,site/modules/Mailbox/Mailbox.module.php,ae6c3a914591d61a23f770060ffe52d3
+"Credentials configured (%s). Leave both fields blank to keep them.","Credenciales configuradas (%s). Deje ambos campos en blanco para conservarlos.",,site/modules/Mailbox/ProcessMailbox.module.php,f6097417a25dba866f5e4dab3e353d68
+"Credentials missing","Faltan credenciales",,site/modules/Mailbox/ProcessMailbox.module.php,faeef45b6e0225ffdc7df2b593490371
+"Credentials protected","Credenciales protegidas",,site/modules/Mailbox/Mailbox.module.php,ddc9b3e41987b10772db53f645ff2aa7
+"Credentials remain in Squad. Follow its default selection or choose one currently active provider and model.","Las credenciales permanecen en Squad. Siga su selección predeterminada o elija un proveedor y modelo actualmente activo.",,site/modules/Mailbox/Mailbox.module.php,ef771c62d1224b438f80ea466cbc711b
+"Credentials required","Credenciales requeridas",,site/modules/Mailbox/Mailbox.module.php,66779933f666f59d77a6dac0882585e5
+"Credentials stored","Credenciales almacenadas",,site/modules/Mailbox/ProcessMailbox.module.php,09dc92b343ae959e608f76b52bf74170
+"Current folder","Carpeta actual",,site/modules/Mailbox/ProcessMailbox.module.php,5e7d889f736ae28165a562d13bf01dec
+Date,Fecha,,site/modules/Mailbox/ProcessMailbox.module.php,44749712dbec183e983dcd78a7736c41
+Default,Predeterminado,,site/modules/Mailbox/ProcessMailbox.module.php,7a1920d61156abc05a60135aefe8bc67
+"Default account","Cuenta predeterminada",,site/modules/Mailbox/ProcessMailbox.module.php,76ccaf89a5bb78f54c7127b06a0a3035
+"Default folder","Carpeta predeterminada",,site/modules/Mailbox/Mailbox.module.php,f81cc86be84ce5cb6340aa87e3bd5951
+"Default folder","Carpeta predeterminada",,site/modules/Mailbox/ProcessMailbox.module.php,f81cc86be84ce5cb6340aa87e3bd5951
+"Default mailbox","Buzón predeterminado",,site/modules/Mailbox/ProcessMailbox.module.php,6c3787e53cff61ca714cf3c65dabeb1e
+"Default mailbox changed.","El buzón de correo predeterminado cambió.",,site/modules/Mailbox/ProcessMailbox.module.php,5262b2a34970375a1b24f385a78484c6
+"Default Squad provider, model, and bounded generation limits for Mailbox analysis and agent calls. Per-call API options may override these defaults within the same limits.","Proveedor Squad predeterminado, modelo y límites de generación acotados para Mailbox análisis y llamadas de agentes. Las opciones API por llamada pueden anular estos valores predeterminados dentro de los mismos límites.",,site/modules/Mailbox/Mailbox.module.php,610eca3a4d6dc9fda595d08043c8268c
+"Defaults suit most servers. Change these values only while diagnosing connection behavior.","Los valores predeterminados se adaptan a la mayoría de los servidores. Cambie estos valores sólo mientras diagnostica el comportamiento de la conexión.",,site/modules/Mailbox/Mailbox.module.php,a3af380c44391d1177accd1c01c2ee53
+"Defaults to 100 messages. Allowed range: 10–100.","El valor predeterminado es 100 mensajes. Rango permitido: 10–100.",,site/modules/Mailbox/Mailbox.module.php,af0cb90d54b9572efbabe3ee8b04797c
+Delete,Eliminar,,site/modules/Mailbox/ProcessMailbox.module.php,f2a6c498fb90ee345d997f888fce3b18
+"Delete account","Eliminar cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,e6e049c44a797fda2a175d07df838e49
+"Delete never permanently expunges messages.","Eliminar nunca elimina los mensajes de forma permanente.",,site/modules/Mailbox/ProcessMailbox.module.php,5d590557e3a89794c85c83b9631f4ef7
+"Delete this account","Eliminar esta cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,3095a15e6d2c042f0ccb8ebcb33a982c
+"Destination folder","Carpeta de destino",,site/modules/Mailbox/ProcessMailbox.module.php,2cd83e5f6f9c2809fdb10f65b1f49455
+Disabled,Desactivado,,site/modules/Mailbox/ProcessMailbox.module.php,b9f5c797ebbf55adccdd8539a65a0241
+"Disabled authenticator","Autenticador deshabilitado",,site/modules/Mailbox/Mailbox.module.php,f24794d6e7e542925ff4eb8496583afb
+"Disabled by default. Indexed message metadata, job payloads, and notifications are encrypted with the Mailbox keyring. LazyCron is request-driven; use the CLI worker for deterministic schedules.","Desactivado de forma predeterminada. Los metadatos de mensajes indexados, las cargas útiles de trabajos y las notificaciones se cifran con el conjunto de claves Mailbox. LazyCron se basa en solicitudes; utilice el trabajador CLI para programaciones deterministas.",,site/modules/Mailbox/Mailbox.module.php,a1fd8b93b71f4274d3f738c386735301
+"Disabled by default because some providers already save SMTP submissions. A failed append never retries or hides a successful SMTP delivery.","Deshabilitado de forma predeterminada porque algunos proveedores ya guardan SMTP envíos. Una incorporación fallida nunca vuelve a intentar ni oculta una entrega SMTP exitosa.",,site/modules/Mailbox/Mailbox.module.php,3bcf8f8ae6a7fde96a201be8f8076698
+"Disable GSSAPI only when Kerberos negotiation causes connection errors.","Deshabilite GSSAPI solo cuando la negociación Kerberos cause errores de conexión.",,site/modules/Mailbox/Mailbox.module.php,8192e4454549106b5c153cd9c391bb73
+"Disconnect OAuth","Desconectar OAuth",,site/modules/Mailbox/Mailbox.module.php,674c514c6751b530f18833876db0a733
+"Discover mail settings","Descubrir configuración de correo",,site/modules/Mailbox/ProcessMailbox.module.php,02cfa71422c2aa3181805dd5c231cbd0
+"Discover settings","Descubrir configuración",,site/modules/Mailbox/Mailbox.module.php,dee5816b07b14181da5560b680c26dc5
+"Discover settings","Descubrir configuración",,site/modules/Mailbox/ProcessMailbox.module.php,dee5816b07b14181da5560b680c26dc5
+"Discovery could not be completed","No se pudo completar la detección",,site/modules/Mailbox/ProcessMailbox.module.php,c298d00ec5dc88f8576f5561119fbd04
+"Discovery usually takes a few seconds. It performs no login attempt.","El descubrimiento suele tardar unos segundos. No realiza ningún intento de inicio de sesión.",,site/modules/Mailbox/ProcessMailbox.module.php,1729320892ed405435e471d5d9b838ff
+Display,Visualización,,site/modules/Mailbox/Mailbox.module.php,b9987a246a537f4fe86f1f2e3d10dbdb
+"Display settings","Configuración de visualización",,site/modules/Mailbox/ProcessMailbox.module.php,9dc0b7bdd32d5e30f4d71eb5abb6b8d4
+"DNS service records","DNS registros de servicio",,site/modules/Mailbox/ProcessMailbox.module.php,093deec5521f5e3f3fbaf2bb97f67ed0
+"Domain HTTPS autoconfig","Dominio HTTPS configuración automática",,site/modules/Mailbox/ProcessMailbox.module.php,a0e118d619408e93741979c5b4be66f1
+"Do not enter a password for an OAuth mailbox.","No ingrese una contraseña para un buzón OAuth.",,site/modules/Mailbox/ProcessMailbox.module.php,8f295b7d1f89d0e5803b4ed8ba161387
+"Download and install runtime","Descargar e instalar el tiempo de ejecución",,site/modules/Mailbox/ProcessMailbox.module.php,2f51dd4dc23e2a2bbd45bb9ab8ce1729
+"Download Mailbox runtime packages","Descargar paquetes de tiempo de ejecución Mailbox",,site/modules/Mailbox/ProcessMailbox.module.php,99efa288906f56d581a60ab0c0fa96df
+"Download Runtime packages","Descargar paquetes de tiempo de ejecución",,site/modules/Mailbox/ProcessMailbox.module.php,792389a4638e9ab971277bd3419095ae
+"Draft with AI","Borrador con IA",,site/modules/Mailbox/ProcessMailbox.module.php,6d0da74bcf116863d30be7b81c3ef007
+"Each account keeps its connection profile separate and stores its username, password, and OAuth tokens in an encrypted account-scoped credential row. Existing secrets are never displayed back to the browser.","Cada cuenta mantiene su perfil de conexión separado y almacena su nombre de usuario, contraseña y tokens OAuth en una fila de credenciales cifradas con ámbito de cuenta. Los secretos existentes nunca se muestran en el navegador.",,site/modules/Mailbox/ProcessMailbox.module.php,24d72ff6c45920a19a13a949ba41c6bc
+"Edit primary settings","Editar configuración principal",,site/modules/Mailbox/ProcessMailbox.module.php,018801ec9a214fd2e8f60f89f38d3dc7
+"Email text and guidance are sent to Squad’s external provider. AI never sends automatically; review and edit the draft before Send reply.","El texto y la orientación del correo electrónico se envían al proveedor externo de Squad. La IA nunca envía automáticamente; revise y edite el borrador antes de Enviar respuesta.",,site/modules/Mailbox/ProcessMailbox.module.php,a99a415cae668fb6e0dbf3a93a97e7f0
+"Enable %s in the Message actions section. These controls are independent of the Agent API.","Habilite %s en la sección Acciones de mensajes. Estos controles son independientes del Agente API.",,site/modules/Mailbox/ProcessMailbox.module.php,447e6409f817480d60b51b57fda6f6da
+"Enable an access channel first","Habilite primero un canal de acceso",,site/modules/Mailbox/Mailbox.module.php,28cab758309c6af626b1304053cc796b
+"Enable and save either the permission-gated PHP agent API or the local CLI in API & CLI, then return here.","Habilite y guarde el agente PHP con permiso API o el CLI local en API y CLI, luego regrese aquí.",,site/modules/Mailbox/Mailbox.module.php,0aaa19b2fcc8ad4860c39ecd09a855f3
+"Enable controlled confirmation-link workflow","Habilitar flujo de trabajo de enlace de confirmación controlado",,site/modules/Mailbox/Mailbox.module.php,5d9a8679cf210df52e043f238c4eaecb
+Enabled,Habilitado,,site/modules/Mailbox/ProcessMailbox.module.php,00d23a76e43b46dae9ec7aa9dcbebb32
+"Enabled accounts","Cuentas habilitadas",,site/modules/Mailbox/ProcessMailbox.module.php,9c0f5fda3c54b9a619ca067d661f8d7b
+"Enabled in the mailbox switcher","Habilitado en el conmutador de buzones",,site/modules/Mailbox/ProcessMailbox.module.php,aaf1f1f355dd1f0c1ddcfab9dae2c184
+"Enable encrypted local index and background synchronization","Habilitar índice local cifrado y sincronización en segundo plano",,site/modules/Mailbox/Mailbox.module.php,a87669ca3833dc89f02df39348fe9430
+"Enable local Mailbox CLI","Habilitar local Mailbox CLI",,site/modules/Mailbox/Mailbox.module.php,9f11ae64c68918cfb467be29b489097c
+"Enable message management in the admin","Habilitar la gestión de mensajes en el administrador",,site/modules/Mailbox/Mailbox.module.php,3e24e8662546329b2b54437128a2a956
+"Enable message management to select, flag, move, or delete multiple messages.","Habilite la administración de mensajes para seleccionar, marcar, mover o eliminar varios mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,3e9445a97f48e5e94ab78e843ff158d8
+"Enable permission-gated PHP agent API","Habilitar el agente PHP con permiso API",,site/modules/Mailbox/Mailbox.module.php,a9cf897c4dd3f2da39d759bda62002cb
+"Enable reviewed POST/form/code confirmation workflows","Habilitar flujos de trabajo de confirmación de POST/formulario/código revisado",,site/modules/Mailbox/Mailbox.module.php,15f196f1214480ea8f46f2c3d83b4a5d
+"Enable same-origin JSON REST API","Habilitar el mismo origen JSON REST API",,site/modules/Mailbox/Mailbox.module.php,4eac9ec67e949231b35c1ecff22dfb89
+"Enable SMTP reply and forward","Habilitar SMTP responder y reenviar",,site/modules/Mailbox/Mailbox.module.php,cd2eeb6cd2f45b8a76e22dd488d138e1
+"Enable Squad AI for mailbox analysis and bounded agent tools","Habilite Squad AI para análisis de buzones de correo y herramientas de agentes delimitados",,site/modules/Mailbox/Mailbox.module.php,af46aa8e42b948ae0cca2310d56e277c
+"Enable Squad integration in AI settings.","Habilite la integración Squad en la configuración de IA.",,site/modules/Mailbox/ProcessMailbox.module.php,ba2334495d7c94b3039651f660d66da9
+"Enable the PHP agent API and grant this user mailbox-api.","Habilite el agente PHP API y otorgue a este usuario mailbox-api.",,site/modules/Mailbox/ProcessMailbox.module.php,814f31db6005bcb3a61235d9e3c981b9
+Encrypted,Cifrado,,site/modules/Mailbox/ProcessMailbox.module.php,def09fa4a833717d38298eb37c861af8
+"Encrypted credentials are already configured. Expand only to replace or remove them.","Las credenciales cifradas ya están configuradas. Expandir sólo para reemplazarlos o eliminarlos.",,site/modules/Mailbox/Mailbox.module.php,23d01e6870eae9197ef547cdeedc7878
+Encryption,Cifrado,,site/modules/Mailbox/Mailbox.module.php,d7f2615c71a1567cc13cf3a7f7de0aea
+"Enter a reply before sending.","Ingrese una respuesta antes de enviar.",,site/modules/Mailbox/ProcessMailbox.module.php,1f5b9e3a53f3dbeab7e4cbd984f050fd
+"Enter a valid forwarding address.","Ingrese una dirección de reenvío válida.",,site/modules/Mailbox/ProcessMailbox.module.php,9d90d099f12ebe6e63c0be05bcaf5ad6
+"Enter it manually before the SMTP test.","Introdúzcalo manualmente antes de la prueba SMTP.",,site/modules/Mailbox/ProcessMailbox.module.php,b11c8a7b3d2c7a7aa889bc76a4ec956a
+"Enter only the mailbox email address. Mailbox checks known provider presets, secure DNS service records, and the provider’s HTTPS autoconfiguration. It returns candidates for review—it does not connect to the mailbox, request a password, or save anything.","Ingrese solo la dirección de correo electrónico del buzón. Mailbox verifica los ajustes preestablecidos del proveedor conocido, los registros de servicio DNS seguros y la configuración automática HTTPS del proveedor. Devuelve candidatos para su revisión; no se conecta al buzón, no solicita una contraseña ni guarda nada.",,site/modules/Mailbox/ProcessMailbox.module.php,b754dade6c3e41a648ecbeab1e85c23f
+"Enter the mailbox address","Ingrese la dirección del buzón",,site/modules/Mailbox/ProcessMailbox.module.php,fb7829f3c47eef38b7012d0459f24261
+"Enter the OAuth mailbox username when changing authentication, provider, client ID, or tenant. The account must then be reconnected.","Ingrese el nombre de usuario del buzón OAuth al cambiar la autenticación, el proveedor, el ID del cliente o el inquilino. Luego se debe volver a conectar la cuenta.",,site/modules/Mailbox/ProcessMailbox.module.php,c3ec21ca29121123ceee3a8820f5bdfc
+"Every 5 minutes","Cada 5 minutos",,site/modules/Mailbox/Mailbox.module.php,e2f640bf5d42c17d4f13cea86264b277
+"Every 15 minutes","Cada 15 minutos",,site/modules/Mailbox/Mailbox.module.php,cb2531191d62f80599c99e6e62d27b62
+"Every 30 minutes","Cada 30 minutos",,site/modules/Mailbox/Mailbox.module.php,4f6969a7095a445329e6510879d4e23a
+"Every hour","Cada hora",,site/modules/Mailbox/Mailbox.module.php,02fd27d2951d00b83f111f63611ea863
+"Every minute","Cada minuto",,site/modules/Mailbox/Mailbox.module.php,5f86190bddaffe634153c40721b41544
+"Executable is selected only from trusted server configuration or known absolute paths.","El ejecutable se selecciona solo desde la configuración del servidor confiable o rutas absolutas conocidas.",,site/modules/Mailbox/ProcessMailbox.module.php,0364e92af648cfdc2108bdef6628a717
+"External approval workspace","Espacio de trabajo de aprobación externa",,site/modules/Mailbox/Mailbox.module.php,44ef9f73ad0f4176cd8700707a736122
+"External content can report mailbox activity","El contenido externo puede informar la actividad del buzón",,site/modules/Mailbox/Mailbox.module.php,f4e92752ad456c46c4bdb0248ccdae5c
+"Find settings","Buscar configuración",,site/modules/Mailbox/ProcessMailbox.module.php,3e7b4bc6bdfc395f240857b39f5e6075
+"Find the likely mail server settings for an address","Encontrar la configuración probable del servidor de correo para una dirección",,site/modules/Mailbox/ProcessMailbox.module.php,535196442ce01ecc289afaa9f7f897d4
+Flagged,Marcado,,site/modules/Mailbox/ProcessMailbox.module.php,72d68acd07c783e657e2d2a9c50f16df
+flagged,marcado,,site/modules/Mailbox/ProcessMailbox.module.php,a6ff48a663676bb690a54aff3ed79f11
+Folder,Carpeta,,site/modules/Mailbox/ProcessMailbox.module.php,b0f2b97dc5d2b76b26e040408bb1d8af
+"Folder list pattern","Patrón de lista de carpetas",,site/modules/Mailbox/Mailbox.module.php,878cc66ccc5043ba1284cec1d5438af3
+"Folder pattern","Patrón de carpeta",,site/modules/Mailbox/ProcessMailbox.module.php,0873638749b22727d889673aeeaaf800
+Folders,Carpetas,,site/modules/Mailbox/ProcessMailbox.module.php,60c7502b5c40479908aed919a94c1786
+"Folders and account behavior","Carpetas y comportamiento de la cuenta",,site/modules/Mailbox/ProcessMailbox.module.php,e7c5a49907614b511fb9f298cfa5b78f
+"Folders and display","Carpetas y visualización",,site/modules/Mailbox/Mailbox.module.php,962175aad34275fb9ed0c56c0a34b5cf
+"For example, support@example.com. Do not enter a password.","Por ejemplo, soporte@ejemplo.com. No ingrese una contraseña.",,site/modules/Mailbox/ProcessMailbox.module.php,e8bc150884a73d60052bede9f3521a69
+"For providers with two-factor authentication, use an app password. You may enter env:VARIABLE_NAME so the password itself never enters the database.","Para proveedores con autenticación de dos factores, utilice una contraseña de aplicación. Puede ingresar env:VARIABLE_NAME para que la contraseña nunca ingrese a la base de datos.",,site/modules/Mailbox/Mailbox.module.php,2980adeb216a48b098445a8fe3062fb3
+Forward,Adelante,,site/modules/Mailbox/ProcessMailbox.module.php,67d2f6740a8eaebf4d5c6f79be8da481
+From,De,,site/modules/Mailbox/ProcessMailbox.module.php,5da618e8e4b89c66fe86e32cdafde142
+"From address override","Desde anulación de dirección",,site/modules/Mailbox/Mailbox.module.php,e413b65ad7850ab7957803053bbb7632
+"From display name","Desde el nombre para mostrar",,site/modules/Mailbox/Mailbox.module.php,8ab98c4de5e00fbfb21ae4c65f8b8aef
+"Frontend, CLI, and agent access","Frontend, CLI y acceso de agente",,site/modules/Mailbox/Mailbox.module.php,81292c9b4600e35d4e5840468721ce68
+"Generate a non-cached summary. Agent-safe email text is sent to the external provider configured in Squad.","Genere un resumen no almacenado en caché. El texto del correo electrónico seguro para los agentes se envía al proveedor externo configurado en Squad.",,site/modules/Mailbox/ProcessMailbox.module.php,d58f8954fd8a5052ebe1d5f7fa146279
+"Generate draft","Generar borrador",,site/modules/Mailbox/ProcessMailbox.module.php,0a194cceeae861832e133716f6cf7682
+"Has attachment","Tiene archivos adjuntos",,site/modules/Mailbox/ProcessMailbox.module.php,72ea26d60a2c94e02e1ff7067dad81ad
+"High confidence","Confianza alta",,site/modules/Mailbox/ProcessMailbox.module.php,19016d4610b1fd2c2b638c969e14f657
+"Hostname only, for example imap.example.com.","Solo nombre de host, por ejemplo imap.example.com.",,site/modules/Mailbox/Mailbox.module.php,a1df0586881bd9ba42a97dfb6a7331a2
+"How to use this page","Cómo utilizar esta página",,site/modules/Mailbox/ProcessMailbox.module.php,357665c4a2d33deb8da4dd3fa5192483
+"HTTPS links enabled — destinations may detect clicks. Admin address remains hidden; images, scripts, and forms remain blocked.","HTTPS enlaces habilitados: los destinos pueden detectar clics. La dirección del administrador permanece oculta; las imágenes, guiones y formularios permanecen bloqueados.",,site/modules/Mailbox/ProcessMailbox.module.php,86e0cb63548f5880bfa2bfbd13c5cdda
+"Identity and provider","Identidad y proveedor",,site/modules/Mailbox/ProcessMailbox.module.php,b2742235076664ea0c3a4bbf1763106d
+"IMAP and SMTP are tested only after saving.","IMAP y SMTP se prueban solo después de guardarlos.",,site/modules/Mailbox/ProcessMailbox.module.php,ed22099084570666879d3ee61f167ac8
+"IMAP connection","IMAP conexión",,site/modules/Mailbox/Mailbox.module.php,c23d39d9685b00e8eba63ccb8edf8fe7
+"IMAP connection failed:","IMAP error de conexión:",,site/modules/Mailbox/ProcessMailbox.module.php,9b0b1995097eeb31367f8f3fd23651c7
+"IMAP connection succeeded in %d ms: %d folders, %d messages in the default folder.","La conexión IMAP se realizó correctamente en %d ms: %d carpetas, %d mensajes en la carpeta predeterminada.",,site/modules/Mailbox/ProcessMailbox.module.php,ccd993c611fda867c2b5b4c9bdcabd16
+"IMAP engine","IMAP motor",,site/modules/Mailbox/Mailbox.module.php,d7ed339a3e7e96a2c72c63a27168baea
+"IMAP engine","IMAP motor",,site/modules/Mailbox/ProcessMailbox.module.php,d7ed339a3e7e96a2c72c63a27168baea
+"IMAP host","IMAP host",,site/modules/Mailbox/Mailbox.module.php,ad872b1ac5b2688a397b18e643510805
+"IMAP host","IMAP host",,site/modules/Mailbox/ProcessMailbox.module.php,ad872b1ac5b2688a397b18e643510805
+"IMAP login failed:","IMAP error de inicio de sesión:",,site/modules/Mailbox/ProcessMailbox.module.php,5d64b77d214e55a406427ba15cfffe28
+"IMAP wildcard pattern. Use * for all levels or % for one hierarchy level.","IMAP patrón comodín. Utilice * para todos los niveles o % para un nivel de jerarquía.",,site/modules/Mailbox/Mailbox.module.php,d1b9b5741eb7edba3e1cb8d248028f0f
+"Implicit TLS / SSL","Implícito TLS / SSL",,site/modules/Mailbox/Mailbox.module.php,d7ad0e356d31f6dae152853320842567
+Incoming,Entrante,,site/modules/Mailbox/ProcessMailbox.module.php,589ab34e870b80c8c7d035805452df19
+"Incoming-mail endpoint used to list folders, search, and read messages.","Punto final de correo entrante utilizado para enumerar carpetas, buscar y leer mensajes.",,site/modules/Mailbox/Mailbox.module.php,ab72814deb612ae3c7a7e0fdd1c08e53
+"Incoming mail","Correo entrante",,site/modules/Mailbox/ProcessMailbox.module.php,32464edce3b75c214a38a919ce4d3146
+"Incoming mail · IMAP","Correo entrante · IMAP",,site/modules/Mailbox/ProcessMailbox.module.php,2bcc74df3ea710c47185b96b8e59fa85
+"Incoming server","Servidor entrante",,site/modules/Mailbox/Mailbox.module.php,d5bf2329eae24c59e713f14b256d38fe
+"Install and activate Squad, then reload this page. AI integration cannot be selected until Mailbox detects its ask() and run() API.","Instale y active Squad, luego vuelva a cargar esta página. La integración de IA no se puede seleccionar hasta que Mailbox detecte su ask() y run() API.",,site/modules/Mailbox/Mailbox.module.php,3efc9c995ae30ba12fa0dff5c99d4a2c
+"Install Squad to enable AI analysis.","Instale Squad para habilitar el análisis de IA.",,site/modules/Mailbox/ProcessMailbox.module.php,70a579983dc4bb116901a5bef7d5dde4
+"Install the exact dependencies recorded in composer.lock into site/assets/Mailbox/runtime/vendor. The persistent runtime survives ProcessWire module upgrades; PHPMailer provides SMTP and Webklex provides SNI-capable IMAP.","Instale las dependencias exactas registradas en compositor.lock en site/assets/Mailbox/runtime/vendor. El tiempo de ejecución persistente sobrevive a las actualizaciones del módulo ProcessWire; PHPMailer proporciona SMTP y Webklex proporciona IMAP compatible con SNI.",,site/modules/Mailbox/ProcessMailbox.module.php,d64b7eeecaa1d5ee58d39329b3b3d2d8
+"Instructions for the draft","Instrucciones para el borrador",,site/modules/Mailbox/ProcessMailbox.module.php,b519b201a32095566c27c91d00b3262b
+"Invalid folder token.","Token de carpeta no válido.",,site/modules/Mailbox/ProcessMailbox.module.php,7c2d48fa61eb8c68baa2e7ffc592f8c9
+"Invalid mailbox account.","Cuenta de buzón no válida.",,site/modules/Mailbox/ProcessMailbox.module.php,32c5bf9a67a5335943805ee4e2ae5ad7
+"Invalid mailbox preset.","Preajuste de buzón no válido.",,site/modules/Mailbox/ProcessMailbox.module.php,3f8735c821bfc56e2c04decc37aa155a
+"Invalid message UID.","Mensaje no válido UID.",,site/modules/Mailbox/ProcessMailbox.module.php,573d5c3ba12b3e0e0df6714a22daa332
+"Invalid security token.","Token de seguridad no válido.",,site/modules/Mailbox/ProcessMailbox.module.php,66dff4bc6149738292b7b2737e7e2e8c
+"I understand the privacy risk — allow HTTPS links in HTML messages","Entiendo el riesgo de privacidad: permitir enlaces HTTPS en mensajes HTML",,site/modules/Mailbox/Mailbox.module.php,6e866c70ba27d6e1f62b2587ded8a2b5
+"I understand the privacy risk — load remote HTTPS images in HTML messages","Entiendo el riesgo de privacidad: cargar imágenes HTTPS remotas en mensajes HTML",,site/modules/Mailbox/Mailbox.module.php,c73af295f48890feaae8a065b1b65f1e
+"Jobs processed per run","Trabajos procesados por ejecución",,site/modules/Mailbox/Mailbox.module.php,fe66f0b6ae2ebe0492403f7c7cd5be97
+"Known provider preset","Preajuste de proveedor conocido",,site/modules/Mailbox/ProcessMailbox.module.php,c00317b4baea506ab60aae606c07a998
+"Kontor organization UID","Kontor organización UID",,site/modules/Mailbox/Mailbox.module.php,1bdedd440cbac3329e38d937e621134e
+"LazyCron interval","Intervalo LazyCron",,site/modules/Mailbox/Mailbox.module.php,4d1ea01ad2f3a1726c8459f680bc2a6b
+"Leave blank to keep the stored encrypted username.","Déjelo en blanco para conservar el nombre de usuario cifrado almacenado.",,site/modules/Mailbox/ProcessMailbox.module.php,c5b718872944399f28bb080c057cda87
+"Leave empty to use the encrypted mailbox username. The SMTP server may reject unauthorized aliases.","Déjelo vacío para usar el nombre de usuario del buzón cifrado. El servidor SMTP puede rechazar alias no autorizados.",,site/modules/Mailbox/Mailbox.module.php,ab04d2711c8f6ab0cebe9e5b6d270338
+"Leave username and password blank to keep the encrypted credentials. Enter both fields only when replacing a password login.","Deje el nombre de usuario y la contraseña en blanco para mantener las credenciales cifradas. Ingrese ambos campos solo cuando reemplace una contraseña de inicio de sesión.",,site/modules/Mailbox/ProcessMailbox.module.php,3bb515a66934fd2a636b78aba75a70b8
+"Links open in a new tab without a Referer. Only public-hostname HTTPS URLs on port 443 are allowed; scripts, forms, local addresses, and unsafe schemes remain blocked.","Los enlaces se abren en una nueva pestaña sin un referente. Sólo se permiten URL de nombre de host público HTTPS en el puerto 443; scripts, formularios, direcciones locales y esquemas inseguros permanecen bloqueados.",,site/modules/Mailbox/Mailbox.module.php,61c716f76e26764b4277eaab176f70b4
+"Loading mailbox","Cargando buzón",,site/modules/Mailbox/ProcessMailbox.module.php,525a465b937a7e25dc9d65bb7fef7068
+"Loading message","Cargando mensaje",,site/modules/Mailbox/ProcessMailbox.module.php,2444f45e3a43f27ced5251c34f54359a
+"Locked: %s","Bloqueado: %s",,site/modules/Mailbox/ProcessMailbox.module.php,a22c642e5ecf74276ee7a56933d0b608
+Mailbox,Mailbox,,site/modules/Mailbox/ProcessMailbox.module.php,2dcff8c037093c5d3552ad532e603f9f
+"Mailbox account %s created.","Mailbox cuenta %s creada.",,site/modules/Mailbox/ProcessMailbox.module.php,574f545987e0223709d458b0a2858568
+"Mailbox account %s updated.","Mailbox cuenta %s actualizada.",,site/modules/Mailbox/ProcessMailbox.module.php,4155294d0d972d34b4e8a697d94a3650
+"Mailbox account and its encrypted credentials were deleted.","Mailbox y sus credenciales cifradas.",,site/modules/Mailbox/ProcessMailbox.module.php,ff9f43dfdd38555ae6548610e2f46f8a
+"Mailbox accounts","Mailbox cuentas",,site/modules/Mailbox/ProcessMailbox.module.php,38430715c973a269b3fd178fcd324e9c
+"Mailbox attachment permission is required.","Mailbox se requiere permiso para adjuntar.",,site/modules/Mailbox/ProcessMailbox.module.php,4909b054eacebb6878d60c130d6923fb
+"Mailbox configuration","Mailbox configuración",,site/modules/Mailbox/Mailbox.module.php,a2a83a8cc3f29960f0eccbd0fd33dd86
+"Mailbox controls and folders","Mailbox controles y carpetas",,site/modules/Mailbox/ProcessMailbox.module.php,0f7dcd1d9571f123c7982f071a427724
+"Mailbox email address","Mailbox dirección de correo electrónico",,site/modules/Mailbox/ProcessMailbox.module.php,99e610db2e8c5d18aa4219fe99f1470f
+"Mailbox keeps the safety controls fixed","Mailbox mantiene fijos los controles de seguridad",,site/modules/Mailbox/Mailbox.module.php,85d11869bd11aa3a9dea2e4a1d577608
+"Mailbox runtime packages installed. PHPMailer %1$s and Webklex %2$s are ready.","Mailbox paquetes de tiempo de ejecución instalados. PHPMailer %1$s y Webklex %2$s están listos.",,site/modules/Mailbox/ProcessMailbox.module.php,c80ee1f0eb28e0a6f6932042c812e2b8
+"Mailbox sections","Mailbox secciones",,site/modules/Mailbox/ProcessMailbox.module.php,64224fe1ee028395e32a2bbcd50223e5
+"Mailbox send permission and enabled SMTP are required.","Mailbox permiso de envío y SMTP habilitado.",,site/modules/Mailbox/ProcessMailbox.module.php,1ac59e85d3917002a0e5bfcc56abcc28
+"Mailbox send permission is required.","Mailbox se requiere permiso de envío.",,site/modules/Mailbox/ProcessMailbox.module.php,01cc396e47cc547ccb1d1151e4b06985
+"Mailbox unavailable","Mailbox no disponible",,site/modules/Mailbox/ProcessMailbox.module.php,64fdb11731b3309d74101172c8a7ce99
+"Mailbox usernames, passwords, and OAuth tokens are encrypted in the dedicated credentials table and are never rendered back into this form. OAuth client secrets belong only in config.php, Vault, or KMS.","Mailbox nombres de usuario, contraseñas y tokens OAuth se cifran en la tabla de credenciales dedicada y nunca se muestran nuevamente en este formulario. Los secretos del cliente OAuth pertenecen únicamente a config.php, Vault o KMS.",,site/modules/Mailbox/Mailbox.module.php,544d22acbb4edd14be16f43483f2a72b
+"Mailbox write permission is required.","Mailbox se requiere permiso de escritura.",,site/modules/Mailbox/ProcessMailbox.module.php,62d2a72787ad2562d8910c89c5bdca40
+"Mail folders","Carpetas de correo",,site/modules/Mailbox/ProcessMailbox.module.php,549e5f3e45454190236ed8afa272b1df
+"Mail runtime incomplete","Tiempo de ejecución de correo incompleto",,site/modules/Mailbox/ProcessMailbox.module.php,9328247f02c08175be7e59939f7b7ab4
+"Mail runtime ready","Tiempo de ejecución de correo listo",,site/modules/Mailbox/ProcessMailbox.module.php,ba0815131cfb7b7de7c26c7e8025171d
+"Mail service or server","Servidor o servicio de correo",,site/modules/Mailbox/Mailbox.module.php,30ef2db0e19b00f2ef066c1b6f6a4edd
+"Make default","Establecer como predeterminado",,site/modules/Mailbox/ProcessMailbox.module.php,630aa22e854b4dbaff60cd67bc227f3e
+"Make the module directory writable and configure an absolute executable path in $config->mailboxComposerPath, or run composer install --no-dev --prefer-dist in the Mailbox directory.","Haga que se pueda escribir en el directorio del módulo y configure una ruta ejecutable absoluta en $config->mailboxComposerPath, o ejecute Composer install --no-dev --prefer-dist en el directorio Mailbox.",,site/modules/Mailbox/ProcessMailbox.module.php,50112f7cc9c0c53e19f2f0b1ac817c84
+"Manage accounts","Administrar cuentas",,site/modules/Mailbox/Mailbox.module.php,afa76abc4566eab1fcb19c24508a45f6
+"Managed by the canonical Mailbox module settings.","Administrado por la configuración del módulo canónico Mailbox.",,site/modules/Mailbox/ProcessMailbox.module.php,f1456b234fa472bb3cf2e10b9416e9a6
+"Management disabled","Gestión deshabilitada",,site/modules/Mailbox/Mailbox.module.php,9325b3bc8f006c36bb5523d14e22e041
+"Management enabled","Gestión habilitada",,site/modules/Mailbox/Mailbox.module.php,3eb739eb80365dcaf47ed101ca0c3118
+"Manage messages","Administrar mensajes",,site/modules/Mailbox/Mailbox.module.php,c1013543fc4eeb7a9b8e780d778fb198
+"Mark as read","Marcar como leído",,site/modules/Mailbox/ProcessMailbox.module.php,58111686a382dbe8bd7871a1057eea62
+"Mark as unread","Marcar como no leído",,site/modules/Mailbox/ProcessMailbox.module.php,18ae59b5a60d0870f822f09d1b8df09c
+"marked as read","marcado como leído",,site/modules/Mailbox/ProcessMailbox.module.php,99b8edd74c0c912d1f8745f7c811b336
+"marked as unread","marcado como no leído",,site/modules/Mailbox/ProcessMailbox.module.php,971fa5ba3cbddffdc23642dc918fa526
+"marked for deletion without permanent expunge","marcado para eliminación sin eliminación permanente",,site/modules/Mailbox/ProcessMailbox.module.php,767a5491b8f0f49293c8400d0348881b
+"Mark for deletion","Marcar para eliminación",,site/modules/Mailbox/ProcessMailbox.module.php,b47d06a97aba1795a827b277ac466a82
+"Mark the selected messages for deletion? They will not be permanently expunged.","¿Marcar los mensajes seleccionados para eliminarlos? No serán eliminados permanentemente.",,site/modules/Mailbox/ProcessMailbox.module.php,0a6a726a43b9cb5f738314adf713bd90
+"Mark this message for deletion? It will not be permanently expunged.","¿Marcar este mensaje para eliminarlo? No será eliminado permanentemente.",,site/modules/Mailbox/ProcessMailbox.module.php,1edd0ebb84ff87cd5fd5aacda7e78618
+matches,coincidencias,,site/modules/Mailbox/ProcessMailbox.module.php,9c28d32df234037773be184dbdafc274
+"Maximum 3 attempts per request.","Máximo 3 intentos por solicitud.",,site/modules/Mailbox/Mailbox.module.php,eb5af91a51a5aa1f96801d53a0427fcb
+"Maximum agent-readable attachment bytes","Bytes máximos de archivos adjuntos legibles por el agente",,site/modules/Mailbox/Mailbox.module.php,0f2b6a76e96306e20fc3c29a97d976ed
+"Maximum agent steps","Pasos máximos del agente",,site/modules/Mailbox/Mailbox.module.php,be25fa9834e043469dc457501bf6d8e4
+"Maximum attachment bytes","Bytes máximos de archivos adjuntos",,site/modules/Mailbox/Mailbox.module.php,34a5597128fa7a1ef29c186f4f3ae0d3
+"Maximum collected search results","Resultados de búsqueda máximos recopilados",,site/modules/Mailbox/Mailbox.module.php,02f35476eb3c50ff77197ced420c5f4a
+"Maximum confirmation response bytes","Bytes máximos de respuesta de confirmación",,site/modules/Mailbox/Mailbox.module.php,a9e4643910312ef1026dc56439c27ae7
+"Maximum decoded attachment size for trusted downloads. Range: 64 KiB to 50 MiB.","Tamaño máximo de archivos adjuntos decodificados para descargas confiables. Rango: 64 KiB a 50 MiB.",,site/modules/Mailbox/Mailbox.module.php,0669f3a84877888b76e97da0c1d863c1
+"Maximum displayed body bytes","Bytes de cuerpo máximos mostrados",,site/modules/Mailbox/Mailbox.module.php,90359aa817ea43a4af2ef5855e6c412b
+"Maximum folders per sync","Carpetas máximas por sincronización",,site/modules/Mailbox/Mailbox.module.php,fb8a4234eb1ed598c2962e230e36c280
+"Maximum folders per whole-account search","Carpetas máximas por búsqueda en toda la cuenta",,site/modules/Mailbox/Mailbox.module.php,484d4e94fb91030a128c4db486f69c8d
+"Maximum output tokens","Tokens de salida máxima",,site/modules/Mailbox/Mailbox.module.php,c33008ae12f15bcc35ee165479549033
+"Message actions","Acciones de mensajes",,site/modules/Mailbox/Mailbox.module.php,c02bf9e250df929c7f827281843b3afe
+"Message forwarded.","Mensaje reenviado.",,site/modules/Mailbox/ProcessMailbox.module.php,12bde66c52377a81f76d210fb0411aea
+"Message marked as read.","Mensaje marcado como leído.",,site/modules/Mailbox/ProcessMailbox.module.php,bcebfd92831552ab68c78f2fb2695b93
+"Message marked as unread.","Mensaje marcado como no leído.",,site/modules/Mailbox/ProcessMailbox.module.php,d45c2e503337b48483d001939f2959e5
+"Message marked for deletion. It was not permanently expunged.","Mensaje marcado para eliminación. No fue eliminado permanentemente.",,site/modules/Mailbox/ProcessMailbox.module.php,ba1f5d2719a2142d4e18a8e7edc24f01
+"Message moved.","Mensaje movido.",,site/modules/Mailbox/ProcessMailbox.module.php,deece610e1679d0cb23545243a069177
+"Message pages","Páginas de mensajes",,site/modules/Mailbox/ProcessMailbox.module.php,4ce2ab442bc185b52a56d9b7cd8d5565
+"Message representation","Representación de mensajes",,site/modules/Mailbox/ProcessMailbox.module.php,d4c71c577c6ad7b630c68a69613f5662
+messages,mensajes,,site/modules/Mailbox/ProcessMailbox.module.php,de70938849b75d3db63bba421c93e018
+"Messages per page","Mensajes por página",,site/modules/Mailbox/Mailbox.module.php,c23cb67af9bdd89ea9b7318d2fe23625
+"Microsoft tenant","Inquilino de Microsoft",,site/modules/Mailbox/Mailbox.module.php,028e4ac572f0093b3d57c4d9098701a5
+Move,Mover,,site/modules/Mailbox/ProcessMailbox.module.php,6bc362dbf494c61ea117fe3c71ca48a5
+moved,movido,,site/modules/Mailbox/ProcessMailbox.module.php,11dfd868d93bc2b0e4ce0bee5756f8b1
+"Move to folder","Mover a carpeta",,site/modules/Mailbox/ProcessMailbox.module.php,57a313c301329fbfc4be6d1b84aa41b9
+"Move to…","Mover a…",,site/modules/Mailbox/ProcessMailbox.module.php,bd22804ab69c2be5ca310b0d071a13e1
+"Name this profile and select a starting template and login method.","Nombre este perfil y seleccione una plantilla inicial y un método de inicio de sesión.",,site/modules/Mailbox/ProcessMailbox.module.php,4d6de4c7b4608e1da33626e48db40007
+"Native alternative: enable the imap extension for the PHP version assigned to this host and restart the MAMP servers.","Alternativa nativa: habilite la extensión imap para la versión PHP asignada a este host y reinicie los servidores MAMP.",,site/modules/Mailbox/ProcessMailbox.module.php,046cf851688c694aa0644d7bf8c59052
+"Native PHP IMAP","Nativo PHP IMAP",,site/modules/Mailbox/Mailbox.module.php,3fe36bd9768b69c51bbe4141175bd036
+"Native PHP IMAP","Nativo PHP IMAP",,site/modules/Mailbox/ProcessMailbox.module.php,3fe36bd9768b69c51bbe4141175bd036
+"Native PHP IMAP support is required","Se requiere soporte nativo PHP IMAP",,site/modules/Mailbox/ProcessMailbox.module.php,5a034597c2d4f73dfee5eaf9a7382be2
+"Needs verification","Necesita verificación",,site/modules/Mailbox/ProcessMailbox.module.php,9a6e31e88f0032a17155793b6faece75
+Newer,"Más reciente",,site/modules/Mailbox/ProcessMailbox.module.php,236c7642a79eeb1b4154eb4712bd4068
+"Newer messages","Mensajes más recientes",,site/modules/Mailbox/ProcessMailbox.module.php,fbebc2d33c1ea004dc4338daa286b3ea
+"Newest first","Lo más nuevo primero",,site/modules/Mailbox/ProcessMailbox.module.php,88241ddd8e6f8ea848409c02dcd7549d
+"New messages will appear here.","Aquí aparecerán nuevos mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,d4444df7f6d58fc6540ecf8f0c0ee7cf
+"New password / app password","Nueva contraseña/contraseña de aplicación",,site/modules/Mailbox/ProcessMailbox.module.php,c8e961a3ec9adb11eb6d6bcf6dd0cd31
+"New username / mailbox address","Nuevo nombre de usuario/dirección de buzón",,site/modules/Mailbox/ProcessMailbox.module.php,a41bbbc6dde02f6c6d078ff81ad73526
+Next,Siguiente,,site/modules/Mailbox/ProcessMailbox.module.php,10ac3d04253ef7e1ddc73e6091c0cd55
+"Next message","Siguiente mensaje",,site/modules/Mailbox/ProcessMailbox.module.php,c490ea992db55325f5ae034634434e2d
+"Next search page","Siguiente página de búsqueda",,site/modules/Mailbox/ProcessMailbox.module.php,7c2a8e9d52239059dc2327f863b702b7
+No,No,,site/modules/Mailbox/ProcessMailbox.module.php,bafd7322c6e97d25b6299b5d6fe8920b
+"No automatic changes","Sin cambios automáticos",,site/modules/Mailbox/ProcessMailbox.module.php,3ce8a4de25c00724c6873671b9497321
+"No enabled mailbox account is available.","No hay ninguna cuenta de buzón habilitada disponible.",,site/modules/Mailbox/ProcessMailbox.module.php,ec46dafcfdab15b418e6ca1ad40c2b2d
+"No messages matched the search.","Ningún mensaje coincidió con la búsqueda.",,site/modules/Mailbox/ProcessMailbox.module.php,dfaa900f9d531e974d8f573ab7b51f69
+None,Ninguno,,site/modules/Mailbox/Mailbox.module.php,6adf97f83acf6453d4a6a4b1070f3754
+"No password","Sin contraseña",,site/modules/Mailbox/ProcessMailbox.module.php,f8cf7801bd44f47bdf08e4ab122ab5bc
+"No safe automatic settings were found","No se encontraron configuraciones automáticas seguras",,site/modules/Mailbox/ProcessMailbox.module.php,2f02537c71b9ee0096480844bc870603
+"Not configured","No configurado",,site/modules/Mailbox/ProcessMailbox.module.php,db3f921088947d83680a80a0285ef414
+"Not discovered","No descubierto",,site/modules/Mailbox/ProcessMailbox.module.php,5b5caa2a596caebd3483686b0581c78a
+"Not found","No encontrado",,site/modules/Mailbox/ProcessMailbox.module.php,9e076f5885f5cc16a4b5aeb8de4adff5
+"Nothing has been saved or tested. Prefer a high-confidence provider result, but always compare it with official provider information.","No se ha guardado ni probado nada. Prefiera el resultado de un proveedor de alta confianza, pero compárelo siempre con la información oficial del proveedor.",,site/modules/Mailbox/ProcessMailbox.module.php,8af5139c60e321e9b050da386a0cedf3
+"Not installed","No instalado",,site/modules/Mailbox/ProcessMailbox.module.php,d12fb360f73c34226d1e50228875d8cf
+"Not selected","No seleccionado",,site/modules/Mailbox/ProcessMailbox.module.php,6e04e3f954afc61bc93bd468bcbcaa13
+"OAuth authorization was not completed:","OAuth la autorización no se completó:",,site/modules/Mailbox/ProcessMailbox.module.php,ec8cb07f6c970c478de31d6e89b8310d
+"OAuth client ID","OAuth ID de cliente",,site/modules/Mailbox/Mailbox.module.php,2842b98236dcbabacf91a6bef2f5c65b
+"OAuth connection","OAuth conexión",,site/modules/Mailbox/Mailbox.module.php,8e2540234bba6cc415088794a9a388bb
+"OAuth connection failed:","OAuth error de conexión:",,site/modules/Mailbox/ProcessMailbox.module.php,d2aed95175c278e0fe794a52024c1e30
+"OAuth mailbox account %d connected.","OAuth cuenta de buzón %d conectada.",,site/modules/Mailbox/ProcessMailbox.module.php,127ec3628b924d1f8985023c351c5fcd
+"OAuth mailbox account %d disconnected.","OAuth cuenta de buzón %d desconectada.",,site/modules/Mailbox/ProcessMailbox.module.php,a30df1bd83be35bdac155fb1101db260
+"OAuth mailbox username","OAuth nombre de usuario del buzón",,site/modules/Mailbox/Mailbox.module.php,f08292f867cddb0cf227beafd7be561b
+"OAuth mailbox username is required.","OAuth se requiere nombre de usuario del buzón.",,site/modules/Mailbox/ProcessMailbox.module.php,141a139c632fd1da0332ffeb5082e5f8
+"OAuth provider","OAuth proveedor",,site/modules/Mailbox/Mailbox.module.php,65ae2a1d47127fc5393d3fa5d8d83a4c
+"OAuth requires a separate connection","OAuth requiere una conexión separada",,site/modules/Mailbox/ProcessMailbox.module.php,9f1822722fb82e3ed2f215c080195717
+Older,"Más antiguo",,site/modules/Mailbox/ProcessMailbox.module.php,625fd29749d91880963143cfd589bd8f
+"Older messages","Mensajes más antiguos",,site/modules/Mailbox/ProcessMailbox.module.php,69fd3125d8160db977b0a71038add64d
+"One exact hostname or wildcard such as *.example.com per line. IP addresses and URL schemes are not accepted.","Un nombre de host exacto o comodín como *.example.com por línea. No se aceptan direcciones IP ni esquemas URL.",,site/modules/Mailbox/Mailbox.module.php,fb320b8c366af22af7c98934709a1c0c
+"Only a superuser may install Mailbox runtime packages.","Solo un superusuario puede instalar Mailbox paquetes de tiempo de ejecución.",,site/modules/Mailbox/ProcessMailbox.module.php,14ae307fefc6b05c501230f04ce5e177
+"Only a superuser may manage mailbox accounts and credentials.","Solo un superusuario puede administrar cuentas y credenciales de buzón.",,site/modules/Mailbox/ProcessMailbox.module.php,71268b1660d564b9bf7e3012c7eabffc
+"Open accounts","Abrir cuentas",,site/modules/Mailbox/ProcessMailbox.module.php,5c60e767a0e243760ba38fdee3e5e2d4
+"Open Accounts for a new mailbox or Settings for the primary mailbox.","Abra Cuentas para un nuevo buzón o Configuración para el buzón principal.",,site/modules/Mailbox/ProcessMailbox.module.php,2a68f14cd725b3911fa9b0947fceb720
+"Open API & CLI settings","Abrir configuración de API y CLI",,site/modules/Mailbox/Mailbox.module.php,74f0ac683a3e6a4c949edefc43c4c5d8
+"Open connection tests","Pruebas de conexión abiertas",,site/modules/Mailbox/Mailbox.module.php,2f18868cf712bb19ba5c330ff440c714
+"Open mailbox","Abrir buzón",,site/modules/Mailbox/Mailbox.module.php,df018395520bd999e1f6aa5538000d81
+"Open mailbox","Abrir buzón",,site/modules/Mailbox/ProcessMailbox.module.php,df018395520bd999e1f6aa5538000d81
+"Open Mailbox settings","Abrir configuración de Mailbox",,site/modules/Mailbox/ProcessMailbox.module.php,4bebc168975745e8917eec2afb560403
+"Open message: %s","Mensaje abierto: %s",,site/modules/Mailbox/ProcessMailbox.module.php,7d1ec4aa01f204489b66ad63a3809923
+"Open PHP IMAP installation guide","Abrir PHP IMAP guía de instalación",,site/modules/Mailbox/ProcessMailbox.module.php,cd31db0137b705b725517f29d0e6fc3a
+"Open timeout","Tiempo de espera de apertura",,site/modules/Mailbox/Mailbox.module.php,8fd4b8a759b5ed44167342c819396d61
+Optional,Opcional,,site/modules/Mailbox/ProcessMailbox.module.php,ebb061953c0454b2c8ee7b0ac615ebcd
+"Optional: tone, facts to include, or desired outcome","Opcional: tono, hechos a incluir o resultado deseado",,site/modules/Mailbox/ProcessMailbox.module.php,ab70fa98f70132fed7e9ca6c54deb35a
+"Optional note…","Nota opcional…",,site/modules/Mailbox/ProcessMailbox.module.php,98c7620d139d9fb506a3cfc6a44ef92c
+Other,Otro,,site/modules/Mailbox/ProcessMailbox.module.php,6311ae17c1ee52b36e68aaf4ad066387
+Outgoing,Saliente,,site/modules/Mailbox/ProcessMailbox.module.php,e60340c5328bd1bdc50cd8f3efd83c88
+"Outgoing mail","Correo saliente",,site/modules/Mailbox/ProcessMailbox.module.php,64e968ea81ef3c017da226b70dbc3a52
+"Outgoing mail · SMTP","Correo saliente · SMTP",,site/modules/Mailbox/ProcessMailbox.module.php,dbf7176115ec324f56785214c6dd2d2e
+Page,Página,,site/modules/Mailbox/ProcessMailbox.module.php,193cfc9be3b995831c6af2fea6650e60
+"Page %1$d of %2$d","Página %1$d de %2$d",,site/modules/Mailbox/ProcessMailbox.module.php,3a1ed905045e5cf29efec452131f9403
+"Page %d","Página %d",,site/modules/Mailbox/ProcessMailbox.module.php,be80256370788ee6d94e2597c3fd7a75
+"Page %d, current page","Página %d, página actual",,site/modules/Mailbox/ProcessMailbox.module.php,bea07a39269fa26597a23e57bf21f742
+"Password / app password","Contraseña/contraseña de la aplicación",,site/modules/Mailbox/Mailbox.module.php,6cc22a84cb1cb5ccf1f22d721f102f2e
+"Password / app password","Contraseña/contraseña de la aplicación",,site/modules/Mailbox/ProcessMailbox.module.php,6cc22a84cb1cb5ccf1f22d721f102f2e
+"Password or app password","Contraseña o contraseña de la aplicación",,site/modules/Mailbox/Mailbox.module.php,0af6bdd3d648ab42792306ddeafe60a4
+"Persistent and protected","Persistente y protegido",,site/modules/Mailbox/ProcessMailbox.module.php,165df64538746f44773377fe3d2d98bc
+"Persistent Composer runtime","Tiempo de ejecución de Composer persistente",,site/modules/Mailbox/ProcessMailbox.module.php,18704ff137ab2da542e381aa6032da55
+Port,Puerto,,site/modules/Mailbox/Mailbox.module.php,60aaf44d4b562252c04db7f98497e9aa
+Port,Puerto,,site/modules/Mailbox/ProcessMailbox.module.php,60aaf44d4b562252c04db7f98497e9aa
+"Preparing encrypted cache…","Preparando caché cifrado…",,site/modules/Mailbox/ProcessMailbox.module.php,d02923b450b71bc7cea1bcc79ccbfcae
+Previous,Anterior,,site/modules/Mailbox/ProcessMailbox.module.php,dd1f775e443ff3b9a89270713580a51b
+"Previous search page","Página de búsqueda anterior",,site/modules/Mailbox/ProcessMailbox.module.php,676465dc33587b43e050a95d59ee1f17
+"Primary mailbox settings","Configuración del buzón principal",,site/modules/Mailbox/ProcessMailbox.module.php,8117fdf7919d050595d02eed82ece834
+"Primary mailbox · Account 1","Buzón principal · Cuenta 1",,site/modules/Mailbox/Mailbox.module.php,d44f96e23811d8ae51082ec5dc680c65
+"Primary profile · Account 1","Perfil principal · Cuenta 1",,site/modules/Mailbox/ProcessMailbox.module.php,27e7469f3ae1c2d13ca3c9b2082bd242
+"Provide both username and password when replacing credentials.","Proporcione nombre de usuario y contraseña al reemplazar las credenciales.",,site/modules/Mailbox/ProcessMailbox.module.php,87eeb038adcfe70d283a00be74766c08
+Provider,Proveedor,,site/modules/Mailbox/Mailbox.module.php,27703c8f150ac4bb0a3a83a7857353af
+"Provider and model","Proveedor y modelo",,site/modules/Mailbox/Mailbox.module.php,cbcf05b22ec0d0d896a49481c4e1c6f5
+"Provider HTTPS autoconfig","Proveedor HTTPS configuración automática",,site/modules/Mailbox/ProcessMailbox.module.php,a7cd37434687cccddb8aa8cb79fc54cf
+"Provides editable defaults; it does not detect or verify the server.","Proporciona valores predeterminados editables; no detecta ni verifica el servidor.",,site/modules/Mailbox/ProcessMailbox.module.php,49c1ec68eb40eec673edfe35fd3dcef7
+"Provide username and password together when replacing credentials.","Proporcione el nombre de usuario y la contraseña juntos al reemplazar las credenciales.",,site/modules/Mailbox/ProcessMailbox.module.php,0485ee95e130548b777b7c1b4fafd052
+"Queue signed webhook notifications","Puesta en cola de notificaciones de webhooks firmados",,site/modules/Mailbox/Mailbox.module.php,7f22e503a62a599470b12d2b0e05d503
+"Raw MIME source is unavailable for this IMAP transport.","El origen MIME sin formato no está disponible para este transporte IMAP.",,site/modules/Mailbox/ProcessMailbox.module.php,e52e8dfe454fe4b63011e338587f1047
+Read,Leer,,site/modules/Mailbox/ProcessMailbox.module.php,7a1a5f3e79fdc91edf2f5ead9d66abb4
+Read-only,"Solo lectura",,site/modules/Mailbox/ProcessMailbox.module.php,d8bd6e60adcc01ce20f509ea6800de8f
+"read/unread, move, and delete","leer/no leer, mover y eliminar",,site/modules/Mailbox/ProcessMailbox.module.php,b0a8fb43ca4aa80c00d47ce948a4b0d3
+"Read state","Estado de lectura",,site/modules/Mailbox/ProcessMailbox.module.php,62d0c86b0f436bd4f5a1fa22e099366f
+"Read timeout","Tiempo de espera de lectura",,site/modules/Mailbox/Mailbox.module.php,5050b4a3a04dd68dde9fae08e66b57e6
+"Recent messages indexed per folder","Mensajes recientes indexados por carpeta",,site/modules/Mailbox/Mailbox.module.php,2411a2785795f47fb531499303183e7d
+"Recommended for local MAMP and hosted providers: choose Auto or Webklex, then install the locked package into persistent site assets from Runtime.","Recomendado para MAMP locales y proveedores alojados: elija Automático o Webklex, luego instale el paquete bloqueado en recursos persistentes del sitio desde Runtime.",,site/modules/Mailbox/ProcessMailbox.module.php,af3a3def2a5ab6bfb30b622ac1a7b2cb
+Refresh,Actualizar,,site/modules/Mailbox/ProcessMailbox.module.php,63a6a88c066880c5ac42394a22803ca6
+"Remote images and HTTPS links enabled — activity may be disclosed. Admin address remains hidden.","Imágenes remotas y enlaces HTTPS habilitados: se puede revelar la actividad. La dirección del administrador permanece oculta.",,site/modules/Mailbox/ProcessMailbox.module.php,bbea2f4107d944b027b382b227400e98
+"Remote images can reveal an open. Following a message link can reveal your IP address, browser details, click time, and any unique token embedded in that URL. Mailbox never sends the ProcessWire admin address as the HTTP Referer.","Las imágenes remotas pueden revelar una apertura. Seguir el enlace de un mensaje puede revelar su dirección IP, detalles del navegador, tiempo de clic y cualquier token único integrado en ese URL. Mailbox nunca envía la dirección de administrador ProcessWire como el referente HTTP.",,site/modules/Mailbox/Mailbox.module.php,3c94f69252f36ecc12c32c26bea4648c
+"Remote images enabled — senders may detect opens. Scripts, forms, and links remain blocked.","Imágenes remotas habilitadas: los remitentes pueden detectar aperturas. Los scripts, formularios y enlaces permanecen bloqueados.",,site/modules/Mailbox/ProcessMailbox.module.php,8a80c559c977ec1337d052254f2068c2
+"Remove flag","Eliminar marca",,site/modules/Mailbox/ProcessMailbox.module.php,4c2c77d9e2cd78c620c8a8e4d33eb85f
+"Remove saved credentials","Eliminar credenciales guardadas",,site/modules/Mailbox/Mailbox.module.php,14c7f1178c76b08b69ab413277f47eef
+"Repair locked runtime","Reparar tiempo de ejecución bloqueado",,site/modules/Mailbox/ProcessMailbox.module.php,36c40f5d1abe22922cee5ec2979c9e55
+Reply,Responder,,site/modules/Mailbox/ProcessMailbox.module.php,25d8df6e580905091a0d5ef5b9e05bf0
+"Reply all","Responder a todos",,site/modules/Mailbox/ProcessMailbox.module.php,d938457d509afa4f67dc0b1ac784cb5c
+"Reply and forward","Responder y reenviar",,site/modules/Mailbox/Mailbox.module.php,2da1a32da53c3432d12678ea553cd21b
+"reply and forward","responder y reenviar",,site/modules/Mailbox/ProcessMailbox.module.php,7ea182444932c62e92efd882c0e2e166
+"Reply could not be sent. Review SMTP settings and try again.","No se pudo enviar la respuesta. Revise la configuración de SMTP y vuelva a intentarlo.",,site/modules/Mailbox/ProcessMailbox.module.php,a427e95d11b4ce6afe39939c5c5693ee
+"Reply mode","Modo de respuesta",,site/modules/Mailbox/ProcessMailbox.module.php,9080665f218f8ad03d52d3636f749d92
+"Reply sent.","Respuesta enviada.",,site/modules/Mailbox/ProcessMailbox.module.php,ce2365ce529954851fe3dfa62024697e
+Required,Requerido,,site/modules/Mailbox/ProcessMailbox.module.php,b651efdb98a5d6bd2b3935d0c3f4a5e2
+"Required for every non-loopback host. Disable only for a local bridge.","Requerido para cada host sin loopback. Desactívelo solo para un puente local.",,site/modules/Mailbox/Mailbox.module.php,2841f33d987640334598f8062f0bbf64
+"Required for every non-loopback host. Disable only for a local bridge on localhost/127.0.0.1/::1.","Requerido para cada host sin loopback. Deshabilite solo para un puente local en localhost/127.0.0.1/::1.",,site/modules/Mailbox/Mailbox.module.php,ca34a2da3b1a3c3f9ca78dc9f21ba1f1
+"Required when Kontor AI is selected; Mailbox never guesses or creates an organization.","Obligatorio cuando se selecciona Kontor AI; Mailbox nunca adivina ni crea una organización.",,site/modules/Mailbox/Mailbox.module.php,45caa3c58843c56a25f8a7a9096d9a51
+"Requires an allowlist and a separate proposal approval before any HTTPS request.","Requiere una lista de permitidos y una aprobación de propuesta separada antes de cualquier solicitud HTTPS.",,site/modules/Mailbox/Mailbox.module.php,ae2605977a5acd962b17ae397d71a6f5
+"Require secure authentication","Requerir autenticación segura",,site/modules/Mailbox/Mailbox.module.php,d54e63d58340ded88760dc661bc671d1
+"Requires Squad with ask() and run(), plus the PHP agent API or local CLI. Agent-safe message text is sent to the selected external AI provider; HTML, raw MIME, executable URLs, credentials, and attachments are excluded.","Requiere Squad con ask() y run(), más el agente PHP API o CLI local. El texto del mensaje seguro para el agente se envía al proveedor de IA externo seleccionado; HTML, MIME sin formato, URL ejecutables, credenciales y archivos adjuntos están excluidos.",,site/modules/Mailbox/Mailbox.module.php,b0c6eab249abcf58431cccb6ada9e141
+"Response caching, prompt caching, web search, caller system prompts, provider keys, and conversation history remain unavailable. The agent may create a pending confirmation proposal but can never approve or execute it.","El almacenamiento en caché de respuestas, el almacenamiento en caché de mensajes, la búsqueda web, los mensajes del sistema de llamadas, las claves de proveedores y el historial de conversaciones siguen no disponibles. El agente puede crear una propuesta de confirmación pendiente pero nunca podrá aprobarla ni ejecutarla.",,site/modules/Mailbox/Mailbox.module.php,b507e83d3df1864e24ffd612a67a60d8
+"Review required","Revisión requerida",,site/modules/Mailbox/ProcessMailbox.module.php,67f98034e4a15c7036b0d623f38e7738
+"Review the candidates","Revisar los candidatos",,site/modules/Mailbox/ProcessMailbox.module.php,0dfab9f276e7e8a5ce182f73ec6283ac
+"Run both connection tests","Ejecutar ambas pruebas de conexión",,site/modules/Mailbox/ProcessMailbox.module.php,3724152f000dc1729dc1275d8fe55e71
+"Runs the repository composer.lock with no development packages, plugins, or scripts.","Ejecuta el repositorio compositor.lock sin paquetes de desarrollo, complementos ni scripts.",,site/modules/Mailbox/ProcessMailbox.module.php,5bd106d8e47452fb3c01b5925b403cbb
+Runtime,"Tiempo de ejecución",,site/modules/Mailbox/ProcessMailbox.module.php,bc366f2d0ba3d681e7a3899917c5d3de
+"Runtime files live outside the replaceable module directory. Mailbox writes Apache/IIS deny rules and ProcessWire’s root rules block PHP execution under site/assets; nginx deployments must also deny direct access to this runtime path.","Los archivos de ejecución se encuentran fuera del directorio del módulo reemplazable. Mailbox escribe reglas de denegación de Apache/IIS y las reglas raíz de ProcessWire bloquean la ejecución de PHP en sitio/activos; Las implementaciones de nginx también deben denegar el acceso directo a esta ruta de ejecución.",,site/modules/Mailbox/ProcessMailbox.module.php,d5622a19edaf8491df002bfc93ca90d3
+"Runtime packages","Paquetes de ejecución",,site/modules/Mailbox/Mailbox.module.php,31826243b7860cce445f8955d8a358cd
+"Runtime packages","Paquetes de ejecución",,site/modules/Mailbox/ProcessMailbox.module.php,31826243b7860cce445f8955d8a358cd
+"Safe credential replacement","Reemplazo seguro de credenciales",,site/modules/Mailbox/ProcessMailbox.module.php,a98be74d906e3d7f30d5c26d14459312
+"Sanitized HTML message","Mensaje HTML desinfectado",,site/modules/Mailbox/ProcessMailbox.module.php,c7da14dd53e58d42bef2c9f48e88ca2c
+"Save and make default","Guardar y establecer como predeterminado",,site/modules/Mailbox/ProcessMailbox.module.php,3b050da0ae7b007797e9c9648d5466ea
+"Save an IMAP Sent copy after successful SMTP delivery","Guardar una copia enviada IMAP después de la entrega exitosa de SMTP",,site/modules/Mailbox/ProcessMailbox.module.php,1b4126b7274dd3dcd8d30db0c22a0e37
+"Save changes","Guardar cambios",,site/modules/Mailbox/ProcessMailbox.module.php,daa6b483e9f6ca081ec7e0b4a352f9e9
+"Saved usernames and secrets are never rendered.","Los nombres de usuario y los secretos guardados nunca se representan.",,site/modules/Mailbox/ProcessMailbox.module.php,6a4ac4318de076e93019cfc3a4aa0d6b
+"Save first, then verify both transports","Guarde primero, luego verifique ambos transportes",,site/modules/Mailbox/Mailbox.module.php,9ae2ccaf202b5795260d07166b21bcc5
+"Save provider settings first, then use Connect with OAuth. Client secrets stay in config.php, Vault, or KMS.","Primero guarde la configuración del proveedor y luego use Conectar con OAuth. Los secretos del cliente permanecen en config.php, Vault o KMS.",,site/modules/Mailbox/ProcessMailbox.module.php,c0e0acd629c70d82236327fdacd33ee0
+"Scripts, tracking images, forms, and links blocked","Scripts, imágenes de seguimiento, formularios y enlaces bloqueados",,site/modules/Mailbox/ProcessMailbox.module.php,b210a3afca5052b8af48775237daa790
+Search,Buscar,,site/modules/Mailbox/ProcessMailbox.module.php,13348442cc6a27032d2b4aa28b75a5d3
+"Search messages…","Buscar mensajes…",,site/modules/Mailbox/ProcessMailbox.module.php,6eb3e06cd093207fb5d6e387f0a67a11
+"Search message text","Buscar texto del mensaje",,site/modules/Mailbox/ProcessMailbox.module.php,52baf035537cbf066e1a9a060251708d
+"Search page %d","Página de búsqueda %d",,site/modules/Mailbox/ProcessMailbox.module.php,4a7bedad31532309084b99cb40f27215
+"Search result pages","Páginas de resultados de búsqueda",,site/modules/Mailbox/ProcessMailbox.module.php,3e45a70636452c285ac1607d880e2562
+"Search results","Resultados de búsqueda",,site/modules/Mailbox/ProcessMailbox.module.php,eb6b06cab0dd72e04c4da68d511facf2
+"Search results reached the configured collection limit. Refine the filters for complete results.","Los resultados de la búsqueda alcanzaron el límite de recopilación configurado. Refine los filtros para obtener resultados completos.",,site/modules/Mailbox/ProcessMailbox.module.php,6f93946cfab615f5d273238af487dbff
+"Search scope","Ámbito de búsqueda",,site/modules/Mailbox/ProcessMailbox.module.php,51612ebfe4a7bac0a9bbfee18832ffe3
+seconds,segundos,,site/modules/Mailbox/Mailbox.module.php,783e8e29e6a8c3e22baa58a19420eb4f
+"Secrets hidden","Secretos ocultos",,site/modules/Mailbox/ProcessMailbox.module.php,189e65eb360e8a43cb25ddded24389c6
+"Secrets stay outside normal module settings","Los secretos permanecen fuera de la configuración normal del módulo",,site/modules/Mailbox/Mailbox.module.php,4739becdcd1c95f426bf29975ebfd10a
+Security,Seguridad,,site/modules/Mailbox/ProcessMailbox.module.php,2fae32629d4ef4fc6341f1751b405e45
+"Select all messages on this page","Seleccionar todos los mensajes de esta página",,site/modules/Mailbox/ProcessMailbox.module.php,02f25a04d970200c244fbca50297892d
+selected,seleccionado,,site/modules/Mailbox/ProcessMailbox.module.php,ef7de3f485174ff47f061ad27d83d0ee
+"Select message: %s","Seleccionar mensaje: %s",,site/modules/Mailbox/ProcessMailbox.module.php,b0deb859914c99661b21b198f39faa64
+"Select provider","Seleccionar proveedor",,site/modules/Mailbox/Mailbox.module.php,d524568b821947803908b89e908dc031
+"Send forward","Enviar reenviar",,site/modules/Mailbox/ProcessMailbox.module.php,e7164faf73fac4cfd2b82ee44c00f8e9
+"Sending disabled","Envío deshabilitado",,site/modules/Mailbox/Mailbox.module.php,bf266390b836b1544f8b08c2c632bed0
+"Sending enabled","Envío habilitado",,site/modules/Mailbox/Mailbox.module.php,711a56b997c985dc78b4eee161c358dd
+"Send reply","Enviar respuesta",,site/modules/Mailbox/ProcessMailbox.module.php,662f371ef2b68e76380e0d3f7d6320c8
+"Sends only redacted identifiers after initial sync. Configure a 32+ byte mailboxWebhookSecret or provider in config.php. Delivery is HTTPS-only, signed, retried through the encrypted queue, and disabled by default.","Envía solo identificadores redactados después de la sincronización inicial. Configure un buzón de correo WebhookSecret o proveedor de más de 32 bytes en config.php. La entrega es solo HTTPS, está firmada, se reintenta a través de la cola cifrada y está deshabilitada de forma predeterminada.",,site/modules/Mailbox/Mailbox.module.php,0bc5b6f6b04cd3f6a884878ec6e095af
+"Sent folder","Carpeta enviada",,site/modules/Mailbox/Mailbox.module.php,373446f1b41180fc805679ec303c5c87
+"Sent folder","Carpeta enviada",,site/modules/Mailbox/ProcessMailbox.module.php,373446f1b41180fc805679ec303c5c87
+"Server-native folder name opened first. Usually INBOX.","El nombre de la carpeta nativa del servidor se abrió primero. Generalmente INBOX.",,site/modules/Mailbox/Mailbox.module.php,7d28dce58a4cad27178bb6f017d8c80f
+"Service preset","Servicio preestablecido",,site/modules/Mailbox/Mailbox.module.php,b46d4396736f50ab920e77055f070191
+"Service preset","Servicio preestablecido",,site/modules/Mailbox/ProcessMailbox.module.php,b46d4396736f50ab920e77055f070191
+Settings,Ajustes,,site/modules/Mailbox/ProcessMailbox.module.php,f4f70727dc34561dfde1a3c529b6205c
+"Showing %1$d–%2$d of %3$d %4$s","Mostrando %1$d–%2$d de %3$d %4$s",,site/modules/Mailbox/ProcessMailbox.module.php,afaf03403bc4761f2a0c488dca05742d
+"Show non-selectable folder containers","Mostrar contenedores de carpetas no seleccionables",,site/modules/Mailbox/Mailbox.module.php,986d6d474cb1740bb96debf3e9c185fd
+"Shows read/unread, move, and safe non-expunging delete controls to users with mailbox-write.","Muestra controles de lectura/no lectura, movimiento y eliminación segura sin eliminación a los usuarios con mailbox-write.",,site/modules/Mailbox/Mailbox.module.php,5278d51d529d25520ee0efb9897db98f
+"Shows SMTP reply and forward controls to users with mailbox-send. Configure and test SMTP for each account first.","Muestra SMTP controles de respuesta y reenvío a usuarios con mailbox-send. Primero configure y pruebe SMTP para cada cuenta.",,site/modules/Mailbox/Mailbox.module.php,f8313f1b7a4db679f9652dbda0858e39
+Sign-in,"Iniciar sesión",,site/modules/Mailbox/Mailbox.module.php,e5b47edd743751a81819b7f421639303
+Since,Desde,,site/modules/Mailbox/ProcessMailbox.module.php,38c50b731f70abc42c8baa3e7399b413
+Size,Tamaño,,site/modules/Mailbox/ProcessMailbox.module.php,6f6cb72d544962fa333e2e34ce64f719
+"Size range (bytes)","Rango de tamaño (bytes)",,site/modules/Mailbox/ProcessMailbox.module.php,ae18bbbe7028c4b1cffdf30158cf8597
+"Slots used","Ranuras utilizadas",,site/modules/Mailbox/ProcessMailbox.module.php,239483ee406a984db0de6006dedff1c1
+"SMTP connection and authentication succeeded in %d ms using %s:%d.","SMTP la conexión y autenticación se realizaron correctamente en %d ms usando %s:%d.",,site/modules/Mailbox/ProcessMailbox.module.php,bf37068b7dd16b26703bbc073d6111a8
+"SMTP connection failed:","SMTP error de conexión:",,site/modules/Mailbox/ProcessMailbox.module.php,95dc15fdbae990aaad095ca111a72bb5
+"SMTP encryption","SMTP cifrado",,site/modules/Mailbox/Mailbox.module.php,2caa95a27a51b9c11ef569e129b79a54
+"SMTP host","SMTP host",,site/modules/Mailbox/Mailbox.module.php,00f8c8a3bc092398ae9c5605fab7d0a3
+"SMTP host","SMTP host",,site/modules/Mailbox/ProcessMailbox.module.php,00f8c8a3bc092398ae9c5605fab7d0a3
+"SMTP is TLS-only and reuses this account’s encrypted password or OAuth tokens. Microsoft OAuth accounts must reconnect after enabling sending to grant SMTP.Send.","SMTP es solo TLS y reutiliza la contraseña cifrada de esta cuenta o los tokens OAuth. Las cuentas de Microsoft OAuth deben volver a conectarse después de habilitar el envío para otorgar SMTP.Send.",,site/modules/Mailbox/Mailbox.module.php,b0da47df0b674d36bcd7b2693fcbfbfc
+"SMTP port","SMTP puerto",,site/modules/Mailbox/Mailbox.module.php,824c1fa95c0a8bdccaa8d674c9297a46
+"SMTP sending","SMTP enviando",,site/modules/Mailbox/Mailbox.module.php,4b31e62ac9af6f5704d6b1c202aa015a
+"Some message actions are disabled","Algunas acciones de mensajes están deshabilitadas",,site/modules/Mailbox/ProcessMailbox.module.php,5cf6c91a99ef239f4eb36768357b6324
+"Squad and an approved Mailbox access channel are available.","Squad y un canal de acceso aprobado Mailbox están disponibles.",,site/modules/Mailbox/Mailbox.module.php,fe58bed6a1be4a8e67bd0df54eab1dc5
+"Squad is ready","Squad está listo",,site/modules/Mailbox/Mailbox.module.php,1205e05ae38cc860740c081b829d5164
+"Squad must be installed first","Squad debe instalarse primero",,site/modules/Mailbox/Mailbox.module.php,969b264a44ed2e7580e1d0954dc53abe
+"Start discovery","Iniciar descubrimiento",,site/modules/Mailbox/ProcessMailbox.module.php,d9c1ddd0976597bab4e960db95e30de2
+STARTTLS,STARTTLS,,site/modules/Mailbox/Mailbox.module.php,08effffc856fb5ec082025ab2d6be9ab
+"Start with an editable provider template, then review every endpoint before saving. Presets never change credentials.","Comience con una plantilla de proveedor editable y luego revise cada punto final antes de guardar. Los ajustes preestablecidos nunca cambian las credenciales.",,site/modules/Mailbox/Mailbox.module.php,0d19bb015a9d27fd35ed6459eeec10e8
+Subject,Asunto,,site/modules/Mailbox/ProcessMailbox.module.php,c7892ebbb139886662c6f2fc8c450710
+"Suggested username","Nombre de usuario sugerido",,site/modules/Mailbox/ProcessMailbox.module.php,18a6d57528593b45c98da1744ac58603
+Summary,Resumen,,site/modules/Mailbox/ProcessMailbox.module.php,290612199861c31d1036b185b4e69b75
+"Superuser-only, POST and CSRF protected. The command has fixed arguments, a process lock and timeout, suppresses Composer plugins/scripts, and validates both locked mail packages afterward.","Solo superusuario, POST y CSRF protegidos. El comando tiene argumentos fijos, un bloqueo de proceso y un tiempo de espera, suprime los complementos/scripts de Composer y luego valida ambos paquetes de correo bloqueados.",,site/modules/Mailbox/ProcessMailbox.module.php,f67cdbd735355dcb8adc97dccfdb09ac
+"Support mailbox","Buzón de soporte",,site/modules/Mailbox/ProcessMailbox.module.php,c9f170be6ac0bf0761decae0081a350d
+Synchronization,Sincronización,,site/modules/Mailbox/Mailbox.module.php,454c65346b592d2a6ddcf6e6cd91d9b3
+"Technical details","Detalles técnicos",,site/modules/Mailbox/ProcessMailbox.module.php,52eb43485175b27d516a58a137af2d9a
+Temperature,Temperatura,,site/modules/Mailbox/Mailbox.module.php,ee7a8e262285ed49ea1b4e4ae11525bd
+"Test connection","Probar conexión",,site/modules/Mailbox/ProcessMailbox.module.php,39838db537c95bc8df810c5601601d5b
+"Test connection uses the saved profile and credentials without loading folders or messages.","La conexión de prueba utiliza el perfil y las credenciales guardados sin cargar carpetas ni mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,1e78e6b6c15d6a8817cff443e914ff5a
+"Test Mailbox connection","Probar la conexión Mailbox",,site/modules/Mailbox/ProcessMailbox.module.php,2a24b2de397f645e1a424a0371497e3a
+"Test Mailbox SMTP connection","Probar la conexión Mailbox SMTP",,site/modules/Mailbox/ProcessMailbox.module.php,bfe481e90c0347063ab65304f4e38f07
+"Test SMTP","Prueba SMTP",,site/modules/Mailbox/ProcessMailbox.module.php,6a405e25ac3d92c993dc9212f1f44f9d
+"Tests stay separate","Las pruebas permanecen separadas",,site/modules/Mailbox/ProcessMailbox.module.php,47a8cd084334d0c11c7c889f3e39f443
+"Test the saved login","Prueba el inicio de sesión guardado",,site/modules/Mailbox/ProcessMailbox.module.php,ad8639f939e58ccb7c81bdf9248ae95e
+Text,Text,,site/modules/Mailbox/ProcessMailbox.module.php,9dffbf69ffba8bc38bc4e01abf4b1675
+"Text/JSON/XML/CSV only. Range: 4 KiB to 5 MiB and never above the download limit.","Texto/JSON/XML/CSV únicamente. Rango: 4 KiB a 5 MiB y nunca por encima del límite de descarga.",,site/modules/Mailbox/Mailbox.module.php,b182d01fc41ef074f1cb4e6f26e5d9fe
+"The address identifies the provider and suggested username. The provider’s autoconfig host may receive this email address during HTTPS discovery.","La dirección identifica el proveedor y el nombre de usuario sugerido. El host de configuración automática del proveedor puede recibir esta dirección de correo electrónico durante el descubrimiento HTTPS.",,site/modules/Mailbox/ProcessMailbox.module.php,8e47fd49c4e19651d4033d85999f92a0
+"The CLI must run on the ProcessWire host and never accepts mailbox credentials as arguments.","CLI debe ejecutarse en el host ProcessWire y nunca acepta credenciales de buzón como argumentos.",,site/modules/Mailbox/Mailbox.module.php,9ac23d994c368c8078a2263f91105e31
+"The IMAP account has no selectable folders.","La cuenta IMAP no tiene carpetas seleccionables.",,site/modules/Mailbox/ProcessMailbox.module.php,3a03ccb8511378dcd8101117d34dbf98
+"The local PHP IMAP TLS client did not send SNI. For Gmail, use OAuth2/XOAUTH2 or update the IMAP TLS runtime; do not disable certificate validation.","El cliente local PHP IMAP TLS no envió SNI. Para Gmail, utilice OAuth2/XOAUTH2 o actualice el tiempo de ejecución IMAP TLS; no deshabilite la validación de certificados.",,site/modules/Mailbox/ProcessMailbox.module.php,4cdcaf5027c1978eb894411fc6646a92
+"The Mailbox screen tests TLS, authentication, the default folder, folder discovery, and SMTP without modifying messages or sending mail.","La pantalla Mailbox prueba TLS, la autenticación, la carpeta predeterminada, la detección de carpetas y SMTP sin modificar mensajes ni enviar correo.",,site/modules/Mailbox/Mailbox.module.php,f9ac6bc4debba3000469764d32b786cb
+"The primary profile is synchronized with the main module configuration so there is only one source of truth. Use Settings to change its server values or replace credentials.","El perfil principal está sincronizado con la configuración del módulo principal, por lo que solo hay una fuente de verdad. Utilice Configuración para cambiar los valores del servidor o reemplazar las credenciales.",,site/modules/Mailbox/ProcessMailbox.module.php,8e02e79011c7de4387bb43a5a7bf7176
+"The selected folder is unavailable.","La carpeta seleccionada no está disponible.",,site/modules/Mailbox/ProcessMailbox.module.php,df0a055060835f869a9bc5ddba7bc731
+"The selected mailbox account is unavailable.","La cuenta del buzón de correo seleccionado no está disponible.",,site/modules/Mailbox/ProcessMailbox.module.php,d26920e0c9d5a60ebd637c21e81612c8
+"This account selected the native PHP IMAP engine, but ext-imap is unavailable in the PHP runtime serving ProcessWire. Choose Auto or Webklex and install Runtime packages, or enable ext-imap for this PHP runtime.","Esta cuenta seleccionó el motor nativo PHP IMAP, pero ext-imap no está disponible en el tiempo de ejecución PHP que sirve ProcessWire. Elija Auto o Webklex e instale paquetes de tiempo de ejecución, o habilite ext-imap para este tiempo de ejecución PHP.",,site/modules/Mailbox/ProcessMailbox.module.php,007a79ed5bc75736ac2500177e83e20c
+"This account uses the Auto or Webklex engine. Download the locked packages into persistent site assets, then repeat the connection test.","Esta cuenta utiliza el motor Auto o Webklex. Descargue los paquetes bloqueados en recursos persistentes del sitio y luego repita la prueba de conexión.",,site/modules/Mailbox/ProcessMailbox.module.php,061b596ed9fe416322241e7615dc883f
+"This does not mean the mailbox is unavailable. Choose a preset or copy the IMAP/SMTP values from the provider or hosting control panel.","Esto no significa que el buzón no esté disponible. Elija un ajuste preestablecido o copie los valores IMAP/SMTP del proveedor o del panel de control de hosting.",,site/modules/Mailbox/ProcessMailbox.module.php,a3a838390ca5363415d85b96b4b41459
+"This folder is empty.","Esta carpeta está vacía.",,site/modules/Mailbox/ProcessMailbox.module.php,c8f58155f1cf77a761e6eb2c63c6704a
+"This message has no HTML body.","Este mensaje no tiene cuerpo HTML.",,site/modules/Mailbox/ProcessMailbox.module.php,18ee11f6574972d856bfb6645b4faa55
+"This removes the profile, encrypted credentials, cached views, index rows, jobs, and notifications for this account.","Esto elimina el perfil, las credenciales cifradas, las vistas en caché, las filas de índice, los trabajos y las notificaciones de esta cuenta.",,site/modules/Mailbox/ProcessMailbox.module.php,9978e209058f1b7d561637542e8ab4ec
+"Three-mailbox workspace","Espacio de trabajo de tres buzones",,site/modules/Mailbox/ProcessMailbox.module.php,be189577d5526741977209a4bd44573e
+"Timeout (seconds)","Tiempo de espera (segundos)",,site/modules/Mailbox/Mailbox.module.php,60d980d7f13c6e3571517fbaf7516b34
+To,Para,,site/modules/Mailbox/ProcessMailbox.module.php,e12167aa0a7698e6ebc92b4ce3909b53
+"Toggle sidebar","Alternar barra lateral",,site/modules/Mailbox/ProcessMailbox.module.php,d4bbf74f3ed88af0c2a6c11c357b6e4d
+"Type DELETE to confirm","Escriba DELETE para confirmar",,site/modules/Mailbox/ProcessMailbox.module.php,7df3f792d2f290b4440feb6b71c6ed62
+"Type DELETE to confirm account removal.","Escriba DELETE para confirmar la eliminación de la cuenta.",,site/modules/Mailbox/ProcessMailbox.module.php,25948e9f134454921feb2204e6577d02
+"Unavailable until the prerequisite shown above has been completed and saved.","No disponible hasta que se haya completado y guardado el requisito previo que se muestra arriba.",,site/modules/Mailbox/Mailbox.module.php,8043d3e2d2d0370bde9fad6ff4a8dd91
+unflagged,"sin marcar",,site/modules/Mailbox/ProcessMailbox.module.php,259f02ae9345a27eb859812142da25be
+Unknown,Desconocido,,site/modules/Mailbox/ProcessMailbox.module.php,88183b946cc5f0e8c96b2e66e1c74a7e
+"Unknown mailbox account action.","Acción de cuenta de buzón desconocida.",,site/modules/Mailbox/ProcessMailbox.module.php,e2f98e2d8d96fe866e4ea7d42b0b7a41
+"Unknown message action.","Acción de mensaje desconocida.",,site/modules/Mailbox/ProcessMailbox.module.php,f1ef3e10d170f2123206977af08731c1
+"Unknown runtime-package action.","Acción de paquete de tiempo de ejecución desconocida.",,site/modules/Mailbox/ProcessMailbox.module.php,f2222d301a219d5af3a443910ad74998
+Unread,"No leído",,site/modules/Mailbox/ProcessMailbox.module.php,53770fd374062f5b825b25dcd60fb498
+unsupported,"no compatible",,site/modules/Mailbox/Mailbox.module.php,723c25877a86786664edc4b643c08a6f
+updated,actualizado,,site/modules/Mailbox/ProcessMailbox.module.php,0f81d52e06caaa4860887488d18271c7
+"Updated just now","Actualizado hace un momento",,site/modules/Mailbox/ProcessMailbox.module.php,1273a212ba343c5abcdd4a7ba190f313
+"Update Squad to a compatible version with ask() and run().","Actualice Squad a una versión compatible con ask() y run().",,site/modules/Mailbox/ProcessMailbox.module.php,cc98363d1ae2bdba841e73e81d082d8c
+"Use common, organizations, consumers, a tenant ID, or a verified tenant domain.","Utilice organizaciones comunes, consumidores, un ID de inquilino o un dominio de inquilino verificado.",,site/modules/Mailbox/Mailbox.module.php,ae3c5745feaeac06f61a40f143d1f96c
+"Used only when sending is separately enabled.","Se usa solo cuando el envío está habilitado por separado.",,site/modules/Mailbox/ProcessMailbox.module.php,681fdeba39e5d748d9d72baa5d4ab276
+"Used to list folders and read messages.","Se utiliza para enumerar carpetas y leer mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,2a4c8c5a7ac806affb3721b0a63f69cc
+Username,"Nombre de usuario",,site/modules/Mailbox/Mailbox.module.php,f6039d44b29456b20f8f373155ae4973
+"Username and password are required for a new password mailbox.","Se requiere nombre de usuario y contraseña para un nuevo buzón de contraseña.",,site/modules/Mailbox/ProcessMailbox.module.php,fc885b7eaea0b702a6481a1fe9eae125
+"Username and password are required when changing an OAuth account to password authentication.","Se requiere nombre de usuario y contraseña al cambiar una cuenta OAuth a autenticación de contraseña.",,site/modules/Mailbox/ProcessMailbox.module.php,d6e16138ff1dcf4e281cfebc1cae5802
+"Users must also have mailbox-api. This does not create a public HTTP route.","Los usuarios también deben tener mailbox-api. Esto no crea una ruta pública HTTP.",,site/modules/Mailbox/Mailbox.module.php,e7848d75e13834be83b78d5fa6f3c7a4
+"Use Squad default","Usar Squad predeterminado",,site/modules/Mailbox/Mailbox.module.php,ed6b70adfc15258a993bfdc380f6202d
+"Uses the IMAP /secure and OP_SECURE options. Enable only when required by server policy.","Utiliza las opciones IMAP /secure y OP_SECURE. Habilítelo solo cuando lo requiera la política del servidor.",,site/modules/Mailbox/Mailbox.module.php,8b988e7b96c0853765e276969bf30a57
+"Use Test connection beside an account. It authenticates only and never downloads folders or messages.","Utilice la conexión de prueba junto a una cuenta. Solo se autentica y nunca descarga carpetas o mensajes.",,site/modules/Mailbox/ProcessMailbox.module.php,abda44b430d45718238eeab6b720af73
+"Usually the complete email address. It is encrypted in the credentials table and never repopulated into this form; enter it only for initial connection or replacement.","Generalmente, la dirección de correo electrónico completa. Está cifrado en la tabla de credenciales y nunca se vuelve a completar en este formulario; ingréselo sólo para la conexión inicial o el reemplazo.",,site/modules/Mailbox/Mailbox.module.php,b79bf69b9b48e7c8cedae2a4df9629d2
+"Usually the complete email address. Some self-hosted servers use only the local account name.","Generalmente, la dirección de correo electrónico completa. Algunos servidores autohospedados utilizan solo el nombre de la cuenta local.",,site/modules/Mailbox/Mailbox.module.php,31629f633c96e0022c77b1ef9fe21ffd
+"Validate SMTP TLS certificate","Validar certificado SMTP TLS",,site/modules/Mailbox/Mailbox.module.php,b143c032c90a63a07a33b851475846b3
+"Validate the IMAP TLS certificate","Validar el certificado IMAP TLS",,site/modules/Mailbox/ProcessMailbox.module.php,d28e85373eac5ced9a5e5787de657f0b
+"Validate the SMTP TLS certificate","Validar el certificado SMTP TLS",,site/modules/Mailbox/ProcessMailbox.module.php,f89d1485a3b7940c9e6297a1d6ea8ef6
+"Validate TLS certificate","Validar certificado TLS",,site/modules/Mailbox/Mailbox.module.php,4c5eb5638eaca9acc0856f5b3fa78c94
+"Verify the saved IMAP and SMTP settings without sending a message.","Verifique las configuraciones guardadas IMAP y SMTP sin enviar un mensaje.",,site/modules/Mailbox/ProcessMailbox.module.php,0d968d465293f2f3d7c01c5742686906
+"Verify the web runtime with phpinfo() or the hosting panel; checking only the command-line PHP binary may test a different installation.","Verifique el tiempo de ejecución web con phpinfo() o el panel de alojamiento; comprobar solo el binario PHP de la línea de comandos puede probar una instalación diferente.",,site/modules/Mailbox/ProcessMailbox.module.php,e84abebe6a6def8bd3d6a1f5c25269a8
+"Verk and Kontor AI","Verk y Kontor IA",,site/modules/Mailbox/Mailbox.module.php,b497fd6782b756361d990f215fdc95a9
+"Webhook HTTPS endpoint","Punto final del webhook HTTPS",,site/modules/Mailbox/Mailbox.module.php,160100dff20604bd28e6667114b6b044
+"Webklex IMAP runtime is required","Webklex IMAP se requiere tiempo de ejecución",,site/modules/Mailbox/ProcessMailbox.module.php,db80572eed1a3d1bc7a667a33687e5e9
+"Which mailbox do you want to configure?","¿Qué buzón desea configurar?",,site/modules/Mailbox/ProcessMailbox.module.php,3e33895e66e246fef88023ee9b2845e0
+Writable,Escribible,,site/modules/Mailbox/ProcessMailbox.module.php,a1915263415d561ab5f8c7a7fcaa60af
+"Write manually","Escribir manualmente",,site/modules/Mailbox/ProcessMailbox.module.php,b7764abb76a80a065b06fa37a6ee3bff
+"Write or generate a plain-text reply…","Escribir o generar una respuesta en texto plano…",,site/modules/Mailbox/ProcessMailbox.module.php,b4d6b1787c578368eab28acef7c5f53d
+"Write timeout","Tiempo de espera de escritura",,site/modules/Mailbox/Mailbox.module.php,fe5d6c3620c16a569d8b369ae1e901f2
+Yes,Sí,,site/modules/Mailbox/ProcessMailbox.module.php,93cba07454f06a4a960172bbd6e2a435
+"You review and save settings manually.","Revisas y guardas la configuración manualmente.",,site/modules/Mailbox/ProcessMailbox.module.php,0dad3d5aa25a2b10157486938708dece

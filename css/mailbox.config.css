@@ -1,0 +1,208 @@
+/** Mailbox module configuration, built with native AdminThemeUikit patterns. */
+#ModuleEditForm.MailboxConfigForm {
+  --mailbox-config-border: var(--pw-border-color, rgba(0, 0, 0, .12));
+  --mailbox-config-muted: var(--pw-muted-color, #68717d);
+  --mailbox-config-accent: var(--pw-main-color, #e91e63);
+  --mailbox-config-surface: var(--pw-blocks-background, light-dark(#fff, #000));
+  --mailbox-config-success: light-dark(#238636, #78d68b);
+  --mailbox-config-warning: light-dark(#b26a00, #f2bd61);
+}
+
+#ModuleEditForm.MailboxConfigForm .Inputfield { scroll-margin-top: 24px; }
+
+#ModuleEditForm.MailboxConfigForm .MailboxConfig-target {
+  outline: 2px solid var(--pw-main-color, #eb1d61);
+  outline-offset: 3px;
+  transition: outline-color 300ms ease;
+}
+
+#ModuleEditForm.MailboxConfigForm .MailboxConfig-action-guide {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#ModuleEditForm.MailboxConfigForm .MailboxConfig-action-guide > div {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 8px;
+  padding: 13px 14px;
+  border: 1px solid var(--pw-border-color, rgba(0, 0, 0, .11));
+  border-radius: 5px;
+  background: var(--pw-input-bg-color, rgba(0, 0, 0, .025));
+}
+
+#ModuleEditForm.MailboxConfigForm .MailboxConfig-action-guide .uk-icon {
+  color: var(--pw-main-color, #eb1d61);
+}
+
+#ModuleEditForm.MailboxConfigForm .MailboxConfig-action-guide p {
+  margin: 3px 0 0;
+  color: var(--pw-muted-color, #666);
+  font-size: 12px;
+}
+
+#ModuleEditForm.MailboxConfigForm a,
+#ModuleEditForm.MailboxConfigForm .uk-button { text-decoration: none !important; }
+
+#ModuleEditForm.MailboxConfigForm .uk-button:not(.uk-button-text):not(.uk-button-link):not(.uk-button-danger):not(:disabled):hover,
+#ModuleEditForm.MailboxConfigForm .uk-button:not(.uk-button-text):not(.uk-button-link):not(.uk-button-danger):not(:disabled):focus {
+  border-color: var(--mailbox-config-accent) !important;
+  background: var(--mailbox-config-accent) !important;
+  color: #fff !important;
+}
+
+#ModuleEditForm.MailboxConfigForm .InputfieldContent.uk-form-controls {
+  box-sizing: border-box;
+  width: 100% !important;
+}
+
+#ModuleEditForm.MailboxConfigForm #Inputfield_mailboxOverview {
+  margin-bottom: 16px;
+  padding-right: 0;
+  padding-left: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#ModuleEditForm.MailboxConfigForm #Inputfield_mailboxOverview > .InputfieldContent { padding: 0; }
+
+#ModuleEditForm .MailboxConfig-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, .85fr);
+  gap: 28px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid var(--mailbox-config-border);
+  border-radius: 7px 7px 0 0;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(233, 30, 99, .13), transparent 34%),
+    var(--mailbox-config-surface);
+}
+
+#ModuleEditForm .MailboxConfig-eyebrow {
+  color: var(--mailbox-config-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+#ModuleEditForm .MailboxConfig-hero h2 { margin: 7px 0 8px; font-size: clamp(25px, 3vw, 38px); line-height: 1.08; }
+#ModuleEditForm .MailboxConfig-hero-copy > p { max-width: 760px; margin: 0; color: var(--mailbox-config-muted); font-size: 15px; line-height: 1.55; }
+#ModuleEditForm .MailboxConfig-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+#ModuleEditForm .MailboxConfig-actions .uk-button { display: inline-flex; align-items: center; gap: 7px; }
+
+#ModuleEditForm .MailboxConfig-summary { display: grid; align-content: start; gap: 1px; overflow: hidden; border: 1px solid var(--mailbox-config-border); border-radius: 5px; background: var(--mailbox-config-border); }
+#ModuleEditForm .MailboxConfig-summary > div { padding: 12px 14px; background: var(--mailbox-config-surface); }
+#ModuleEditForm .MailboxConfig-summary small,
+#ModuleEditForm .MailboxConfig-summary strong,
+#ModuleEditForm .MailboxConfig-summary span { display: block; }
+#ModuleEditForm .MailboxConfig-summary small { color: var(--mailbox-config-muted); font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+#ModuleEditForm .MailboxConfig-summary strong { margin: 3px 0; overflow-wrap: anywhere; font-size: 13px; }
+#ModuleEditForm .MailboxConfig-summary span { color: var(--mailbox-config-muted); font-size: 11px; }
+#ModuleEditForm .MailboxConfig-summary .is-ready { color: var(--mailbox-config-success); }
+#ModuleEditForm .MailboxConfig-summary .is-warning { color: var(--mailbox-config-warning); }
+
+#ModuleEditForm .MailboxConfig-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 1px solid var(--mailbox-config-border);
+  border-top: 0;
+  background: var(--mailbox-config-surface);
+}
+
+#ModuleEditForm .MailboxConfig-nav a { padding: 6px 10px; border-radius: 999px; color: var(--mailbox-config-muted); font-size: 11px; font-weight: 600; }
+#ModuleEditForm .MailboxConfig-nav a:hover,
+#ModuleEditForm .MailboxConfig-nav a:focus { color: var(--mailbox-config-accent); background: rgba(233, 30, 99, .08); }
+
+#ModuleEditForm .MailboxConfig-security {
+  display: flex;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1px solid var(--mailbox-config-border);
+  border-top: 0;
+  border-radius: 0 0 7px 7px;
+  background: rgba(35, 134, 54, .06);
+}
+
+#ModuleEditForm .MailboxConfig-security > .uk-icon { flex: 0 0 auto; color: var(--mailbox-config-success); }
+#ModuleEditForm .MailboxConfig-security strong { font-size: 12px; }
+#ModuleEditForm .MailboxConfig-security p { margin: 2px 0 0; color: var(--mailbox-config-muted); font-size: 11px; line-height: 1.45; }
+
+#ModuleEditForm .MailboxConfig-ai-safety {
+  display: flex;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 1px solid rgba(35, 134, 54, .18);
+  border-radius: 5px;
+  background: rgba(35, 134, 54, .06);
+}
+
+#ModuleEditForm .MailboxConfig-ai-safety > .uk-icon { flex: 0 0 auto; color: var(--mailbox-config-success); }
+#ModuleEditForm .MailboxConfig-ai-safety strong { font-size: 12px; }
+#ModuleEditForm .MailboxConfig-ai-safety p { margin: 3px 0 0; color: var(--mailbox-config-muted); font-size: 11px; line-height: 1.5; }
+
+#ModuleEditForm .MailboxConfig-ai-readiness {
+  display: flex;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 1px solid rgba(178, 106, 0, .22);
+  border-radius: 5px;
+  background: rgba(178, 106, 0, .07);
+}
+
+#ModuleEditForm .MailboxConfig-ai-readiness.is-ready { border-color: rgba(35, 134, 54, .18); background: rgba(35, 134, 54, .06); }
+#ModuleEditForm .MailboxConfig-ai-readiness > .uk-icon { flex: 0 0 auto; color: var(--mailbox-config-warning); }
+#ModuleEditForm .MailboxConfig-ai-readiness.is-ready > .uk-icon { color: var(--mailbox-config-success); }
+#ModuleEditForm .MailboxConfig-ai-readiness strong { font-size: 12px; }
+#ModuleEditForm .MailboxConfig-ai-readiness p { margin: 3px 0 0; color: var(--mailbox-config-muted); font-size: 11px; line-height: 1.5; }
+#ModuleEditForm .MailboxConfig-ai-readiness a { display: inline-block; margin-top: 5px; font-size: 11px; font-weight: 700; }
+
+#ModuleEditForm .MailboxConfig-remote-warning {
+  display: flex;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 1px solid rgba(178, 106, 0, .22);
+  border-radius: 5px;
+  background: rgba(178, 106, 0, .07);
+}
+
+#ModuleEditForm .MailboxConfig-remote-warning > .uk-icon { flex: 0 0 auto; color: var(--mailbox-config-warning); }
+#ModuleEditForm .MailboxConfig-remote-warning strong { font-size: 12px; }
+#ModuleEditForm .MailboxConfig-remote-warning p { margin: 3px 0 0; color: var(--mailbox-config-muted); font-size: 11px; line-height: 1.5; }
+
+#ModuleEditForm.MailboxConfigForm > .Inputfields > .InputfieldFieldset,
+#ModuleEditForm.MailboxConfigForm > .Inputfields > .InputfieldMarkup:not(#wrap_Inputfield_mailboxOverview) {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+#ModuleEditForm.MailboxConfigForm > .Inputfields > .InputfieldFieldset > .InputfieldHeader,
+#ModuleEditForm.MailboxConfigForm > .Inputfields > .InputfieldMarkup > .InputfieldHeader { padding-top: 16px; padding-bottom: 16px; }
+
+#ModuleEditForm.MailboxConfigForm .InputfieldFieldset > .InputfieldHeader .InputfieldHeaderText { font-weight: 700; }
+#ModuleEditForm.MailboxConfigForm .InputfieldFieldset > .InputfieldContent > .description { max-width: 980px; }
+
+#ModuleEditForm .MailboxConfig-test { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+#ModuleEditForm .MailboxConfig-test strong { font-size: 14px; }
+#ModuleEditForm .MailboxConfig-test p { max-width: 850px; margin: 3px 0 0; color: var(--mailbox-config-muted); font-size: 12px; }
+#ModuleEditForm .MailboxConfig-test .uk-button { flex: 0 0 auto; }
+
+@media (max-width: 959px) {
+  #ModuleEditForm .MailboxConfig-hero { grid-template-columns: 1fr; }
+  #ModuleEditForm .MailboxConfig-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 639px) {
+  #ModuleEditForm .MailboxConfig-hero { padding: 19px; }
+  #ModuleEditForm .MailboxConfig-summary { grid-template-columns: 1fr; }
+  #ModuleEditForm .MailboxConfig-actions { align-items: stretch; flex-direction: column; }
+  #ModuleEditForm .MailboxConfig-actions .uk-button { justify-content: center; width: 100%; }
+  #ModuleEditForm .MailboxConfig-test { align-items: stretch; flex-direction: column; }
+  #ModuleEditForm .MailboxConfig-test .uk-button { width: 100%; }
+  #ModuleEditForm.MailboxConfigForm .MailboxConfig-action-guide { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,64 @@
+services:
+  certificates:
+    image: alpine/openssl:3.3.2
+    volumes:
+      - mailbox-certs:/certs
+    command:
+      - sh
+      - -ec
+      - |
+        test -f /certs/ca.crt || openssl req -x509 -newkey rsa:2048 -nodes -days 2 -subj /CN=Mailbox-Test-CA -keyout /certs/ca.key -out /certs/ca.crt
+        test -f /certs/mail.crt || openssl req -newkey rsa:2048 -nodes -subj /CN=mail -addext subjectAltName=DNS:mail -keyout /certs/mail.key -out /certs/mail.csr
+        test -f /certs/mail.crt || openssl x509 -req -days 2 -in /certs/mail.csr -CA /certs/ca.crt -CAkey /certs/ca.key -CAcreateserial -copy_extensions copy -out /certs/mail.crt
+
+  database:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: mailbox_test
+      MARIADB_USER: mailbox
+      MARIADB_PASSWORD: mailbox-test-db
+      MARIADB_ROOT_PASSWORD: mailbox-test-root
+    tmpfs:
+      - /var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  mail:
+    build: ./mail
+    depends_on:
+      certificates:
+        condition: service_completed_successfully
+    volumes:
+      - mailbox-certs:/certs:ro
+    healthcheck:
+      test: ["CMD-SHELL", "openssl s_client -connect 127.0.0.1:993 -servername mail </dev/null 2>/dev/null | grep -q 'BEGIN CERTIFICATE'"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  processwire:
+    build: ./runner
+    depends_on:
+      database:
+        condition: service_healthy
+      mail:
+        condition: service_healthy
+    environment:
+      PROCESSWIRE_COMMIT: b6cace468d4fb6c8461840c9a5f93a8d9015588b
+      MAILBOX_TEST_DB_HOST: database
+      MAILBOX_TEST_DB_NAME: mailbox_test
+      MAILBOX_TEST_DB_USER: mailbox
+      MAILBOX_TEST_DB_PASS: mailbox-test-db
+      MAILBOX_TEST_IMAP_HOST: mail
+      MAILBOX_TEST_IMAP_USER: test@example.test
+      MAILBOX_TEST_IMAP_PASS: mailbox-test-imap
+      MAILBOX_TEST_SECRET: integration-only-secret-change-me
+    volumes:
+      - ../..:/module:ro
+      - mailbox-certs:/certs:ro
+
+volumes:
+  mailbox-certs:

@@ -1,0 +1,298 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+if(PHP_SAPI !== 'cli' && PHP_SAPI !== 'phpdbg') exit(1);
+
+$arguments = array_slice($argv, 1);
+$command = 'help';
+$options = [];
+foreach($arguments as $argument) {
+    if(strpos($argument, '--') === 0) {
+        $pair = explode('=', substr($argument, 2), 2);
+        $options[$pair[0]] = $pair[1] ?? true;
+    } else if($command === 'help') {
+        $command = $argument;
+    }
+}
+
+$help = <<<'TXT'
+Mailbox CLI — JSON interface for local agents and cron
+
+Usage:
+  mailbox <command> --root=/path/to/processwire [options]
+
+Mailbox-scoped commands accept --account=1, --account=2, or --account=3.
+
+Read commands:
+  capabilities
+  accounts
+  discover --email=user@example.com
+  test
+  folders
+  messages --folder=INBOX --page=1 --limit=30
+  message --folder=INBOX --uid=123
+  links --folder=INBOX --uid=123
+  test-smtp
+  search [--folder=INBOX|--all] [--text=...] [--from=...] [--to=...] [--subject=...] [--since=YYYY-MM-DD] [--before=YYYY-MM-DD]
+  attachment-text --folder=INBOX --uid=123 --part=2
+  attachment --folder=INBOX --uid=123 --part=2 --output=/absolute/file --execute
+  indexed-messages [--page=1] [--limit=30]
+  notifications [--all] [--limit=50]
+
+Squad AI (requires Squad with ask()/run(), enableSquadIntegration, and --execute):
+  squad-analyze --folder=INBOX --uid=123 --stdin --execute
+  squad-agent --stdin --execute
+
+Squad stdin JSON:
+  {"instruction":"Summarize this message","options":{"provider":"openai","model":"gpt-5.4-mini"}}
+
+Background synchronization (requires enableBackgroundSync):
+  sync --execute
+  queue-sync --execute
+  queue-run [--limit=5] --execute
+  idle --folder=INBOX [--max-events=1] --execute
+  cleanup-sync-history --execute
+
+Confirmation workflow:
+  propose --folder=INBOX --uid=123 --hash=<sha256> [--mode=get|form|code_form] [--max-steps=1] [--code-field=otp]
+  proposals
+  execute --id=<proposal-id> --execute
+
+Message mutations (requires enableMailMutations):
+  flags --folder=INBOX --uid=123 --flags=seen,flagged --enabled=1 --execute
+  move --folder=INBOX --uid=123 --destination=Archive --execute [--expunge --confirm=EXPUNGE]
+  delete --folder=INBOX --uid=123 --execute [--expunge --confirm=EXPUNGE]
+
+SMTP sending (requires enableMailSending; JSON request is read from stdin):
+  send --stdin --execute
+  reply --folder=INBOX --uid=123 --stdin --execute
+  forward --folder=INBOX --uid=123 --stdin --execute
+
+Examples of stdin JSON:
+  {"to":[{"email":"user@example.com"}],"subject":"Hello","body":"Text"}
+  {"to":[{"email":"user@example.com"}],"subject":"Report","body":"Attached","attachments":[{"name":"report.txt","type":"text/plain","content_base64":"SGVsbG8="}]}
+  {"body":"Reply text","reply_all":false}
+  {"to":[{"email":"user@example.com"}],"body":"Optional note"}
+
+Credential operations:
+  rotate-credentials --execute
+
+The CLI is disabled until enableCli is set in Mailbox settings. `execute`
+only runs a proposal already approved by a logged-in user with the
+mailbox-confirm-links permission. It never follows redirects.
+TXT;
+
+if($command === 'help' || isset($options['help'])) {
+    fwrite(STDOUT, $help . PHP_EOL);
+    exit(0);
+}
+
+$root = rtrim((string) ($options['root'] ?? getcwd()), DIRECTORY_SEPARATOR);
+$bootstrap = $root . '/wire/core/ProcessWire.php';
+if(!is_file($root . '/index.php') || !is_file($bootstrap)) {
+    fwrite(STDERR, json_encode(['ok' => false, 'error' => 'ProcessWire root not found. Pass --root=/path/to/processwire.']) . PHP_EOL);
+    exit(2);
+}
+
+try {
+    require_once $bootstrap;
+    $config = \ProcessWire\ProcessWire::buildConfig($root);
+    $processWire = new \ProcessWire\ProcessWire($config);
+    $modules = $processWire->wire('modules');
+    $mailbox = $modules ? $modules->getModule('Mailbox', ['noPermissionCheck' => true]) : null;
+    if(!$mailbox instanceof \ProcessWire\Mailbox) throw new RuntimeException('Mailbox is not installed.');
+    if(!(int) $mailbox->enableCli) throw new RuntimeException('Mailbox CLI is disabled in module settings.');
+    $cliActor = function_exists('posix_geteuid') ? 'cli:uid:' . posix_geteuid() : 'cli:local';
+
+    $folder = (string) ($options['folder'] ?? 'INBOX');
+    $uid = (int) ($options['uid'] ?? 0);
+    $accountId = isset($options['account']) ? (int) $options['account'] : null;
+    $stdinRequest = static function() use ($options): array {
+        if(!isset($options['stdin'])) throw new InvalidArgumentException('This command requires --stdin.');
+        $raw = stream_get_contents(STDIN, 15728641);
+        if(!is_string($raw) || strlen($raw) > 15728640) throw new InvalidArgumentException('Standard-input JSON is too large.');
+        $decoded = json_decode($raw, true);
+        if(!is_array($decoded)) throw new InvalidArgumentException('Standard input must contain one JSON object.');
+        return $decoded;
+    };
+    $dispatch = function() use ($command, $options, $mailbox, $folder, $uid, $cliActor, $stdinRequest) {
+      switch($command) {
+        case 'capabilities':
+            $result = $mailbox->capabilities();
+            break;
+        case 'accounts':
+            $result = $mailbox->getAccounts();
+            break;
+        case 'discover':
+            if(empty($options['email'])) throw new InvalidArgumentException('--email is required.');
+            $result = $mailbox->discoverMailboxSettings((string) $options['email']);
+            break;
+        case 'test':
+            $result = $mailbox->testConnection();
+            break;
+        case 'test-smtp':
+            $result = $mailbox->testSmtpConnection();
+            break;
+        case 'folders':
+            $result = $mailbox->listFolders();
+            break;
+        case 'messages':
+            $result = $mailbox->listMessages($folder, (int) ($options['page'] ?? 1), (int) ($options['limit'] ?? 30));
+            break;
+        case 'message':
+            if($uid < 1) throw new InvalidArgumentException('--uid is required.');
+            $result = $mailbox->getAgentMessage($folder, $uid);
+            break;
+        case 'links':
+            if($uid < 1) throw new InvalidArgumentException('--uid is required.');
+            $result = $mailbox->getAgentLinks($folder, $uid);
+            break;
+        case 'squad-analyze':
+            if($uid < 1 || !isset($options['execute'])) throw new InvalidArgumentException('Squad analysis requires --uid, --stdin, and the explicit --execute flag.');
+            $request = $stdinRequest();
+            if(!isset($request['instruction']) || !is_string($request['instruction'])) throw new InvalidArgumentException('Squad JSON requires a string instruction.');
+            if(isset($request['options']) && !is_array($request['options'])) throw new InvalidArgumentException('Squad options must be an object.');
+            $result = $mailbox->analyzeMessageWithSquad($folder, $uid, $request['instruction'], $request['options'] ?? [], $cliActor);
+            break;
+        case 'squad-agent':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Squad agent requires --stdin and the explicit --execute flag.');
+            $request = $stdinRequest();
+            if(!isset($request['instruction']) || !is_string($request['instruction'])) throw new InvalidArgumentException('Squad JSON requires a string instruction.');
+            if(isset($request['options']) && !is_array($request['options'])) throw new InvalidArgumentException('Squad options must be an object.');
+            $result = $mailbox->runSquadAgent($request['instruction'], $request['options'] ?? [], $cliActor);
+            break;
+        case 'search':
+            $filters = [];
+            foreach(['text', 'from', 'to', 'subject', 'since', 'before', 'state', 'flagged', 'answered', 'has_attachment', 'min_bytes', 'max_bytes'] as $name) {
+                if(isset($options[$name])) $filters[$name] = $options[$name];
+            }
+            $result = $mailbox->searchMessages($filters, isset($options['all']) ? null : $folder, (int) ($options['page'] ?? 1), (int) ($options['limit'] ?? 30));
+            break;
+        case 'attachment-text':
+            if($uid < 1 || empty($options['part'])) throw new InvalidArgumentException('Attachment text requires --uid and --part.');
+            $result = $mailbox->readAttachmentText($folder, $uid, (string) $options['part'], $cliActor);
+            break;
+        case 'attachment':
+            if($uid < 1 || empty($options['part']) || empty($options['output']) || !isset($options['execute'])) throw new InvalidArgumentException('Attachment download requires --uid, --part, --output, and the explicit --execute flag.');
+            $output = (string) $options['output'];
+            if($output === '' || $output[0] !== DIRECTORY_SEPARATOR || !is_dir(dirname($output)) || file_exists($output)) throw new InvalidArgumentException('--output must be a new file under an existing absolute directory.');
+            $attachment = $mailbox->getAttachment($folder, $uid, (string) $options['part'], $cliActor);
+            $handle = @fopen($output, 'xb');
+            if(!$handle) throw new RuntimeException('Unable to create attachment output file.');
+            $success = false;
+            try {
+                $content = (string) $attachment['content'];
+                $offset = 0;
+                while($offset < strlen($content)) {
+                    $written = fwrite($handle, substr($content, $offset));
+                    if($written === false || $written < 1) throw new RuntimeException('Unable to write the complete attachment output file.');
+                    $offset += $written;
+                }
+                $success = true;
+            } finally {
+                fclose($handle);
+                if(!$success) @unlink($output);
+            }
+            unset($attachment['content']);
+            $result = $attachment + ['output' => $output];
+            break;
+        case 'indexed-messages':
+            $result = $mailbox->indexedMessages((int) ($options['page'] ?? 1), (int) ($options['limit'] ?? 30));
+            break;
+        case 'notifications':
+            $result = $mailbox->mailboxNotifications((int) ($options['limit'] ?? 50), !isset($options['all']));
+            break;
+        case 'sync':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Synchronization requires the explicit --execute flag.');
+            $result = $mailbox->syncAccount();
+            break;
+        case 'queue-sync':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Queueing synchronization requires the explicit --execute flag.');
+            $result = ['job_id' => $mailbox->queueSync()];
+            break;
+        case 'queue-run':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Queue processing requires the explicit --execute flag.');
+            $result = $mailbox->processSyncQueue((int) ($options['limit'] ?? 5));
+            break;
+        case 'idle':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('IMAP IDLE requires the explicit --execute flag.');
+            $result = $mailbox->watchIdle($folder, (int) ($options['max-events'] ?? 0));
+            break;
+        case 'cleanup-sync-history':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Sync history cleanup requires the explicit --execute flag.');
+            $result = $mailbox->cleanupSyncHistory();
+            break;
+        case 'propose':
+            if($uid < 1 || empty($options['hash'])) throw new InvalidArgumentException('--uid and --hash are required.');
+            $workflow = [];
+            foreach(['mode', 'max-steps', 'code-field'] as $name) if(isset($options[$name])) $workflow[str_replace('-', '_', $name)] = $options[$name];
+            $result = $mailbox->createConfirmationProposal($folder, $uid, (string) $options['hash'], $cliActor, $workflow);
+            break;
+        case 'proposals':
+            $result = $mailbox->listConfirmationProposals();
+            break;
+        case 'execute':
+            if(empty($options['id'])) throw new InvalidArgumentException('--id is required.');
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Execution requires the explicit --execute flag.');
+            $result = $mailbox->executeConfirmationProposal((string) $options['id'], $cliActor);
+            break;
+        case 'rotate-credentials':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('Credential rotation requires the explicit --execute flag.');
+            $result = $mailbox->rotateCredentialEncryption();
+            break;
+        case 'flags':
+            if($uid < 1 || !isset($options['execute'])) throw new InvalidArgumentException('Flags require --uid and the explicit --execute flag.');
+            $flags = array_values(array_filter(array_map('trim', explode(',', (string) ($options['flags'] ?? '')))));
+            $enabled = !isset($options['enabled']) || !in_array(strtolower((string) $options['enabled']), ['0', 'false', 'no'], true);
+            $result = $mailbox->setMessageFlags($folder, $uid, $flags, $enabled, $cliActor);
+            break;
+        case 'move':
+            if($uid < 1 || empty($options['destination']) || !isset($options['execute'])) throw new InvalidArgumentException('Move requires --uid, --destination, and the explicit --execute flag.');
+            $expunge = isset($options['expunge']);
+            if($expunge && ($options['confirm'] ?? '') !== 'EXPUNGE') throw new InvalidArgumentException('Expunge requires --confirm=EXPUNGE.');
+            $result = $mailbox->moveMessage($folder, $uid, (string) $options['destination'], $expunge, $cliActor);
+            break;
+        case 'delete':
+            if($uid < 1 || !isset($options['execute'])) throw new InvalidArgumentException('Delete requires --uid and the explicit --execute flag.');
+            $expunge = isset($options['expunge']);
+            if($expunge && ($options['confirm'] ?? '') !== 'EXPUNGE') throw new InvalidArgumentException('Expunge requires --confirm=EXPUNGE.');
+            $result = $mailbox->deleteMessage($folder, $uid, $expunge, $cliActor);
+            break;
+        case 'send':
+            if(!isset($options['execute'])) throw new InvalidArgumentException('SMTP delivery requires the explicit --execute flag.');
+            $result = $mailbox->sendMessage($stdinRequest(), $cliActor);
+            break;
+        case 'reply':
+            if($uid < 1 || !isset($options['execute'])) throw new InvalidArgumentException('Reply requires --uid and the explicit --execute flag.');
+            $request = $stdinRequest();
+            if(!isset($request['body']) || !is_string($request['body'])) throw new InvalidArgumentException('Reply JSON requires a string body.');
+            if(isset($request['reply_all']) && !is_bool($request['reply_all'])) throw new InvalidArgumentException('reply_all must be a JSON boolean.');
+            if(isset($request['attachments']) && !is_array($request['attachments'])) throw new InvalidArgumentException('attachments must be an array.');
+            $result = $mailbox->replyMessage($folder, $uid, $request['body'], (bool) ($request['reply_all'] ?? false), $cliActor, $request['attachments'] ?? []);
+            break;
+        case 'forward':
+            if($uid < 1 || !isset($options['execute'])) throw new InvalidArgumentException('Forward requires --uid and the explicit --execute flag.');
+            $request = $stdinRequest();
+            if(!isset($request['to']) || !is_array($request['to'])) throw new InvalidArgumentException('Forward JSON requires a to array.');
+            if(isset($request['attachments']) && !is_array($request['attachments'])) throw new InvalidArgumentException('attachments must be an array.');
+            $result = $mailbox->forwardMessage($folder, $uid, $request['to'], (string) ($request['body'] ?? ''), $cliActor, $request['attachments'] ?? []);
+            break;
+        default:
+            throw new InvalidArgumentException('Unknown command: ' . $command);
+      }
+      return $result;
+    };
+    if($accountId !== null) {
+        if($accountId < 1) throw new InvalidArgumentException('--account must be a positive account ID.');
+        $result = $mailbox->withAccount($accountId, $dispatch);
+    } else {
+        $result = $dispatch();
+    }
+    fwrite(STDOUT, json_encode(['ok' => true, 'result' => $result], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . PHP_EOL);
+    exit(0);
+} catch(Throwable $error) {
+    fwrite(STDERR, json_encode(['ok' => false, 'error' => $error->getMessage()], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL);
+    exit(1);
+}

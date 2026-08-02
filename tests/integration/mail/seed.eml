@@ -1,0 +1,9 @@
+From: sender@example.test
+To: test@example.test
+Subject: Mailbox integration message
+Date: Tue, 14 Nov 2023 22:13:20 +0000
+Message-ID: <mailbox-integration@example.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+This message proves the disposable Dovecot mailbox is readable.

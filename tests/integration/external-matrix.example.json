@@ -1,0 +1,34 @@
+[
+  {
+    "name": "gmail",
+    "host": "imap.gmail.com",
+    "port": 993,
+    "encryption": "ssl",
+    "username_env": "MAILBOX_GMAIL_USER",
+    "password_env": "MAILBOX_GMAIL_APP_PASSWORD"
+  },
+  {
+    "name": "hestiacp",
+    "host": "mail.example.com",
+    "port": 993,
+    "encryption": "ssl",
+    "username_env": "MAILBOX_HESTIA_USER",
+    "password_env": "MAILBOX_HESTIA_PASSWORD"
+  },
+  {
+    "name": "vestacp",
+    "host": "mail.example.org",
+    "port": 143,
+    "encryption": "tls",
+    "username_env": "MAILBOX_VESTA_USER",
+    "password_env": "MAILBOX_VESTA_PASSWORD"
+  },
+  {
+    "name": "poste-io",
+    "host": "mail.example.net",
+    "port": 993,
+    "encryption": "ssl",
+    "username_env": "MAILBOX_POSTE_USER",
+    "password_env": "MAILBOX_POSTE_PASSWORD"
+  }
+]
