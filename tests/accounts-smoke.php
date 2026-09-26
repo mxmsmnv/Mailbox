@@ -121,6 +121,9 @@ namespace ProcessWire {
         throw new \RuntimeException('Account authentication test performs mailbox enumeration.');
     }
     $moduleSource = (string) file_get_contents(dirname(__DIR__) . '/Mailbox.module.php');
+    if(substr_count($moduleSource, '$this->credentials(1)->') < 4 || strpos($moduleSource, '$this->credentials()->ensureTable()') !== false) {
+        throw new \RuntimeException('Fresh-install credential bootstrap can query the account registry before it exists.');
+    }
     $configSource = (string) file_get_contents(dirname(__DIR__) . '/src/MailboxConfigConcern.php');
     $concernSource = (string) file_get_contents(dirname(__DIR__) . '/src/MailboxAccountsConcern.php');
     foreach(['pendingPrimaryAccountSettings', 'normalizeAccountSettings($data)', 'syncPrimaryAccountSettings($settings)'] as $needle) {

@@ -95,7 +95,7 @@ class Mailbox extends WireData implements Module, ConfigurableModule {
         return [
             'title' => 'Mailbox',
             'summary' => 'Secure three-account IMAP/SMTP workspace with encrypted indexing, APIs, AI, and controlled confirmations.',
-            'version' => 101,
+            'version' => 102,
             'author' => 'Maxim Semenov',
             'href' => 'https://github.com/mxmsmnv/Mailbox',
             'singular' => true,
@@ -176,14 +176,17 @@ class Mailbox extends WireData implements Module, ConfigurableModule {
     }
 
     public function ___install(): void {
-        $this->credentials()->ensureTable();
+        // The account registry does not exist yet on a fresh install. Pin the
+        // credential store to the primary account so currentAccountId() does
+        // not query that table before ensureAccountRegistry() creates it.
+        $this->credentials(1)->ensureTable();
         $this->ensureAccountRegistry();
         $this->indexStore()->ensureTables();
     }
 
     public function ___upgrade($fromVersion, $toVersion): void {
-        $this->credentials()->ensureTable();
-        $this->credentials()->upgradeAccountIdColumn();
+        $this->credentials(1)->ensureTable();
+        $this->credentials(1)->upgradeAccountIdColumn();
         $this->ensureAccountRegistry();
         $this->indexStore()->ensureTables();
         $this->migrateCredentialsToTable();
@@ -191,7 +194,7 @@ class Mailbox extends WireData implements Module, ConfigurableModule {
 
     public function ___uninstall(): void {
         $this->indexStore()->dropTables();
-        $this->credentials()->dropTable();
+        $this->credentials(1)->dropTable();
         $this->accountRegistry()->dropTable();
     }
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 - 2026-09-26
+
+- Avoid querying the account registry before it exists during fresh installs
+  on SQLite and PostgreSQL by explicitly bootstrapping primary-account
+  credential storage first.
+
 ## 1.0.1 - 2026-09-26
 
 - Made account limits, index pruning, and background-job claiming safe on
