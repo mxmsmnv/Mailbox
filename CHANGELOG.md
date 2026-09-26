@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.1 - 2026-09-26
+
+- Made account limits, index pruning, and background-job claiming safe on
+  SQLite with immediate write transactions while retaining row locks on MySQL
+  and PostgreSQL.
+- Replaced the MySQL-specific `LAST_INSERT_ID(id)` upsert pattern with portable
+  insert-or-select identity handling for indexed messages, jobs, and
+  notifications.
+- Explicitly maintain modification timestamps so SQLite does not lose the
+  cleanup and credential/account freshness semantics of MySQL's automatic
+  timestamp updates.
+
 ## 1.0.0 - 2026-08-02
 
 Initial release.

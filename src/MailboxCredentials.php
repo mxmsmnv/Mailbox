@@ -54,7 +54,7 @@ final class MailboxCredentials extends Wire {
         $statement = $this->wire('database')->prepare(
             "INSERT INTO `" . self::TABLE . "` (`id`, `username_enc`, `password_enc`)
              VALUES (:id, :username, :password)
-             ON DUPLICATE KEY UPDATE `username_enc` = VALUES(`username_enc`), `password_enc` = VALUES(`password_enc`)"
+             ON DUPLICATE KEY UPDATE `username_enc` = VALUES(`username_enc`), `password_enc` = VALUES(`password_enc`), `modified` = UTC_TIMESTAMP()"
         );
         $statement->execute([':id' => $this->accountId, ':username' => $usernameEncrypted, ':password' => $passwordEncrypted]);
 

@@ -11,6 +11,18 @@ final class MailboxIndexStore extends Wire {
     private const CONTEXT = 'MailboxIndex.v1';
     private $cacheTableReady = false;
 
+    private function beginWriteTransaction($database): void {
+        if($database->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'sqlite') {
+            $database->exec('BEGIN IMMEDIATE');
+            return;
+        }
+        $database->beginTransaction();
+    }
+
+    private function forUpdate($database): string {
+        return $database->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'sqlite' ? '' : ' FOR UPDATE';
+    }
+
     public function ensureTables(): void {
         $database = $this->wire('database');
         $database->exec("CREATE TABLE IF NOT EXISTS `" . self::INDEX_TABLE . "` (
@@ -120,9 +132,19 @@ final class MailboxIndexStore extends Wire {
         $encrypted = $this->encrypt($accountId, $this->json($payload));
         $date = !empty($message['date']) ? gmdate('Y-m-d H:i:s', (int) $message['date']) : null;
         $database = $this->wire('database');
-        $insert = $database->prepare("INSERT INTO `" . self::INDEX_TABLE . "` (`account_id`, `folder_hash`, `uid`, `payload_enc`, `message_date`) VALUES (:account, :folder_hash, :uid, :payload, :message_date) ON DUPLICATE KEY UPDATE `id` = LAST_INSERT_ID(`id`), `payload_enc` = VALUES(`payload_enc`), `message_date` = VALUES(`message_date`)");
-        $insert->execute([':account' => $accountId, ':folder_hash' => $folderHash, ':uid' => $uid, ':payload' => $encrypted, ':message_date' => $date]);
-        return ['id' => (int) $database->lastInsertId(), 'created' => $insert->rowCount() === 1, 'message' => $payload];
+        $parameters = [':account' => $accountId, ':folder_hash' => $folderHash, ':uid' => $uid, ':payload' => $encrypted, ':message_date' => $date];
+        $insert = $database->prepare("INSERT IGNORE INTO `" . self::INDEX_TABLE . "` (`account_id`, `folder_hash`, `uid`, `payload_enc`, `message_date`) VALUES (:account, :folder_hash, :uid, :payload, :message_date)");
+        $insert->execute($parameters);
+        $created = $insert->rowCount() === 1;
+        if(!$created) {
+            $update = $database->prepare("UPDATE `" . self::INDEX_TABLE . "` SET `payload_enc` = :payload, `message_date` = :message_date, `modified` = UTC_TIMESTAMP() WHERE `account_id` = :account AND `folder_hash` = :folder_hash AND `uid` = :uid");
+            $update->execute($parameters);
+        }
+        $find = $database->prepare("SELECT `id` FROM `" . self::INDEX_TABLE . "` WHERE `account_id` = :account AND `folder_hash` = :folder_hash AND `uid` = :uid");
+        $find->execute([':account' => $accountId, ':folder_hash' => $folderHash, ':uid' => $uid]);
+        $id = (int) $find->fetchColumn();
+        if($id < 1) throw new WireException('Indexed message could not be read after upsert.');
+        return ['id' => $id, 'created' => $created, 'message' => $payload];
     }
 
     public function listMessages(int $accountId, int $page = 1, int $limit = 30): array {
@@ -151,9 +173,9 @@ final class MailboxIndexStore extends Wire {
             foreach($keep as $index => $uid) { $token = ':uid' . $index; $tokens[] = $token; $parameters[$token] = $uid; }
             $where .= ' AND `uid` NOT IN (' . implode(',', $tokens) . ')';
         }
-        $database->beginTransaction();
+        $this->beginWriteTransaction($database);
         try {
-            $ids = $database->prepare("SELECT `id` FROM `" . self::INDEX_TABLE . "` WHERE {$where} FOR UPDATE");
+            $ids = $database->prepare("SELECT `id` FROM `" . self::INDEX_TABLE . "` WHERE {$where}" . $this->forUpdate($database));
             $ids->execute($parameters);
             $remove = array_map('intval', $ids->fetchAll(\PDO::FETCH_COLUMN) ?: []);
             if($remove) {
@@ -204,19 +226,26 @@ final class MailboxIndexStore extends Wire {
             if($notificationId < 1) throw new WireException('Webhook notification job requires a valid notification ID.');
             $dedupe = 'webhook:' . $accountId . ':' . $notificationId;
         }
-        $statement = $this->wire('database')->prepare("INSERT INTO `" . self::JOB_TABLE . "` (`account_id`, `type`, `payload_enc`, `available_at`, `dedupe_key`) VALUES (:account, :type, :payload, :available, :dedupe) ON DUPLICATE KEY UPDATE `id` = LAST_INSERT_ID(`id`)");
+        $database = $this->wire('database');
+        $statement = $database->prepare("INSERT IGNORE INTO `" . self::JOB_TABLE . "` (`account_id`, `type`, `payload_enc`, `available_at`, `dedupe_key`) VALUES (:account, :type, :payload, :available, :dedupe)");
         $statement->execute([':account' => $accountId, ':type' => $type, ':payload' => $this->encrypt($accountId, $this->json($payload)), ':available' => gmdate('Y-m-d H:i:s', time() + max(0, min(86400, $delaySeconds))), ':dedupe' => $dedupe]);
-        return (int) $this->wire('database')->lastInsertId();
+        if($statement->rowCount() === 1) return (int) $database->lastInsertId();
+        if($dedupe === null) throw new WireException('Mailbox job could not be queued.');
+        $find = $database->prepare("SELECT `id` FROM `" . self::JOB_TABLE . "` WHERE `dedupe_key` = :dedupe");
+        $find->execute([':dedupe' => $dedupe]);
+        $id = (int) $find->fetchColumn();
+        if($id < 1) throw new WireException('Queued Mailbox job could not be read.');
+        return $id;
     }
 
     public function claim(int $leaseSeconds = 120): ?array {
         $database = $this->wire('database');
-        $database->beginTransaction();
+        $this->beginWriteTransaction($database);
         try {
-            $row = $database->query("SELECT `id`, `account_id`, `type`, `payload_enc`, `attempts`, `dedupe_key` FROM `" . self::JOB_TABLE . "` WHERE (`status` = 'queued' OR (`status` = 'running' AND `leased_until` < UTC_TIMESTAMP())) AND `available_at` <= UTC_TIMESTAMP() ORDER BY `id` LIMIT 1 FOR UPDATE")->fetch(\PDO::FETCH_ASSOC);
+            $row = $database->query("SELECT `id`, `account_id`, `type`, `payload_enc`, `attempts`, `dedupe_key` FROM `" . self::JOB_TABLE . "` WHERE (`status` = 'queued' OR (`status` = 'running' AND `leased_until` < UTC_TIMESTAMP())) AND `available_at` <= UTC_TIMESTAMP() ORDER BY `id` LIMIT 1" . $this->forUpdate($database))->fetch(\PDO::FETCH_ASSOC);
             if(!$row) { $database->commit(); return null; }
             $token = bin2hex(random_bytes(32));
-            $update = $database->prepare("UPDATE `" . self::JOB_TABLE . "` SET `status` = 'running', `attempts` = `attempts` + 1, `lease_token` = :token, `leased_until` = :leased, `error_code` = '' WHERE `id` = :id");
+            $update = $database->prepare("UPDATE `" . self::JOB_TABLE . "` SET `status` = 'running', `attempts` = `attempts` + 1, `lease_token` = :token, `leased_until` = :leased, `error_code` = '', `modified` = UTC_TIMESTAMP() WHERE `id` = :id");
             $update->execute([':token' => $token, ':leased' => gmdate('Y-m-d H:i:s', time() + max(30, min(900, $leaseSeconds))), ':id' => (int) $row['id']]);
             $database->commit();
             return ['id' => (int) $row['id'], 'account_id' => (int) $row['account_id'], 'type' => (string) $row['type'], 'payload' => $this->decode((int) $row['account_id'], (string) $row['payload_enc']), 'attempts' => (int) $row['attempts'] + 1, 'lease_token' => $token, 'dedupe_key' => (string) ($row['dedupe_key'] ?? '')];
@@ -237,13 +266,13 @@ final class MailboxIndexStore extends Wire {
         $errorCode = preg_match('/^[a-z0-9_.-]{0,64}$/', $errorCode) ? $errorCode : 'job_error';
         $dedupe = $status === 'queued' ? (string) ($job['dedupe_key'] ?? '') : null;
         if($dedupe === '') $dedupe = null;
-        $statement = $this->wire('database')->prepare("UPDATE `" . self::JOB_TABLE . "` SET `status` = :status, `available_at` = :available, `lease_token` = NULL, `leased_until` = NULL, `error_code` = :error, `dedupe_key` = :dedupe WHERE `id` = :id AND `lease_token` = :token");
+        $statement = $this->wire('database')->prepare("UPDATE `" . self::JOB_TABLE . "` SET `status` = :status, `available_at` = :available, `lease_token` = NULL, `leased_until` = NULL, `error_code` = :error, `dedupe_key` = :dedupe, `modified` = UTC_TIMESTAMP() WHERE `id` = :id AND `lease_token` = :token");
         $statement->execute([':status' => $status, ':available' => gmdate('Y-m-d H:i:s', time() + ($status === 'queued' ? $delay : 0)), ':error' => $success ? '' : $errorCode, ':dedupe' => $dedupe, ':id' => $id, ':token' => $token]);
         if($statement->rowCount() !== 1) throw new WireException('Mailbox job lease was lost.');
     }
 
     public function notify(int $accountId, int $indexId, array $payload): ?int {
-        $statement = $this->wire('database')->prepare("INSERT INTO `" . self::NOTIFICATION_TABLE . "` (`account_id`, `index_id`, `event`, `payload_enc`) VALUES (:account, :index_id, 'new_message', :payload) ON DUPLICATE KEY UPDATE `id` = LAST_INSERT_ID(`id`)");
+        $statement = $this->wire('database')->prepare("INSERT IGNORE INTO `" . self::NOTIFICATION_TABLE . "` (`account_id`, `index_id`, `event`, `payload_enc`) VALUES (:account, :index_id, 'new_message', :payload)");
         $statement->execute([':account' => $accountId, ':index_id' => $indexId, ':payload' => $this->encrypt($accountId, $this->json($payload))]);
         return $statement->rowCount() === 1 ? (int) $this->wire('database')->lastInsertId() : null;
     }

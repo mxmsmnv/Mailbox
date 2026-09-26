@@ -45,6 +45,9 @@ namespace ProcessWire {
     foreach(['mailbox_message_index', 'mailbox_sync_state', 'mailbox_jobs', 'mailbox_notifications', 'mailbox_view_cache', 'MailboxViewCache.v1', 'payload_enc', 'uid_validity', 'job_dedupe', 'FOR UPDATE', 'sodium_crypto_secretbox_open'] as $needle) {
         if(strpos((string) $source, $needle) === false) throw new \RuntimeException('Missing index boundary: ' . $needle);
     }
+    if(strpos($source, 'LAST_INSERT_ID') !== false || strpos($source, "exec('BEGIN IMMEDIATE')") === false || strpos($source, 'LIMIT 1 FOR UPDATE') !== false) {
+        throw new \RuntimeException('Portable index upsert or locking boundary is missing.');
+    }
     $syncSource = file_get_contents(dirname(__DIR__) . '/src/MailboxSyncConcern.php');
     foreach(['$initialSync', 'folderUidValidity', 'claim(900)', 'dispatchIndexedNotification', 'enableBackgroundSync'] as $needle) {
         if(strpos((string) $syncSource, $needle) === false) throw new \RuntimeException('Missing sync boundary: ' . $needle);

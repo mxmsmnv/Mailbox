@@ -32,7 +32,7 @@ class ProcessMailbox extends Process implements Module {
         return [
             'title' => 'Mailbox (admin)',
             'summary' => 'Secure three-account mail workspace for the ProcessWire admin.',
-            'version' => 100,
+            'version' => 101,
             'author' => 'Maxim Semenov',
             'href' => 'https://github.com/mxmsmnv/Mailbox',
             'singular' => true,

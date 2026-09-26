@@ -6,6 +6,18 @@ final class MailboxAccounts extends Wire {
     public const TABLE = 'mailbox_accounts';
     public const MAX_ACCOUNTS = 3;
 
+    private function beginWriteTransaction($database): void {
+        if($database->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'sqlite') {
+            $database->exec('BEGIN IMMEDIATE');
+            return;
+        }
+        $database->beginTransaction();
+    }
+
+    private function forUpdate($database): string {
+        return $database->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'sqlite' ? '' : ' FOR UPDATE';
+    }
+
     public function ensureTable(): void {
         $this->wire('database')->exec(
             "CREATE TABLE IF NOT EXISTS `" . self::TABLE . "` (
@@ -45,9 +57,9 @@ final class MailboxAccounts extends Wire {
         $this->ensureTable();
         $label = $this->label($label);
         $database = $this->wire('database');
-        $database->beginTransaction();
+        $this->beginWriteTransaction($database);
         try {
-            $lock = $database->prepare("SELECT `id` FROM `" . self::TABLE . "` ORDER BY `id` FOR UPDATE");
+            $lock = $database->prepare("SELECT `id` FROM `" . self::TABLE . "` ORDER BY `id`" . $this->forUpdate($database));
             $lock->execute();
             if(count($lock->fetchAll(\PDO::FETCH_COLUMN) ?: []) >= self::MAX_ACCOUNTS) throw new WireException('Mailbox supports at most three accounts.');
             $statement = $database->prepare(
@@ -69,7 +81,7 @@ final class MailboxAccounts extends Wire {
         $current = $this->require($id);
         if($current['is_default'] && !$enabled) throw new WireException('The default mailbox account cannot be disabled.');
         $statement = $this->wire('database')->prepare(
-            "UPDATE `" . self::TABLE . "` SET `label` = :label, `enabled` = :enabled, `settings_json` = :settings WHERE `id` = :id"
+            "UPDATE `" . self::TABLE . "` SET `label` = :label, `enabled` = :enabled, `settings_json` = :settings, `modified` = UTC_TIMESTAMP() WHERE `id` = :id"
         );
         $statement->execute([
             ':id' => $id,
@@ -121,8 +133,8 @@ final class MailboxAccounts extends Wire {
         $database = $this->wire('database');
         $database->beginTransaction();
         try {
-            $database->exec("UPDATE `" . self::TABLE . "` SET `is_default` = 0");
-            $statement = $database->prepare("UPDATE `" . self::TABLE . "` SET `is_default` = 1, `enabled` = 1 WHERE `id` = :id");
+            $database->exec("UPDATE `" . self::TABLE . "` SET `is_default` = 0, `modified` = UTC_TIMESTAMP()");
+            $statement = $database->prepare("UPDATE `" . self::TABLE . "` SET `is_default` = 1, `enabled` = 1, `modified` = UTC_TIMESTAMP() WHERE `id` = :id");
             $statement->execute([':id' => $id]);
             $database->commit();
         } catch(\Throwable $error) {

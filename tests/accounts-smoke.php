@@ -13,6 +13,7 @@ namespace ProcessWire {
         public $lastId = 0;
         private $transaction = false;
         public function exec($sql) {
+            if(stripos($sql, 'BEGIN IMMEDIATE') !== false) $this->transaction = true;
             if(stripos($sql, 'SET `is_default` = 0') !== false) foreach($this->rows as &$row) $row['is_default'] = 0;
             if(stripos($sql, 'DROP TABLE') !== false) $this->rows = [];
             return 0;
@@ -23,6 +24,7 @@ namespace ProcessWire {
         public function commit() { $this->transaction = false; return true; }
         public function rollBack() { $this->transaction = false; return true; }
         public function inTransaction() { return $this->transaction; }
+        public function getAttribute($attribute) { return 'sqlite'; }
     }
     class FakeAccountStatement {
         private $database;
@@ -123,6 +125,10 @@ namespace ProcessWire {
     $concernSource = (string) file_get_contents(dirname(__DIR__) . '/src/MailboxAccountsConcern.php');
     foreach(['pendingPrimaryAccountSettings', 'normalizeAccountSettings($data)', 'syncPrimaryAccountSettings($settings)'] as $needle) {
         if(strpos($moduleSource . $configSource . $concernSource, $needle) === false) throw new \RuntimeException('Primary account save synchronization is missing: ' . $needle);
+    }
+    $accountSource = (string) file_get_contents(dirname(__DIR__) . '/src/MailboxAccounts.php');
+    if(strpos($accountSource, "exec('BEGIN IMMEDIATE')") === false || strpos($accountSource, "ATTR_DRIVER_NAME) === 'sqlite' ? '' : ' FOR UPDATE'") === false || strpos($accountSource, 'ORDER BY `id` FOR UPDATE') !== false) {
+        throw new \RuntimeException('Portable account locking is missing.');
     }
     fwrite(STDOUT, "Mailbox account registry smoke tests passed.\n");
 }

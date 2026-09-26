@@ -95,7 +95,7 @@ class Mailbox extends WireData implements Module, ConfigurableModule {
         return [
             'title' => 'Mailbox',
             'summary' => 'Secure three-account IMAP/SMTP workspace with encrypted indexing, APIs, AI, and controlled confirmations.',
-            'version' => 100,
+            'version' => 101,
             'author' => 'Maxim Semenov',
             'href' => 'https://github.com/mxmsmnv/Mailbox',
             'singular' => true,

@@ -1,6 +1,6 @@
 # Mailbox API
 
-Mailbox 1.0.0 exposes three transports over explicit read, attachment, mutate, confirm, send, and optional Squad AI permission boundaries:
+Mailbox 1.0.1 exposes three transports over explicit read, attachment, mutate, confirm, send, and optional Squad AI permission boundaries:
 
 - low-level IMAP transport methods for trusted backend/admin code;
 - `MailboxAgentApi`, which enforces a logged-in ProcessWire user and permissions for frontend and agent integrations.
